@@ -45,7 +45,7 @@
     <!-- nav bar ends here -->
 
     <!-- hero section start here -->
-    <div class="bg-grey-100 h-[calc(100vh-30px)] flex justify-center items-start mt-3.5 md:items-center md:mt-0 ">
+    <div class="bg-grey-100 h-auto flex justify-center items-start m-3.5 md:items-center md:mt-3.5 ">
         <div class="border h-[60vh] w-[90vw] md:h-[90vh] relative overflow-hidden">
             <!-- Image Wrapper -->
             <div id="slider" class=" inset-0 absolute flex transition-transform duration-1000 ">
@@ -60,18 +60,23 @@
                 <img class="slide min-w-full object-cover" src="images/hero-section/9.jpg" alt="hero image no.9">
                 <img class="slide min-w-full object-cover" src="images/hero-section/10.jpg" alt="hero image no.10">
             </div>
-            
+
             <!-- book now section -->
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center rounded-xs bg-black/30 p-2">
-                 <div class="p-1 w-[70vw] md:w-[40vw] flex flex-col items-center">
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center rounded-xs bg-black/30 p-2">
+                <div class="p-1 w-[70vw] md:w-[40vw] flex flex-col items-center">
                     <h1 class="text-2xl md:text-4xl font-extrabold text-white text-center">Pack Your Bags,</h1>
                     <h1 class="text-2xl md:text-3xl font-extrabold text-white text-center">The World is Waiting! </h1>
-                    <p class="text-white text-[10px] md:text-[16px] text-center">Discover breathtaking destinations with us! From hidden gems to iconic landmarks, we craft unforgettable travel experiences just for you.</p>
-                 </div>
-                 <div class="flex justify-around w-[70vw] md:w-[25vw]  items-center">
-                    <button class="cursor-pointer text-white bg-red-600 rounded-xs px-1.5 py-0.5 font-semibold">Book Now &nbsp;<i class="fa-solid fa-paper-plane"></i></button>
-                    <button class="cursor-pointer text-black bg-white/85 rounded-xs px-1.5 py-0.5 font-semibold">Explore More</button>
-                 </div>   
+                    <p class="text-white text-[10px] md:text-[16px] text-center">Discover breathtaking destinations with
+                        us! From hidden gems to iconic landmarks, we craft unforgettable travel experiences just for
+                        you.</p>
+                </div>
+                <div class="flex justify-around w-[70vw] md:w-[25vw]  items-center">
+                    <button class="cursor-pointer text-white bg-red-600 rounded-xs px-1.5 py-0.5 font-semibold">Book Now
+                        &nbsp;<i class="fa-solid fa-paper-plane"></i></button>
+                    <button class="cursor-pointer text-black bg-white/85 rounded-xs px-1.5 py-0.5 font-semibold">Explore
+                        More</button>
+                </div>
             </div>
 
             <!-- Buttons for images-->
@@ -80,7 +85,7 @@
                 <button onclick="goPre()" class="bg-black/60 text-white p-2 rounded hover:bg-black">
                     <i class="fa-solid fa-circle-left text-2xl"></i>
                 </button>
-    
+
                 <!-- Right Button -->
                 <button onclick="goNext()" class="bg-black/60 text-white p-2 rounded hover:bg-black">
                     <i class="fa-solid fa-circle-right text-2xl"></i>
@@ -88,11 +93,109 @@
             </div>
         </div>
     </div>
-    <!-- hero section start here -->
+    <!-- hero section ends here -->
+
+    <!-- main section start here -->
+    <main class="bg-amber-400 h-screen w-full">
+        <div class=" bg-blue-500 flex justify-between px-6 py-2 w-full">
+            <div>
+                <div>
+                    <h1 class="text-2xl font-bold">Best Offer</h1>
+                </div>
+            </div>
+            <div>
+                <button><i class="fa-solid fa-circle-left text-2xl"></i></button>
+                <button><i class="fa-solid fa-circle-right text-2xl"></i></button>
+            </div>
+        </div>
+
+        <!-- Card section start here -->
+        <div class="w-full">
+            <div class="flex w-[95vw] gap-2 m-3 overflow-hidden">
+
+                <div class="border-2 bg-white rounded-2xl w-full">
+                    <img class="border-b-2 rounded-t-2xl object-cover" src="/images/card/kashmir.jpeg" alt="">
+                    <div class="p-3">
+                        <h1 class="text-l font-bold">kashmir</h1>
+                        <h2 class="text-[12px] font-bold">Snow Hill Mountain</h2>
+                        <div class="h-[1px] bg-gray-600 my-2"></div>
+                        <p>Lorem, ipsum dolor.</p>
+                    </div>
+                    <div class="flex justify-between p-2">
+                        <h1 class="text-l font-bold text-green-600 bg-red-600 p-1 rounded-lg">$ 4999</h1>
+                        <button><i class="fa-solid fa-circle-right text-2xl"></i></button>
+                    </div>
+                </div>
+
+                <div class="border-2 bg-white  rounded-2xl w-full">
+                    <img class="border-b-2 rounded-t-2xl object-cover" src="/images/card/kashmir.jpeg" alt="">
+                    <div class="p-3">
+                        <h1 class="text-l font-bold">kashmir</h1>
+                        <h2 class="text-[12px] font-bold">Snow Hill Mountain</h2>
+                        <div class="h-[1px] bg-gray-600 my-2"></div>
+                        <p>Lorem, ipsum dolor.</p>
+                    </div>
+                    <div class="flex justify-between p-2">
+                        <h1 class="text-l font-bold text-green-600 bg-red-600 p-1 rounded-lg">$ 4999</h1>
+                        <button><i class="fa-solid fa-circle-right text-2xl"></i></button>
+                    </div>
+                </div>
+
+                <div class="border-2 bg-white  rounded-2xl w-full">
+                    <img class="border-b-2 rounded-t-2xl object-cover" src="/images/card/kashmir.jpeg" alt="">
+                    <div class="p-3">
+                        <h1 class="text-l font-bold">kashmir</h1>
+                        <h2 class="text-[12px] font-bold">Snow Hill Mountain</h2>
+                        <div class="h-[1px] bg-gray-600 my-2"></div>
+                        <p>Lorem, ipsum dolor.</p>
+                    </div>
+                    <div class="flex justify-between p-2">
+                        <h1 class="text-l font-bold text-green-600 bg-red-600 p-1 rounded-lg">$ 4999</h1>
+                        <button><i class="fa-solid fa-circle-right text-2xl"></i></button>
+                    </div>
+                </div>
+
+
+                <div class="border-2 bg-white  rounded-2xl w-full">
+                    <img class="border-b-2 rounded-t-2xl object-cover" src="/images/card/kashmir.jpeg" alt="">
+                    <div class="p-3">
+                        <h1 class="text-l font-bold">kashmir</h1>
+                        <h2 class="text-[12px] font-bold">Snow Hill Mountain</h2>
+                        <div class="h-[1px] bg-gray-600 my-2"></div>
+                        <p>Lorem, ipsum dolor.</p>
+                    </div>
+                    <div class="flex justify-between p-2">
+                        <h1 class="text-l font-bold text-green-600 bg-red-600 p-1 rounded-lg">$ 4999</h1>
+                        <button><i class="fa-solid fa-circle-right text-2xl"></i></button>
+                    </div>
+                </div>
+
+
+                <div class="border-2 bg-white  rounded-2xl w-full">
+                    <img class="border-b-2 rounded-t-2xl object-cover" src="/images/card/kashmir.jpeg" alt="">
+                    <div class="p-3">
+                        <h1 class="text-l font-bold">kashmir</h1>
+                        <h2 class="text-[12px] font-bold">Snow Hill Mountain</h2>
+                        <div class="h-[1px] bg-gray-600 my-2"></div>
+                        <p>Lorem, ipsum dolor.</p>
+                    </div>
+                    <div class="flex justify-between p-2">
+                        <h1 class="text-l font-bold text-green-600 bg-red-600 p-1 rounded-lg">$ 4999</h1>
+                        <button><i class="fa-solid fa-circle-right text-2xl"></i></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Card section ends here -->
+   
+   
+    </main>
 
     <!-- Java scripts -->
     <script src="https://kit.fontawesome.com/dc91047fb7.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
     <!-- Java scripts end here -->
 </body>
+
 </html>
