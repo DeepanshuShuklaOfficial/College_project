@@ -8,27 +8,27 @@
     <title>Tour and Travel</title>
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-amber-50">
 
     <!-- nav bar starts here -->
     <header>
-        <nav class="h-[30px] w-full bg-indigo-600 flex justify-between items-center p-5">
+        <nav class="h-[30px] w-full bg-red-500/80 flex justify-between items-center p-5">
 
             <!-- this is for right left hand side part -->
             <div class="flex gap-2">
                 <img class="h-[28px] rounded-full" src="images/site logo.png" alt="Website Logo">
                 <ul class="gap-1 md:flex hidden justify-between items-center">
-                    <li class="font-bold text-white border-1 px-3 rounded-[4px] hover:bg-white hover:text-green-600"><a
+                    <li class="font-bold text-white border-1 px-3 rounded-[4px] hover:bg-white hover:text-red-500/80"><a
                             href="#" class="">Home</a></li>
-                    <li class="font-bold text-white border-1 px-3 rounded-[4px] hover:bg-white hover:text-green-600"><a
+                    <li class="font-bold text-white border-1 px-3 rounded-[4px] hover:bg-white hover:text-red-500/80"><a
                             href="#" class="">Destinations</a></li>
-                    <li class="font-bold text-white border-1 px-3 rounded-[4px] hover:bg-white hover:text-green-600"><a
+                    <li class="font-bold text-white border-1 px-3 rounded-[4px] hover:bg-white hover:text-red-500/80"><a
                             href="#" class="">Packages</a></li>
-                    <li class="font-bold text-white border-1 px-3 rounded-[4px] hover:bg-white hover:text-green-600"><a
+                    <li class="font-bold text-white border-1 px-3 rounded-[4px] hover:bg-white hover:text-red-500/80"><a
                             href="#" class="">Blog</a></li>
-                    <li class="font-bold text-white border-1 px-3 rounded-[4px] hover:bg-white hover:text-green-600"><a
+                    <li class="font-bold text-white border-1 px-3 rounded-[4px] hover:bg-white hover:text-red-500/80"><a
                             href="#" class="">About us</a></li>
-                    <li class="font-bold text-white border-1 px-3 rounded-[4px] hover:bg-white hover:text-green-600"><a
+                    <li class="font-bold text-white border-1 px-3 rounded-[4px] hover:bg-white hover:text-red-500/80"><a
                             href="#" class="">Contact</a></li>
                 </ul>
             </div>
@@ -45,8 +45,8 @@
     <!-- nav bar ends here -->
 
     <!-- hero section start here -->
-    <div class="bg-grey-100 h-auto flex justify-center items-start m-3.5 md:items-center md:mt-3.5 ">
-        <div class="border h-[60vh] w-[90vw] md:h-[90vh] relative overflow-hidden">
+    <div class="h-auto flex shadow-lg justify-center items-start m-3.5 md:items-center md:mt-3.5 ">
+        <div class="border-2 h-[60vh] w-[90vw] md:h-[90vh] relative overflow-hidden">
             <!-- Image Wrapper -->
             <div id="slider" class=" inset-0 absolute flex transition-transform duration-1000 ">
                 <img class="slide min-w-full object-cover" src="images/hero-section/1.jpg" alt="hero image no.1">
@@ -72,15 +72,17 @@
                         you.</p>
                 </div>
                 <div class="flex justify-around w-[70vw] md:w-[25vw]  items-center">
-                    <button class="cursor-pointer text-white bg-red-600 rounded-xs px-1.5 py-0.5 font-semibold">Book Now
-                        &nbsp;<i class="fa-solid fa-paper-plane"></i></button>
-                    <button class="cursor-pointer text-black bg-white/85 rounded-xs px-1.5 py-0.5 font-semibold">Explore
+                    <button
+                        class="cursor-pointer border text-white bg-red-500/80 rounded-xs px-1.5 py-0.5 font-semibold">Book
+                        Now &nbsp;<i class="fa-solid fa-paper-plane"></i></button>
+                    <button
+                        class="cursor-pointer border-2 text-black bg-white/85 rounded-xs px-1.5 py-0.5 font-semibold">Explore
                         More</button>
                 </div>
             </div>
 
             <!-- Buttons for images-->
-            <div class="absolute bottom-0 left-0 right-0 flex justify-between gap-5 p-4 ">
+            <div class="absolute opacity-70 bottom-0 left-0 right-0 flex justify-between gap-5 p-4 ">
                 <!-- Left Button -->
                 <button onclick="goPre()" class="bg-black/60 text-white p-2 rounded hover:bg-black">
                     <i class="fa-solid fa-circle-left text-2xl"></i>
@@ -96,100 +98,122 @@
     <!-- hero section ends here -->
 
     <!-- main section start here -->
-    <main class="bg-amber-400 h-screen w-full">
-        <div class=" bg-blue-500 flex justify-between px-6 py-2 w-full">
+    <main class=" h-screen w-full">
+        <div class=" bg-red-500/80 flex justify-between px-6 py-1.5 w-full">
             <div>
                 <div>
-                    <h1 class="text-2xl font-bold">Best Offer</h1>
+                    <h1 class="text-base text-white font-extrabold">Best Offer</h1>
                 </div>
             </div>
-            <div>
-                <button><i class="fa-solid fa-circle-left text-2xl"></i></button>
-                <button><i class="fa-solid fa-circle-right text-2xl"></i></button>
+            <div class="flex items-center gap-2">
+                <button class="text-white" onclick="prevSlide()"><i
+                        class="fa-solid fa-circle-left text-2xl"></i></button>
+                <button class="text-white" onclick="nextSlide()"><i
+                        class="fa-solid fa-circle-right text-2xl"></i></button>
             </div>
         </div>
 
         <!-- Card section start here -->
-        <div class="w-full">
-            <div class="flex w-[95vw] gap-2 m-3 overflow-hidden">
 
-                <div class="border-2 bg-white rounded-2xl w-full">
-                    <img class="border-b-2 rounded-t-2xl object-cover" src="/images/card/kashmir.jpeg" alt="">
-                    <div class="p-3">
-                        <h1 class="text-l font-bold">kashmir</h1>
-                        <h2 class="text-[12px] font-bold">Snow Hill Mountain</h2>
-                        <div class="h-[1px] bg-gray-600 my-2"></div>
-                        <p>Lorem, ipsum dolor.</p>
-                    </div>
-                    <div class="flex justify-between p-2">
-                        <h1 class="text-l font-bold text-green-600 bg-red-600 p-1 rounded-lg">$ 4999</h1>
-                        <button><i class="fa-solid fa-circle-right text-2xl"></i></button>
+        <div class="overflow-hidden">
+            <div id="cardWrapper" class="flex justify-between transition-transform w-[90%] md:w-[calc(100%-16px)] duration-300 ease-in-out m-2 my-2">
+                <!-- 8 Cards -->
+                <div class="card bg-white shadow-lg text-black p-1.5 border-2 box-border border-black mx-1 h-max rounded min-w-[calc(100%/2-6px)] md:min-w-[calc(100%/4-6px)]">
+                    <img class="mb-1 m-auto rounded" src="images/card/kashmir.jpeg" alt="">
+                    <h1 class="text-[16px] font-extrabold">kashmir</h1>
+                    <h2 class="text-[12px] text-gray-500">Srinagar valleys</h2>
+                    <div class="bg-gray-600 h-0.5 my-2"></div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-[12px] text-red-600 font-bold">Save 20%</p>
+                        <button class="bg-green-500/80 text-white font-bold p-1 px-2 rounded ">230$</button>
                     </div>
                 </div>
 
-                <div class="border-2 bg-white  rounded-2xl w-full">
-                    <img class="border-b-2 rounded-t-2xl object-cover" src="/images/card/kashmir.jpeg" alt="">
-                    <div class="p-3">
-                        <h1 class="text-l font-bold">kashmir</h1>
-                        <h2 class="text-[12px] font-bold">Snow Hill Mountain</h2>
-                        <div class="h-[1px] bg-gray-600 my-2"></div>
-                        <p>Lorem, ipsum dolor.</p>
-                    </div>
-                    <div class="flex justify-between p-2">
-                        <h1 class="text-l font-bold text-green-600 bg-red-600 p-1 rounded-lg">$ 4999</h1>
-                        <button><i class="fa-solid fa-circle-right text-2xl"></i></button>
+                <div class="card bg-white shadow-lg text-black p-1.5 border-2 box-border border-black mx-1 h-max rounded min-w-[calc(100%/2-6px)] md:min-w-[calc(100%/4-6px)]">
+                    <img class="mb-1 m-auto rounded" src="images/card/kashmir.jpeg" alt="">
+                    <h1 class="text-[16px] font-extrabold">kashmir</h1>
+                    <h2 class="text-[12px] text-gray-500">Srinagar valleys</h2>
+                    <div class="bg-gray-600 h-0.5 my-2"></div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-[12px] text-red-600 font-bold">Save 20%</p>
+                        <button class="bg-green-500/80 text-white font-bold p-1 px-2 rounded ">230$</button>
                     </div>
                 </div>
 
-                <div class="border-2 bg-white  rounded-2xl w-full">
-                    <img class="border-b-2 rounded-t-2xl object-cover" src="/images/card/kashmir.jpeg" alt="">
-                    <div class="p-3">
-                        <h1 class="text-l font-bold">kashmir</h1>
-                        <h2 class="text-[12px] font-bold">Snow Hill Mountain</h2>
-                        <div class="h-[1px] bg-gray-600 my-2"></div>
-                        <p>Lorem, ipsum dolor.</p>
-                    </div>
-                    <div class="flex justify-between p-2">
-                        <h1 class="text-l font-bold text-green-600 bg-red-600 p-1 rounded-lg">$ 4999</h1>
-                        <button><i class="fa-solid fa-circle-right text-2xl"></i></button>
+                <div class="card bg-white shadow-lg text-black p-1.5 border-2 box-border border-black mx-1 h-max rounded min-w-[calc(100%/2-6px)] md:min-w-[calc(100%/4-6px)]">
+                    <img class="mb-1 m-auto rounded" src="images/card/kashmir.jpeg" alt="">
+                    <h1 class="text-[16px] font-extrabold">kashmir</h1>
+                    <h2 class="text-[12px] text-gray-500">Srinagar valleys</h2>
+                    <div class="bg-gray-600 h-0.5 my-2"></div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-[12px] text-red-600 font-bold">Save 20%</p>
+                        <button class="bg-green-500/80 text-white font-bold p-1 px-2 rounded ">230$</button>
                     </div>
                 </div>
 
-
-                <div class="border-2 bg-white  rounded-2xl w-full">
-                    <img class="border-b-2 rounded-t-2xl object-cover" src="/images/card/kashmir.jpeg" alt="">
-                    <div class="p-3">
-                        <h1 class="text-l font-bold">kashmir</h1>
-                        <h2 class="text-[12px] font-bold">Snow Hill Mountain</h2>
-                        <div class="h-[1px] bg-gray-600 my-2"></div>
-                        <p>Lorem, ipsum dolor.</p>
-                    </div>
-                    <div class="flex justify-between p-2">
-                        <h1 class="text-l font-bold text-green-600 bg-red-600 p-1 rounded-lg">$ 4999</h1>
-                        <button><i class="fa-solid fa-circle-right text-2xl"></i></button>
+                <div class="card bg-white shadow-lg text-black p-1.5 border-2 box-border border-black mx-1 h-max rounded min-w-[calc(100%/2-6px)] md:min-w-[calc(100%/4-6px)]">
+                    <img class="mb-1 m-auto rounded" src="images/card/kashmir.jpeg" alt="">
+                    <h1 class="text-[16px] font-extrabold">kashmir</h1>
+                    <h2 class="text-[12px] text-gray-500">Srinagar valleys</h2>
+                    <div class="bg-gray-600 h-0.5 my-2"></div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-[12px] text-red-600 font-bold">Save 20%</p>
+                        <button class="bg-green-500/80 text-white font-bold p-1 px-2 rounded ">230$</button>
                     </div>
                 </div>
 
-
-                <div class="border-2 bg-white  rounded-2xl w-full">
-                    <img class="border-b-2 rounded-t-2xl object-cover" src="/images/card/kashmir.jpeg" alt="">
-                    <div class="p-3">
-                        <h1 class="text-l font-bold">kashmir</h1>
-                        <h2 class="text-[12px] font-bold">Snow Hill Mountain</h2>
-                        <div class="h-[1px] bg-gray-600 my-2"></div>
-                        <p>Lorem, ipsum dolor.</p>
-                    </div>
-                    <div class="flex justify-between p-2">
-                        <h1 class="text-l font-bold text-green-600 bg-red-600 p-1 rounded-lg">$ 4999</h1>
-                        <button><i class="fa-solid fa-circle-right text-2xl"></i></button>
+                <div class="card bg-white shadow-lg text-black p-1.5 border-2 box-border border-black mx-1 h-max rounded min-w-[calc(100%/2-6px)] md:min-w-[calc(100%/4-6px)]">
+                    <img class="mb-1 m-auto rounded" src="images/card/kashmir.jpeg" alt="">
+                    <h1 class="text-[16px] font-extrabold">kashmir</h1>
+                    <h2 class="text-[12px] text-gray-500">Srinagar valleys</h2>
+                    <div class="bg-gray-600 h-0.5 my-2"></div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-[12px] text-red-600 font-bold">Save 20%</p>
+                        <button class="bg-green-500/80 text-white font-bold p-1 px-2 rounded ">230$</button>
                     </div>
                 </div>
+
+                <div class="card bg-white shadow-lg text-black p-1.5 border-2 box-border border-black mx-1 h-max rounded min-w-[calc(100%/2-6px)] md:min-w-[calc(100%/4-6px)]">
+                    <img class="mb-1 m-auto rounded" src="images/card/kashmir.jpeg" alt="">
+                    <h1 class="text-[16px] font-extrabold">kashmir</h1>
+                    <h2 class="text-[12px] text-gray-500">Srinagar valleys</h2>
+                    <div class="bg-gray-600 h-0.5 my-2"></div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-[12px] text-red-600 font-bold">Save 20%</p>
+                        <button class="bg-green-500/80 text-white font-bold p-1 px-2 rounded ">230$</button>
+                    </div>
+                </div>
+
+                <div class="card bg-white shadow-lg text-black p-1.5 border-2 box-border border-black mx-1 h-max rounded min-w-[calc(100%/2-6px)] md:min-w-[calc(100%/4-6px)]">
+                    <img class="mb-1 m-auto rounded" src="images/card/kashmir.jpeg" alt="">
+                    <h1 class="text-[16px] font-extrabold">kashmir</h1>
+                    <h2 class="text-[12px] text-gray-500">Srinagar valleys</h2>
+                    <div class="bg-gray-600 h-0.5 my-2"></div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-[12px] text-red-600 font-bold">Save 20%</p>
+                        <button class="bg-green-500/80 text-white font-bold p-1 px-2 rounded ">230$</button>
+                    </div>
+                </div>
+
+                <div class="card bg-white shadow-lg text-black p-1.5 border-2 box-border border-black mx-1 h-max rounded min-w-[calc(100%/2-6px)] md:min-w-[calc(100%/4-6px)]">
+                    <img class="mb-1 m-auto rounded" src="images/card/kashmir.jpeg" alt="">
+                    <h1 class="text-[16px] font-extrabold">kashmir</h1>
+                    <h2 class="text-[12px] text-gray-500">Srinagar valleys</h2>
+                    <div class="bg-gray-600 h-0.5 my-2"></div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-[12px] text-red-600 font-bold">Save 20%</p>
+                        <button class="bg-green-500/80 text-white font-bold p-1 px-2 rounded ">230$</button>
+                    </div>
+                </div>
+
 
             </div>
+
         </div>
+
         <!-- Card section ends here -->
-   
-   
+
+
     </main>
 
     <!-- Java scripts -->
