@@ -30,6 +30,12 @@ const slideImage = () => {
 setInterval(goNext, 5000);
 
 
+
+
+
+
+
+
 // for card section 
 
 let index = 0;
@@ -60,3 +66,59 @@ function prevSlide() {
 }
 
 window.addEventListener("resize", updateSlide);
+
+
+
+
+
+
+
+
+
+
+// for login and signup form 
+const loginForm = document.getElementById("login-form");
+const signupForm = document.getElementById("signup-form");
+const formTitle = document.getElementById("form-title");
+const toggleText = document.getElementById("toggle-text");
+const toggleBtn = document.getElementById("toggle-btn");
+
+toggleBtn.addEventListener("click", () => {
+    if (loginForm.classList.contains("hidden")) {
+        loginForm.classList.remove("hidden");
+        signupForm.classList.add("hidden");
+        formTitle.textContent = "Login";
+        toggleText.textContent = "Don't have an account?";
+        toggleBtn.textContent = "Sign up";
+    } else {
+        loginForm.classList.add("hidden");
+        signupForm.classList.remove("hidden");
+        formTitle.textContent = "Sign Up";
+        toggleText.textContent = "Already have an account?";
+        toggleBtn.textContent = "Login";
+    }
+});
+
+function togglePassword(inputId, iconId) {
+    const passwordInput = document.getElementById(inputId);
+    const icon = document.getElementById(iconId);
+
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+    } else {
+        passwordInput.type = "password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+    }
+}
+
+// for login scroll 
+
+function scrollToLogin() {
+    const loginSection = document.getElementById("login-section");
+    if (loginSection) {
+        loginSection.scrollIntoView({ behavior: "smooth" });
+    }
+}
