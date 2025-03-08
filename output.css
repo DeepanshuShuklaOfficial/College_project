@@ -808,6 +808,11 @@
       width: calc(var(--spacing) * 50);
     }
   }
+  .sm\:w-\[40vw\] {
+    @media (width >= 40rem) {
+      width: 40vw;
+    }
+  }
   .sm\:w-\[50\] {
     @media (width >= 40rem) {
       width: 50;
