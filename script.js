@@ -122,3 +122,12 @@ function scrollToLogin() {
         loginSection.scrollIntoView({ behavior: "smooth" });
     }
 }
+
+// for last to top scroll
+
+function scrollToTop() {
+    const header = document.getElementById("header");
+    if (header) {
+        header.scrollIntoView({ behavior: "smooth" });
+    }
+}
