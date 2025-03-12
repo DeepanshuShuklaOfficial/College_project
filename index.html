@@ -37,17 +37,32 @@
             <!-- this is for right hand side part -->
             <div class="flex gap-3">
                 <div class="border text-white rounded cursor-pointer font-bold w-fit ">
-                    <input class="w-[120px] md:w-[250px] pl-1"
-                    type="text" placeholder="Search destinations, tours, or flights...">
+                    <input class="w-[120px] md:w-[250px] pl-1" type="text"
+                        placeholder="Search destinations, tours, or flights...">
                     <i class="pr-1 fa-solid fa-magnifying-glass"></i>
                 </div>
                 <button onclick="scrollToLogin()" class="text-white space-x-2 cursor-pointer"><strong>Login</strong><i
                         class="fa-solid fa-user-plus text-white"></i></button>
-                <button class="md:hidden text-white cursor-pointer">&#9776;</button>
+                <button id="menuBtn" class="md:hidden text-white cursor-pointer">&#9776;</button>
             </div>
         </nav>
+        <!-- Mobile Menu (Hidden Initially) -->
+        <div id="mobileMenu"
+            class="overflow-hidden fixed z-50 top-0 right-0 h-screen bg-amber-50 shadow-lg transform translate-x-full transition-transform duration-[1000ms] ease-in-out p-5 md:hidden">
+            <button id="closeBtn" class="text-red-500 text-2xl font-bold absolute top-[1%] px-1.5 pb-0.5 rounded left-[2%] hover:bg-red-500 hover:text-white">&times;</button>
+            <ul class="mt-9 space-y-2">
+                <li class="font-bold text-red-500 px-3 rounded-[4px] hover:bg-red-500 hover:text-white"><a href="#">Home</a></li>
+                <li class="font-bold text-red-500 px-3 rounded-[4px] hover:bg-red-500 hover:text-white"><a href="#">Destinations</a></li>
+                <li class="font-bold text-red-500 px-3 rounded-[4px] hover:bg-red-500 hover:text-white"><a href="#">Packages</a></li>
+                <li class="font-bold text-red-500 px-3 rounded-[4px] hover:bg-red-500 hover:text-white"><a href="#">Blog</a></li>
+                <li class="font-bold text-red-500 px-3 rounded-[4px] hover:bg-red-500 hover:text-white"><a href="#">About us</a></li>
+                <li class="font-bold text-red-500 px-3 rounded-[4px] hover:bg-red-500 hover:text-white"><a href="#">Contact</a></li>
+            </ul>
+        </div>
     </header>
+
     <!-- nav bar ends here -->
+
 
     <!-- hero section start here -->
     <div class="h-auto flex shadow-lg justify-center items-start m-3.5 md:items-center md:mt-3.5 ">
@@ -127,7 +142,8 @@
 
                 <div
                     class="card bg-white shadow-lg text-black p-1.5 border-2 box-border border-black mx-1 h-max rounded min-w-[calc(100%/2-6px)] md:min-w-[calc(100%/4-6px)]">
-                    <img class="mb-1 m-auto rounded h-[100px] md:h-[200px] w-full object-cover" src="images/card/Ayodhya, Uttar Pradesh/1.jpg" alt="">
+                    <img class="mb-1 m-auto rounded h-[100px] md:h-[200px] w-full object-cover"
+                        src="images/card/Ayodhya, Uttar Pradesh/1.jpg" alt="">
                     <h1 class="text-[16px] font-extrabold">Ayodhya</h1>
                     <h2 class="text-[12px] text-gray-500">Uttar Pradesh</h2>
                     <div class="bg-gray-600 h-0.5 my-2"></div>
@@ -139,7 +155,8 @@
 
                 <div
                     class="card bg-white shadow-lg text-black p-1.5 border-2 box-border border-black mx-1 h-max rounded min-w-[calc(100%/2-6px)] md:min-w-[calc(100%/4-6px)]">
-                    <img class="mb-1 m-auto rounded h-[100px] md:h-[200px] w-full object-cover" src="images/card/Taj Mahal, Agra/1.jpg" alt="">
+                    <img class="mb-1 m-auto rounded h-[100px] md:h-[200px] w-full object-cover"
+                        src="images/card/Taj Mahal, Agra/1.jpg" alt="">
                     <h1 class="text-[16px] font-extrabold">Taj Mahal</h1>
                     <h2 class="text-[12px] text-gray-500">Agra</h2>
                     <div class="bg-gray-600 h-0.5 my-2"></div>
@@ -151,7 +168,8 @@
 
                 <div
                     class="card bg-white shadow-lg text-black p-1.5 border-2 box-border border-black mx-1 h-max rounded min-w-[calc(100%/2-6px)] md:min-w-[calc(100%/4-6px)]">
-                    <img class="mb-1 m-auto rounded h-[100px] md:h-[200px] w-full object-cover" src="images/card/Kashi Vishwanath Temple, Varanasi/1.jpg" alt="">
+                    <img class="mb-1 m-auto rounded h-[100px] md:h-[200px] w-full object-cover"
+                        src="images/card/Kashi Vishwanath Temple, Varanasi/1.jpg" alt="">
                     <h1 class="text-[16px] font-extrabold">Kashi Vishwanath</h1>
                     <h2 class="text-[12px] text-gray-500">Varanasi</h2>
                     <div class="bg-gray-600 h-0.5 my-2"></div>
@@ -163,7 +181,8 @@
 
                 <div
                     class="card bg-white shadow-lg text-black p-1.5 border-2 box-border border-black mx-1 h-max rounded min-w-[calc(100%/2-6px)] md:min-w-[calc(100%/4-6px)]">
-                    <img class="mb-1 m-auto rounded h-[100px] md:h-[200px] w-full object-cover" src="images/card/Shirdi Sai Baba Temple, Maharashtra/1.jpg" alt="">
+                    <img class="mb-1 m-auto rounded h-[100px] md:h-[200px] w-full object-cover"
+                        src="images/card/Shirdi Sai Baba Temple, Maharashtra/1.jpg" alt="">
                     <h1 class="text-[16px] font-extrabold">Shirdi Sai Baba</h1>
                     <h2 class="text-[12px] text-gray-500">Maharashtra</h2>
                     <div class="bg-gray-600 h-0.5 my-2"></div>
@@ -175,7 +194,8 @@
 
                 <div
                     class="card bg-white shadow-lg text-black p-1.5 border-2 box-border border-black mx-1 h-max rounded min-w-[calc(100%/2-6px)] md:min-w-[calc(100%/4-6px)]">
-                    <img class="mb-1 m-auto rounded h-[100px] md:h-[200px] w-full object-cover" src="images/card/Jaipur, Rajasthan/1.jpg" alt="">
+                    <img class="mb-1 m-auto rounded h-[100px] md:h-[200px] w-full object-cover"
+                        src="images/card/Jaipur, Rajasthan/1.jpg" alt="">
                     <h1 class="text-[16px] font-extrabold">Jaipur</h1>
                     <h2 class="text-[12px] text-gray-500">Rajasthan</h2>
                     <div class="bg-gray-600 h-0.5 my-2"></div>
@@ -187,7 +207,8 @@
 
                 <div
                     class="card bg-white shadow-lg text-black p-1.5 border-2 box-border border-black mx-1 h-max rounded min-w-[calc(100%/2-6px)] md:min-w-[calc(100%/4-6px)]">
-                    <img class="mb-1 m-auto rounded h-[100px] md:h-[200px] w-full object-cover" src="images/card/Mumbai, Maharashtra/1.jpg" alt="">
+                    <img class="mb-1 m-auto rounded h-[100px] md:h-[200px] w-full object-cover"
+                        src="images/card/Mumbai, Maharashtra/1.jpg" alt="">
                     <h1 class="text-[16px] font-extrabold">Mumbai</h1>
                     <h2 class="text-[12px] text-gray-500">Maharashtra</h2>
                     <div class="bg-gray-600 h-0.5 my-2"></div>
@@ -199,7 +220,8 @@
 
                 <div
                     class="card bg-white shadow-lg text-black p-1.5 border-2 box-border border-black mx-1 h-max rounded min-w-[calc(100%/2-6px)] md:min-w-[calc(100%/4-6px)]">
-                    <img class="mb-1 m-auto rounded h-[100px] md:h-[200px] w-full object-cover" src="images/card/Udaipur, Rajasthan/1.jpg" alt="">
+                    <img class="mb-1 m-auto rounded h-[100px] md:h-[200px] w-full object-cover"
+                        src="images/card/Udaipur, Rajasthan/1.jpg" alt="">
                     <h1 class="text-[16px] font-extrabold">Udaipur</h1>
                     <h2 class="text-[12px] text-gray-500">Rajasthan</h2>
                     <div class="bg-gray-600 h-0.5 my-2"></div>
@@ -211,7 +233,8 @@
 
                 <div
                     class="card bg-white shadow-lg text-black p-1.5 border-2 box-border border-black mx-1 h-max rounded min-w-[calc(100%/2-6px)] md:min-w-[calc(100%/4-6px)]">
-                    <img class="mb-1 m-auto rounded h-[100px] md:h-[200px] w-full object-cover" src="images/card/Rishikesh, Uttarakhand/1.jpg" alt="">
+                    <img class="mb-1 m-auto rounded h-[100px] md:h-[200px] w-full object-cover"
+                        src="images/card/Rishikesh, Uttarakhand/1.jpg" alt="">
                     <h1 class="text-[16px] font-extrabold">Rishikesh</h1>
                     <h2 class="text-[12px] text-gray-500">Uttarakhand</h2>
                     <div class="bg-gray-600 h-0.5 my-2"></div>
@@ -238,95 +261,107 @@
             <div class="grid grid-cols-3 md:grid-cols-5 gap-1 md:gap-3">
 
                 <div class="border-2 m-auto rounded h-full w-full">
-                    <img class="p-1 mb-1 m-auto rounded h-[80px] md:h-[160px] w-full object-cover" src="images/card/Goa/1.jpg" alt="">
+                    <img class="p-1 mb-1 m-auto rounded h-[80px] md:h-[160px] w-full object-cover"
+                        src="images/card/Goa/1.jpg" alt="">
                     <div class="flex justify-between mx-1">
                         <h2 class="text-black font-bold text-[12px] md:text-[16px]">Goa</h2>
                         <button><i class="fa-solid fa-circle-right text-red-500"></i></button>
                     </div>
                 </div>
-                
+
                 <div class="border-2 m-auto rounded h-full w-full">
-                    <img class="p-1 mb-1 m-auto rounded h-[80px] md:h-[160px] w-full object-cover" src="images/card/Kerala Backwaters/1.jpg" alt="">
+                    <img class="p-1 mb-1 m-auto rounded h-[80px] md:h-[160px] w-full object-cover"
+                        src="images/card/Kerala Backwaters/1.jpg" alt="">
                     <div class="flex justify-between mx-1">
                         <h2 class="text-black font-bold text-[12px] md:text-[16px]">Kerala Backwaters</h2>
                         <button><i class="fa-solid fa-circle-right text-red-500"></i></button>
                     </div>
                 </div>
-                
+
                 <div class="border-2 m-auto rounded h-full w-full">
-                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]" src="images/card/Delhi/1.jpg" alt="">
+                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]" src="images/card/Delhi/1.jpg"
+                        alt="">
                     <div class="flex justify-between mx-1">
                         <h2 class="text-black font-bold text-[12px] md:text-[16px]">Delhi</h2>
                         <button><i class="fa-solid fa-circle-right text-red-500"></i></button>
                     </div>
                 </div>
-                
+
                 <div class="border-2 m-auto rounded h-full w-full">
-                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]" src="images/card/Mysore, Karnataka/1.jpg" alt="">
+                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]"
+                        src="images/card/Mysore, Karnataka/1.jpg" alt="">
                     <div class="flex justify-between mx-1">
                         <h2 class="text-black font-bold text-[12px] md:text-[16px]">Mysore, Karnataka</h2>
                         <button><i class="fa-solid fa-circle-right text-red-500"></i></button>
                     </div>
                 </div>
-                
+
                 <div class="border-2 m-auto rounded h-full w-full">
-                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]" src="images/card/Hampi, Karnataka/1.jpg" alt="">
+                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]"
+                        src="images/card/Hampi, Karnataka/1.jpg" alt="">
                     <div class="flex justify-between mx-1">
                         <h2 class="text-black font-bold text-[12px] md:text-[16px]">Hampi, Karnataka</h2>
                         <button><i class="fa-solid fa-circle-right text-red-500"></i></button>
                     </div>
                 </div>
-                
+
                 <div class="border-2 m-auto rounded h-full w-full">
-                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]" src="images/card/Jaisalmer, Rajasthan/1.jpg" alt="">
+                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]"
+                        src="images/card/Jaisalmer, Rajasthan/1.jpg" alt="">
                     <div class="flex justify-between mx-1">
                         <h2 class="text-black font-bold text-[12px] md:text-[16px]">Jaisalmer, Rajasthan</h2>
                         <button><i class="fa-solid fa-circle-right text-red-500"></i></button>
                     </div>
                 </div>
-                
+
                 <div class="border-2 m-auto rounded h-full w-full">
-                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]" src="images/card/Amritsar, Punjab/1.jpg" alt="">
+                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]"
+                        src="images/card/Amritsar, Punjab/1.jpg" alt="">
                     <div class="flex justify-between mx-1">
                         <h2 class="text-black font-bold text-[12px] md:text-[16px]">Amritsar, Punjab</h2>
                         <button><i class="fa-solid fa-circle-right text-red-500"></i></button>
                     </div>
                 </div>
-                
+
                 <div class="border-2 m-auto rounded h-full w-full">
-                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]" src="images/card/Shimla, Himachal Pradesh/1.jpg" alt="">
+                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]"
+                        src="images/card/Shimla, Himachal Pradesh/1.jpg" alt="">
                     <div class="flex justify-between mx-1">
                         <h2 class="text-black font-bold text-[12px] md:text-[16px]">Shimla, Himachal Pradesh</h2>
                         <button><i class="fa-solid fa-circle-right text-red-500"></i></button>
                     </div>
                 </div>
-                
+
                 <div class="border-2 m-auto rounded h-full w-full">
-                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]" src="images/card/Manali, Himachal Pradesh/1.jpg" alt="">
+                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]"
+                        src="images/card/Manali, Himachal Pradesh/1.jpg" alt="">
                     <div class="flex justify-between mx-1">
                         <h2 class="text-black font-bold text-[12px] md:text-[16px]">Manali, Himachal Pradesh</h2>
                         <button><i class="fa-solid fa-circle-right text-red-500"></i></button>
                     </div>
                 </div>
-                
+
                 <div class="border-2 m-auto rounded h-full w-full">
-                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]" src="images/card/Darjeeling, West Bengal/1.jpg" alt="">
+                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]"
+                        src="images/card/Darjeeling, West Bengal/1.jpg" alt="">
                     <div class="flex justify-between mx-1">
                         <h2 class="text-black font-bold text-[12px] md:text-[16px]">Darjeeling, West Bengal</h2>
                         <button><i class="fa-solid fa-circle-right text-red-500"></i></button>
                     </div>
                 </div>
-                
+
                 <div class="border-2 m-auto rounded h-full w-full">
-                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]" src="images/card/Leh-Ladakh, Jammu & Kashmir/1.jpg" alt="">
+                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]"
+                        src="images/card/Leh-Ladakh, Jammu & Kashmir/1.jpg" alt="">
                     <div class="flex justify-between mx-1">
                         <h2 class="text-black font-bold text-[12px] md:text-[16px]">Leh-Ladakh, Jammu & Kashmir</h2>
                         <button><i class="fa-solid fa-circle-right text-red-500"></i></button>
                     </div>
                 </div>
-                
+
                 <div class="border-2 m-auto rounded h-full w-full">
-                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]" src="images/card/Khajuraho, Madhya Pradesh/1.jpg" alt="">
+                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]"
+                        src="images/card/Khajuraho, Madhya Pradesh/1.jpg" alt="">
                     <div class="flex justify-between mx-1">
                         <h2 class="text-black font-bold text-[12px] md:text-[16px]">Khajuraho, Madhya Pradesh</h2>
                         <button><i class="fa-solid fa-circle-right text-red-500"></i></button>
@@ -334,29 +369,33 @@
                 </div>
 
                 <div class="border-2 m-auto rounded h-full w-full">
-                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]" src="images/card/Ajanta and Ellora Caves, Maharashtra/1.jpg" alt="">
+                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]"
+                        src="images/card/Ajanta and Ellora Caves, Maharashtra/1.jpg" alt="">
                     <div class="flex justify-between mx-1">
-                        <h2 class="text-black font-bold text-[12px] md:text-[16px]">Ajanta & Ellora Caves, Maharashtra</h2>
+                        <h2 class="text-black font-bold text-[12px] md:text-[16px]">Ajanta & Ellora Caves, Maharashtra
+                        </h2>
                         <button><i class="fa-solid fa-circle-right text-red-500"></i></button>
                     </div>
                 </div>
-                
+
                 <div class="border-2 m-auto rounded h-full w-full">
-                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]" src="images/card/Sundarbans, West Bengal/1.jpg" alt="">
+                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]"
+                        src="images/card/Sundarbans, West Bengal/1.jpg" alt="">
                     <div class="flex justify-between mx-1">
                         <h2 class="text-black font-bold text-[12px] md:text-[16px]">Sundarbans , West Bengal</h2>
                         <button><i class="fa-solid fa-circle-right text-red-500"></i></button>
                     </div>
                 </div>
-                
+
                 <div class="border-2 m-auto rounded h-full w-full">
-                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]" src="images/card/Andaman and Nicobar Islands/1.jpg" alt="">
+                    <img class="p-1 rounded w-full object-cover md:h-[160px] h-[80px]"
+                        src="images/card/Andaman and Nicobar Islands/1.jpg" alt="">
                     <div class="flex justify-between mx-1">
                         <h2 class="text-black font-bold text-[12px] md:text-[16px]">Andaman and Nicobar Islands</h2>
                         <button><i class="fa-solid fa-circle-right text-red-500"></i></button>
                     </div>
                 </div>
-                
+
 
             </div>
 
@@ -470,8 +509,7 @@
             <div class="order-4 md:order-none">
                 <h1 class="font-extrabold text-2xl">Newsletter</h1>
                 <div class="border text-white rounded cursor-pointer font-bold w-fit ">
-                    <input class="w-[120px] md:w-[250px] pl-1"
-                    type="text" placeholder="Enter your email...">
+                    <input class="w-[120px] md:w-[250px] pl-1" type="text" placeholder="Enter your email...">
                     <i class="pr-1 fa-solid fa-magnifying-glass"></i>
                 </div>
                 <h1 class="font-extrabold text-2xl mt-3">Customer Support</h1>
@@ -481,10 +519,13 @@
         </div>
 
         <div class="bg-white/50 w-[90vw] m-auto h-0.5 my-4"></div>
-        
+
         <div class="flex justify-between pb-7 px-4 md:px-[5vw]">
-            <div><p>&copy; 2025 Panda Tour. All rights reserved.</p></div>
-            <div class="cursor-pointer" onclick="scrollToTop()""><i class="bg-white/50 p-0.5 text-slate-600 fa-solid fa-chevron-up"></i></div>
+            <div>
+                <p>&copy; 2025 Panda Tour. All rights reserved.</p>
+            </div>
+            <div class="cursor-pointer" onclick="scrollToTop()""><i class=" bg-white/50 p-0.5 text-slate-600 fa-solid
+                fa-chevron-up"></i></div>
         </div>
 
 
