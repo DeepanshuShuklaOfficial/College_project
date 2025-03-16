@@ -113,10 +113,6 @@ setInterval(goNext, 5000);
 
 
 
-
-
-
-
 // for card section 
 
 let index = 0;
@@ -147,17 +143,6 @@ function prevSlide() {
 }
 
 window.addEventListener("resize", updateSlide);
-
-
-
-
-// =======================================================================================================
-
-
-
-
-
-
 
 
 
@@ -243,9 +228,35 @@ closeBtn.addEventListener('click', () => {
 
 
 
+// change the id=booking place according to screen sizing
+function updateBookingId() {
+    const bookingDiv = document.getElementById("Booking");
+    const mainSection = document.querySelector("main");
 
+    if (window.innerWidth <= 768) {
+        // For mobile devices, move id to the div
+        if (!bookingDiv) {
+            const targetDiv = document.querySelector(".overflow-hidden");
+            if (targetDiv) {
+                targetDiv.setAttribute("id", "Booking");
+            }
+        }
+        mainSection.removeAttribute("id");
+    } else {
+        // For PC, move id to the <main> tag
+        if (!mainSection.hasAttribute("id")) {
+            mainSection.setAttribute("id", "Booking");
+        }
+        const existingDiv = document.querySelector(".overflow-hidden");
+        if (existingDiv) {
+            existingDiv.removeAttribute("id");
+        }
+    }
+}
 
+// Run function on page load
+updateBookingId();
 
-// ---------------------------------------------------------------------------------------
-
+// Run function on window resize
+window.addEventListener("resize", updateBookingId);
 
