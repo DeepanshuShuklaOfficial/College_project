@@ -219,6 +219,14 @@ function scrollToTop() {
 }
 
 
+function scrollToBookNow() {
+    const Booking = document.getElementById("Booking");
+    if (Booking) {
+        Booking.scrollIntoView({ behavior: "smooth" });
+    }
+}
+
+
 // for hamburger menu
 
 const menuBtn = document.getElementById('menuBtn');
