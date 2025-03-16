@@ -6,14 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="output.css">
 
-  <title>Tour and Travel</title>
+  <title>Tour and Travel - Home</title>
 </head>
 
 <body class="bg-amber-50">
 
   <!-- nav bar starts here -->
   <header id="header">
-    <nav class="h-[30px] w-full bg-red-500/80 flex justify-between items-center p-5">
+    <nav class="h-[30px] w-full bg-red-500/80  flex justify-between items-center p-5">
 
       <!-- this is for right left hand side part -->
       <div class="flex gap-2">
@@ -38,9 +38,9 @@
       <div class="flex items-center gap-3">
         <div class="relative">
           <input
-            class="w-[150px] md:w-[300px] pr-8 pl-1.5 py-0.5 border border-gray-300 rounded-full outline-none focus:ring-2 focus:ring-blue-400"
+            class="w-[150px] md:w-[300px] pr-8 pl-1.5 py-0.5 border text-white font-bold border-gray-300 rounded-full outline-none focus:ring-2 focus:ring-blue-400"
             type="text" placeholder="Search destinations, tours, or flights...">
-          <i class="fa-solid fa-magnifying-glass absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+          <i class="fa-solid fa-magnifying-glass absolute right-3 top-1/2 transform -translate-y-1/2 text-white"></i>
         </div>
         <button onclick="scrollToLogin()" class="text-white flex items-center space-x-2 cursor-pointer">
           <strong>Login</strong>
@@ -126,22 +126,23 @@
 
   <!-- main section start here -->
   <main id="Booking" class="w-full">
-    <div class="g-red-500/80 bg-white border-2 flex justify-between px-6 py-1.5 my-4 w-100%">
-      <div>
-        <div>
-          <h1 class="text-base text-black font-extrabold">Best Offer</h1>
-        </div>
-      </div>
-      <div class="flex items-center gap-2">
-        <button class="text-black" onclick="prevSlide()"><i class="fa-solid fa-circle-left text-2xl"></i></button>
-        <button class="text-black" onclick="nextSlide()"><i class="fa-solid fa-circle-right text-2xl"></i></button>
-      </div>
+    <div class="my-2 p-2 flex justify-center bg-amber-300 border-2">
+      <h1 class="font-extrabold">Best Offer</h1>
+    </div>
+      
     </div>
 
     <!-- Card Section Start -->
-    <div class="overflow-hidden" id="Booking">
+    <div class="overflow-hidden">
       <div id="cardWrapper"
         class="flex justify-between transition-transform w-[90%] md:w-[calc(100%-16px)] duration-300 ease-in-out m-2 my-2">
+      </div>
+    </div>
+
+    <div class="p-2 bg-white border-2">
+      <div class="px-2 flex justify-between items-center">
+        <button class="text-black" onclick="prevSlide()"><i class="fa-solid fa-circle-left text-2xl"></i></button>
+        <button class="text-black" onclick="nextSlide()"><i class="fa-solid fa-circle-right text-2xl"></i></button>
       </div>
     </div>
     <!-- Card Section End -->
@@ -164,7 +165,7 @@
 
   <!-- Login/signup section start here -->
   <div id="login-section" class="w-full flex justify-center items-center">
-    <div class="w-full sm:w-md p-8 space-y-6 bg-amber-50 rounded-lg">
+    <div class="w-full sm:w-md px-8 py-4 space-y-6 bg-amber-50 rounded-lg">
       <h2 id="form-title" class="text-2xl font-bold text-center">Login</h2>
 
       <form id="login-form" class="space-y-4">
