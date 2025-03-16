@@ -218,7 +218,7 @@ function scrollToTop() {
     }
 }
 
-
+// for scroll to booking
 function scrollToBookNow() {
     const Booking = document.getElementById("Booking");
     if (Booking) {
