@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="output.css">
+
+  <title>Tour and Travel</title>
+</head>
+
+<body class="bg-amber-50 w-full">
+
+  <!-- nav bar starts here -->
+  <header id="header">
+    <nav class="h-[30px] w-full bg-red-500/80 flex justify-between items-center p-5">
+
+      <!-- this is for right left hand side part -->
+      <div class="flex gap-2">
+        <img class="h-[28px] rounded-full" src="images/site logo.png" alt="Website Logo">
+        <ul class="gap-1 md:flex hidden justify-between items-center">
+          <li class="font-bold text-white px-3 rounded-[4px] hover:bg-white hover:text-red-500/80"><a href="#"
+              class="">Home</a></li>
+          <li class="font-bold text-white px-3 rounded-[4px] hover:bg-white hover:text-red-500/80"><a href="#"
+              class="">Destinations</a></li>
+          <li class="font-bold text-white px-3 rounded-[4px] hover:bg-white hover:text-red-500/80"><a href="#"
+              class="">Packages</a></li>
+          <li class="font-bold text-white px-3 rounded-[4px] hover:bg-white hover:text-red-500/80"><a href="#"
+              class="">Blog</a></li>
+          <li class="font-bold text-white px-3 rounded-[4px] hover:bg-white hover:text-red-500/80"><a href="#"
+              class="">About us</a></li>
+          <li class="font-bold text-white px-3 rounded-[4px] hover:bg-white hover:text-red-500/80"><a href="#"
+              class="">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- this is for right hand side part -->
+      <div class="flex items-center gap-3">
+        <div class="relative">
+          <input
+            class="w-[200px] md:w-[300px] pr-8 pl-1.5 py-0.5 border border-gray-300 rounded-full outline-none focus:ring-2 focus:ring-blue-400"
+            type="text" placeholder="Search destinations, tours, or flights...">
+          <i class="fa-solid fa-magnifying-glass absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+        </div>
+        </button>
+        <button id="menuBtn" class="md:hidden text-white cursor-pointer">&#9776;</button>
+      </div>
+    </nav>
+    <!-- Mobile Menu (Hidden Initially) -->
+    <div id="mobileMenu"
+      class="overflow-hidden fixed z-9999 top-0 right-0 h-screen bg-amber-50 shadow-lg translate-x-full transition:transform 0.4s ease-in-out; duration-[1000ms] ease-in-out p-5 md:hidden">
+      <button id="closeBtn"
+        class="text-red-500 text-2xl font-bold absolute top-[1%] px-1.5 pb-0.5 rounded left-[2%] hover:bg-red-500 hover:text-white">&times;</button>
+      <ul class="mt-9 space-y-2">
+        <li class="font-bold text-red-500 px-3 rounded-[4px] hover:bg-red-500 hover:text-white"><a href="#">Home</a>
+        </li>
+        <li class="font-bold text-red-500 px-3 rounded-[4px] hover:bg-red-500 hover:text-white"><a
+            href="#">Destinations</a></li>
+        <li class="font-bold text-red-500 px-3 rounded-[4px] hover:bg-red-500 hover:text-white"><a href="#">Packages</a>
+        </li>
+        <li class="font-bold text-red-500 px-3 rounded-[4px] hover:bg-red-500 hover:text-white"><a href="#">Blog</a>
+        </li>
+        <li class="font-bold text-red-500 px-3 rounded-[4px] hover:bg-red-500 hover:text-white"><a href="#">About us</a>
+        </li>
+        <li class="font-bold text-red-500 px-3 rounded-[4px] hover:bg-red-500 hover:text-white"><a href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- nav bar ends here -->
+  
+  
+  <main>
+
+    <div class="container mx-auto p-4 flex flex-col md:flex-row">
+      <!-- Sidebar Toggle Button -->
+      <button id="toggleSidebar" class="md:hidden bg-blue-500 text-white p-2 mb-2">Filters</button>
+
+      <!-- Sidebar -->
+      <aside id="sidebar" class="w-full md:w-1/4 bg-white p-4 shadow-md mb-4 md:mb-0 hidden md:block">
+          <div class="flex justify-between">
+              <h2 class="text-xl font-bold mb-4">Filters</h2>     <span class="font-bold" id="resultCount"></span>
+          </div>
+
+          <label class="block mb-2">Price Range: <span id="priceValue">20000</span></label>
+          <input type="range" min="5000" max="20000" value="20000" class="w-full mb-4" id="priceRange">
+
+          <h3 class="font-semibold">Accommodation Type</h3>
+          <ul class="mb-4">
+              <li><input type="checkbox" class="filter" data-filter="type" value="Hotels"> Hotels</li>
+              <li><input type="checkbox" class="filter" data-filter="type" value="Resorts"> Resorts</li>
+              <li><input type="checkbox" class="filter" data-filter="type" value="Guest Houses"> Guest Houses</li>
+          </ul>
+
+          <h3 class="font-semibold">Direction</h3>
+          <ul class="mb-4">
+              <li><input type="checkbox" class="filter" data-filter="direction" value="North"> North</li>
+              <li><input type="checkbox" class="filter" data-filter="direction" value="West"> West</li>
+              <li><input type="checkbox" class="filter" data-filter="direction" value="East"> East</li>
+              <li><input type="checkbox" class="filter" data-filter="direction" value="South"> South</li>
+          </ul>
+
+
+          <h3 class="font-semibold">Categories</h3>
+          <ul class="mb-4">
+              <li><input type="checkbox" class="filter" data-filter="category" value="Honeymoon"> Honeymoon</li>
+              <li><input type="checkbox" class="filter" data-filter="category" value="Winter Holidays"> Winter
+                  Holidays</li>
+              <li><input type="checkbox" class="filter" data-filter="category" value="Safari Season"> Safari
+                  Season</li>
+              <li><input type="checkbox" class="filter" data-filter="category" value="Luxury Cities"> Luxury
+                  Cities</li>
+              <li><input type="checkbox" class="filter" data-filter="category" value="Family Holidays"> Family
+                  Holidays</li>
+              <li><input type="checkbox" class="filter" data-filter="category" value="Culture Trips"> Culture
+                  Trips</li>
+              <li><input type="checkbox" class="filter" data-filter="category" value="Tropical Adventure">
+                  Tropical Adventure</li>
+          </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="w-full md:w-3/4 p-2 ">
+          <div class="flex justify-between mb-4">
+              <h2 class="text-2xl font-bold">Hotels</h2>
+              <select id="sort" class="border p-2">
+                  <option value="name-asc">Name (A-Z)</option>
+                  <option value="name-desc">Name (Z-A)</option>
+                  <option value="price-asc">Price (Low to High)</option>
+                  <option value="price-desc">Price (High to Low)</option>
+              </select>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-2 " id="hotelGrid">
+              <!-- Hotel Cards -->
+          </div>
+      </main>
+  </div>
+
+ 
+    
+       
+    <!-- do not touch these   -->
+    <div class="hidden"> 
+      <div id="cardWrapper"></div>
+      <div id="topDestWrapper" </div>
+      </div>
+      <button id="toggle-btn"</button>
+    </div>    
+  
+  
+    </main>
+  
+  <!-- footer start here -->
+  <footer class="bg-slate-600 text-white/50">
+    <div class="md:w-[90vw] w-auto grid grid-cols-2 md:grid-cols-4 gap-y-2 py-2 px-4 m-auto">
+      
+      <div class="order-3 md:order-none">
+        <h1 class="font-extrabold text-2xl">About us</h1>
+        <ul>
+          <li class="space-x-1.5">
+            <i class="text-3xl fa-brands fa-square-facebook"></i>
+            <i class="text-3xl fa-brands fa-square-instagram"></i>
+            <i class="text-3xl fa-brands fa-square-twitter"></i>
+            <i class="text-3xl fa-brands fa-square-youtube"></i>
+          </li>
+        </ul>
+      </div>
+
+      <div class="order-1 md:order-none md:mr-20">
+        <h1 class="font-extrabold text-2xl">Travel Specialists</h1>
+        <ul class="list-disc list-inside">
+          <li>Honeymoon</li>
+          <li>Winter Holidays</li>
+          <li>Safari Season</li>
+          <li>Luxury Cities</li>
+          <li>Family Holidays</li>
+          <li>Culture Trips</li>
+          <li>Tropical Adventure</li>
+        </ul>
+      </div>
+
+      <div class="order-2 md:order-none">
+        <h1 class="font-extrabold text-2xl">Quick Links</h1>
+        <ul class="list-disc list-inside">
+          <li>Make reservation</li>
+          <li>FAQ</li>
+          <li>Payment Options</li>
+          <li>Booking Tips</li>
+          <li>Information</li>
+          <li>Hotel Awards</li>
+          <li>Press Room</li>
+        </ul>
+      </div>
+
+      <div class="order-4 md:order-none">
+        <h1 class="font-extrabold text-2xl">Newsletter</h1>
+        <div class="border text-white rounded cursor-pointer font-bold w-fit ">
+          <input class="w-[120px] md:w-[250px] pl-1" type="text" placeholder="Enter your email...">
+          <i class="pr-1 fa-solid fa-magnifying-glass"></i>
+        </div>
+        <h1 class="font-extrabold text-2xl mt-3">Customer Support</h1>
+        <strong>+1900 12 21321</strong>
+        <p>office@pandatour.com</p>
+      </div>
+    </div>
+
+    <div class="bg-white/50 w-[90vw] m-auto h-0.5 my-4"></div>
+
+    <div class="flex justify-between pb-7 px-4 md:px-[5vw]">
+      <div>
+        <p>&copy; 2025 Panda Tour. All rights reserved.</p>
+      </div>
+      <div class="cursor-pointer" onclick="scrollToTop()""><i class=" bg-white/50 p-0.5 text-slate-600 fa-solid
+        fa-chevron-up"></i></div>
+    </div>
+
+
+  </footer>
+  <!-- footer ends here -->
+
+  <!-- Java scripts -->
+  <script src="https://kit.fontawesome.com/dc91047fb7.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="index.js"></script>
+  <script src="explore.js"></script>
+  <!-- Java scripts end here -->
+</body>
+
+</html>
