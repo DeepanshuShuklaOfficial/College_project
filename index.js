@@ -37,13 +37,17 @@ function generateCards() {
     cards.forEach(card => {
         const cardDiv = `
             <div class="card bg-white shadow-lg text-black p-1.5 border-2 box-border border-black mx-1 rounded min-w-[calc(100%/2-6px)] md:min-w-[calc(100%/4-6px)]">
-                <img class="mb-1 m-auto rounded h-[100px] md:h-[200px] w-full object-cover" src="${card.img}" alt="${card.name}">
+            <a href="card.html?destination=${card.name.toLowerCase().replace(/\s+/g, '-')}" class="block">    
+            <img class="mb-1 m-auto rounded h-[100px] md:h-[200px] w-full object-cover" src="${card.img}" alt="${card.name}">
+            </a>
                 <h1 class="text-[16px] font-extrabold">${card.name}</h1>
                 <h2 class="text-[12px] text-gray-500">${card.location}</h2>
                 <div class="bg-gray-600 h-0.5 my-2"></div>
                 <div class="flex justify-between items-center">
                     <p class="text-[12px] text-red-600 font-bold">${card.discount}</p>
+                    <a href="card.html?destination=${card.name.toLowerCase().replace(/\s+/g, '-')}" class="block">
                     <button class="bg-green-500/80 text-white font-bold p-1 px-2 rounded">${card.price}</button>
+                    </a>
                 </div>
             </div>
         `;
@@ -51,20 +55,23 @@ function generateCards() {
     });
 }
 
+
+
 // Generate Top Destinations
 function generateTopDestinations() {
     const topDestWrapper = document.getElementById("topDestWrapper");
     topDestWrapper.innerHTML = "";
     topDestinations.forEach(dest => {
         const destDiv = `
-        <div class="border-2 m-auto rounded h-full w-full p-1.5 flex flex-col justify-between ">
-            <img class="rounded h-[80px] md:h-[160px] w-full object-cover" src="${dest.img}" alt="${dest.name}">
-            <div class="flex justify-between items-end mt-auto">
-                <h2 class="text-black font-bold text-[12px] md:text-[16px] w-[80%]">${dest.name}</h2>
-                <button class="flex items-center"><i class="fa-solid fa-circle-right text-red-500 text-[18px]"></i></button>
+        <a href="tour-details.html?destination=${dest.name.toLowerCase().replace(/\s+/g, '-')}" class="block">
+            <div class="border-2 m-auto rounded h-full w-full p-1.5 flex flex-col justify-between hover:shadow-md transition-all">
+                <img class="rounded h-[80px] md:h-[160px] w-full object-cover" src="${dest.img}" alt="${dest.name}">
+                <div class="flex justify-between items-end mt-auto">
+                    <h2 class="text-black font-bold text-[12px] md:text-[16px] w-[80%]">${dest.name}</h2>
+                    <i class="fa-solid fa-circle-right text-red-500 text-[18px]"></i>
+                </div>
             </div>
-        </div>
-
+        </a>
         `;
         topDestWrapper.innerHTML += destDiv;
     });
