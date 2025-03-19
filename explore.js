@@ -1,65 +1,70 @@
-
 const hotels = [
     { name: "Ajanta and Ellora Caves, Maharashtra", price: 15600, type: "Hotels", category: "Culture Trips", direction: "West", image: "images/card/Ajanta and Ellora Caves, Maharashtra/1.jpg" },
     { name: "Amritsar, Punjab", price: 9400, type: "Hotels", category: "Culture Trips", direction: "North", image: "images/card/Amritsar, Punjab/1.jpg" },
-    { name: "Andaman Island Resort", price: 19400, type: "Resorts", category: "Honeymoon", direction: "East", image: "images/card/Andaman and Nicobar Islands/1.jpg" },
-    { name: "Ayodhya Retreat", price: 15200, type: "Hotels", category: "Culture Trips", direction: "North", image: "images/card/Ayodhya, Uttar Pradesh/1.jpg" },
+    { name: "Andaman and Nicobar Islands", price: 19400, type: "Resorts", category: "Honeymoon", direction: "East", image: "images/card/Andaman and Nicobar Islands/1.jpg" },
+    { name: "Ayodhya", price: 15200, type: "Hotels", category: "Culture Trips", direction: "North", image: "images/card/Ayodhya, Uttar Pradesh/1.jpg" },
     { name: "Bodh Gaya, Bihar", price: 11200, type: "Guest Houses", category: "Pilgrimage", direction: "East", image: "images/card/Bodh Gaya, Bihar/1.jpg" },
-    { name: "Chennai Beachfront Hotel", price: 13400, type: "Hotels", category: "Tropical Adventure", direction: "South", image: "images/card/Chennai, Tamil Nadu/1.jpg" },
-    { name: "Coorg Coffee Estate Stay", price: 11900, type: "Guest Houses", category: "Family Holidays", direction: "South", image: "images/card/Coorg, Karnataka/1.jpg" },
-    { name: "Darjeeling Tea Estate Stay", price: 12300, type: "Guest Houses", category: "Family Holidays", direction: "East", image: "images/card/Darjeeling, West Bengal/1.jpg" },
-    { name: "Delhi Heritage Inn", price: 10600, type: "Hotels", category: "Culture Trips", direction: "North", image: "images/card/Delhi/1.jpg" },
-    { name: "Gangtok Himalayan Retreat", price: 16700, type: "Hotels", category: "Winter Holidays", direction: "East", image: "images/card/Gangtok, Sikkim/1.jpg" },
-    { name: "Goa Beach Resort", price: 20000, type: "Resorts", category: "Honeymoon", direction: "West", image: "images/card/Goa/1.jpg" },
-    { name: "Hampi Heritage Stay", price: 11700, type: "Guest Houses", category: "Culture Trips", direction: "South", image: "images/card/Hampi, Karnataka/1.jpg" },
-    { name: "Jaipur Heritage Palace", price: 17300, type: "Hotels", category: "Culture Trips", direction: "West", image: "images/card/Jaipur, Rajasthan/1.jpg" },
-    { name: "Jaisalmer Desert Camp", price: 12900, type: "Resorts", category: "Safari Season", direction: "West", image: "images/card/Jaisalmer, Rajasthan/1.jpg" },
-    { name: "Jim Corbett Safari Lodge", price: 14200, type: "Resorts", category: "Safari Season", direction: "North", image: "images/card/Jim Corbett National Park, Uttarakhand/1.jpg" },
-    { name: "Kanha Jungle Retreat", price: 13500, type: "Resorts", category: "Safari Season", direction: "Central", image: "images/card/Kanha National Park, Madhya Pradesh/1.jpg" },
-    { name: "Kashi Vishwanath Stay", price: 8700, type: "Guest Houses", category: "Culture Trips", direction: "North", image: "images/card/Kashi Vishwanath Temple, Varanasi/1.jpg" },
-    { name: "Kaziranga Rhino Lodge", price: 15700, type: "Resorts", category: "Safari Season", direction: "East", image: "images/card/Kaziranga National Park, Assam/1.jpg" },
-    { name: "Kerala Backwaters Stay", price: 17300, type: "Guest Houses", category: "Winter Holidays", direction: "South", image: "images/card/Kerala Backwaters/1.jpg" },
-    { name: "Khajuraho Heritage Stay", price: 10800, type: "Guest Houses", category: "Culture Trips", direction: "Central", image: "images/card/Khajuraho, Madhya Pradesh/1.jpg" },
-    { name: "Kolkata Heritage Stay", price: 9200, type: "Guest Houses", category: "Culture Trips", direction: "East", image: "images/card/Kolkata, West Bengal/1.jpg" },
-    { name: "Kutch Desert Camp", price: 14800, type: "Resorts", category: "Tropical Adventure", direction: "West", image: "images/card/Kutch, Gujarat/1.jpg" },
-    { name: "Leh-Ladakh Adventure Camp", price: 20000, type: "Resorts", category: "Tropical Adventure", direction: "North", image: "images/card/Leh-Ladakh, Jammu & Kashmir/1.jpg" },
-    { name: "Lonavala Hills Retreat", price: 13800, type: "Hotels", category: "Family Holidays", direction: "West", image: "images/card/Lonavala, Maharashtra/1.jpg" },
-    { name: "Mahabalipuram Beach Resort", price: 14200, type: "Hotels", category: "Tropical Adventure", direction: "South", image: "images/card/Mahabalipuram, Tamil Nadu/1.jpg" },
-    { name: "Manali Snow Resort", price: 19500, type: "Hotels", category: "Winter Holidays", direction: "North", image: "images/card/Manali, Himachal Pradesh/1.jpg" },
-    { name: "Mount Abu, Rajasthan", price: 15400, type: "Hotels", category: "Luxury Cities", direction: "South", image: "images/card/Mount Abu, Rajasthan/1.jpg" },
-    { name: "Mumbai Seaside Hotel", price: 16400, type: "Hotels", category: "Luxury Cities", direction: "West", image: "images/card/Mumbai, Maharashtra/1.jpg" },
-    { name: "Mysore Palace Hotel", price: 15200, type: "Hotels", category: "Luxury Cities", direction: "South", image: "images/card/Mysore, Karnataka/1.jpg" },
-    { name: "Ooty Hilltop Resort", price: 15800, type: "Resorts", category: "Family Holidays", direction: "South", image: "images/card/Ooty, Tamil Nadu/1.jpg" },
-    { name: "Pondicherry Heritage Stay", price: 11300, type: "Guest Houses", category: "Culture Trips", direction: "South", image: "images/card/Pondicherry/1.jpg" },
-    { name: "Ranthambore Jungle Lodge", price: 17900, type: "Resorts", category: "Safari Season", direction: "West", image: "images/card/Ranthambore National Park, Rajasthan/1.jpg" },
-    { name: "Rishikesh Riverside Stay", price: 9800, type: "Guest Houses", category: "Tropical Adventure", direction: "North", image: "images/card/Rishikesh, Uttarakhand/1.jpg" },
-    { name: "Shirdi Sai Baba Inn", price: 13900, type: "Hotels", category: "Pilgrimage", direction: "West", image: "images/card/Shirdi Sai Baba Temple, Maharashtra/1.jpg" },
-    { name: "Shimla Mountain Retreat", price: 18000, type: "Resorts", category: "Winter Holidays", direction: "North", image: "images/card/Shimla, Himachal Pradesh/1.jpg" },
-    { name: "Sundarbans Wildlife Lodge", price: 14800, type: "Resorts", category: "Safari Season", direction: "East", image: "images/card/Sundarbans, West Bengal/1.jpg" },
-    { name: "Taj Mahal View Hotel", price: 18900, type: "Resorts", category: "Luxury Cities", direction: "North", image: "images/card/Taj Mahal, Agra/1.jpg" }
+    { name: "Chennai, Tamil Nadu", price: 13400, type: "Hotels", category: "Tropical Adventure", direction: "South", image: "images/card/Chennai, Tamil Nadu/1.jpg" },
+    { name: "Coorg, Karnataka", price: 11900, type: "Guest Houses", category: "Family Holidays", direction: "South", image: "images/card/Coorg, Karnataka/1.jpg" },
+    { name: "Darjeeling, West Bengal", price: 12300, type: "Guest Houses", category: "Family Holidays", direction: "East", image: "images/card/Darjeeling, West Bengal/1.jpg" },
+    { name: "Delhi", price: 10600, type: "Hotels", category: "Culture Trips", direction: "North", image: "images/card/Delhi/1.jpg" },
+    { name: "Gangtok, Sikkim", price: 16700, type: "Hotels", category: "Winter Holidays", direction: "East", image: "images/card/Gangtok, Sikkim/1.jpg" },
+    { name: "Goa", price: 20000, type: "Resorts", category: "Honeymoon", direction: "West", image: "images/card/Goa/1.jpg" },
+    { name: "Hampi, Karnataka", price: 11700, type: "Guest Houses", category: "Culture Trips", direction: "South", image: "images/card/Hampi, Karnataka/1.jpg" },
+    { name: "Jaipur", price: 17300, type: "Hotels", category: "Culture Trips", direction: "West", image: "images/card/Jaipur, Rajasthan/1.jpg" },
+    { name: "Jaisalmer, Rajasthan", price: 12900, type: "Resorts", category: "Safari Season", direction: "West", image: "images/card/Jaisalmer, Rajasthan/1.jpg" },
+    { name: "Jim Corbett National Park, Uttarakhand", price: 14200, type: "Resorts", category: "Safari Season", direction: "North", image: "images/card/Jim Corbett National Park, Uttarakhand/1.jpg" },
+    { name: "Kanha National Park, Madhya Pradesh", price: 13500, type: "Resorts", category: "Safari Season", direction: "Central", image: "images/card/Kanha National Park, Madhya Pradesh/1.jpg" },
+    { name: "Kashi Vishwanath", price: 8700, type: "Guest Houses", category: "Culture Trips", direction: "North", image: "images/card/Kashi Vishwanath Temple, Varanasi/1.jpg" },
+    { name: "Kaziranga National Park, Assam", price: 15700, type: "Resorts", category: "Safari Season", direction: "East", image: "images/card/Kaziranga National Park, Assam/1.jpg" },
+    { name: "Kerala Backwaters", price: 17300, type: "Guest Houses", category: "Winter Holidays", direction: "South", image: "images/card/Kerala Backwaters/1.jpg" },
+    { name: "Khajuraho, Madhya Pradesh", price: 10800, type: "Guest Houses", category: "Culture Trips", direction: "Central", image: "images/card/Khajuraho, Madhya Pradesh/1.jpg" },
+    { name: "Kolkata, West Bengal", price: 9200, type: "Guest Houses", category: "Culture Trips", direction: "East", image: "images/card/Kolkata, West Bengal/1.jpg" },
+    { name: "Kutch, Gujarat", price: 14800, type: "Resorts", category: "Tropical Adventure", direction: "West", image: "images/card/Kutch, Gujarat/1.jpg" },
+    { name: "Leh-Ladakh, Jammu and Kashmir", price: 20000, type: "Resorts", category: "Tropical Adventure", direction: "North", image: "images/card/Leh-Ladakh, Jammu & Kashmir/1.jpg" },
+    { name: "Lonavala, Maharashtra", price: 13800, type: "Hotels", category: "Family Holidays", direction: "West", image: "images/card/Lonavala, Maharashtra/1.jpg" },
+    { name: "Mahabalipuram, Tamil Nadu", price: 14200, type: "Hotels", category: "Tropical Adventure", direction: "South", image: "images/card/Mahabalipuram, Tamil Nadu/1.jpg" },
+    { name: "Manali, Himachal Pradesh", price: 19500, type: "Hotels", category: "Winter Holidays", direction: "North", image: "images/card/Manali, Himachal Pradesh/1.jpg" },
+    { name: "Mount Abu, Rajasthan", price: 15400, type: "Hotels", category: "Luxury Cities", direction: "West", image: "images/card/Mount Abu, Rajasthan/1.jpg" },
+    { name: "Mumbai", price: 16400, type: "Hotels", category: "Luxury Cities", direction: "West", image: "images/card/Mumbai, Maharashtra/1.jpg" },
+    { name: "Mysore, Karnataka", price: 15200, type: "Hotels", category: "Luxury Cities", direction: "South", image: "images/card/Mysore, Karnataka/1.jpg" },
+    { name: "Ooty, Tamil Nadu", price: 15800, type: "Resorts", category: "Family Holidays", direction: "South", image: "images/card/Ooty, Tamil Nadu/1.jpg" },
+    { name: "Pondicherry", price: 11300, type: "Guest Houses", category: "Culture Trips", direction: "South", image: "images/card/Pondicherry/1.jpg" },
+    { name: "Ranthambore National Park, Rajasthan", price: 17900, type: "Resorts", category: "Safari Season", direction: "West", image: "images/card/Ranthambore National Park, Rajasthan/1.jpg" },
+    { name: "Rishikesh", price: 9800, type: "Guest Houses", category: "Tropical Adventure", direction: "North", image: "images/card/Rishikesh, Uttarakhand/1.jpg" },
+    { name: "Shillong, Meghalaya", price: 12500, type: "Guest Houses", category: "Winter Holidays", direction: "East", image: "images/card/Shillong, Meghalaya/1.jpg" },
+    { name: "Shimla, Himachal Pradesh", price: 14900, type: "Hotels", category: "Winter Holidays", direction: "North", image: "images/card/Shimla, Himachal Pradesh/1.jpg" },
+    { name: "Shirdi Sai Baba", price: 10100, type: "Guest Houses", category: "Pilgrimage", direction: "West", image: "images/card/Shirdi Sai Baba Temple, Maharashtra/1.jpg" },
+    { name: "Srinagar, Jammu & Kashmir", price: 18600, type: "Hotels", category: "Winter Holidays", direction: "North", image: "images/card/Srinagar, Jammu & Kashmir/1.jpg" },
+    { name: "Sundarbans, West Bengal", price: 13200, type: "Guest Houses", category: "Safari Season", direction: "East", image: "images/card/Sundarbans, West Bengal/1.jpg" },
+    { name: "Taj Mahal", price: 15800, type: "Hotels", category: "Culture Trips", direction: "North", image: "images/card/Taj Mahal, Agra/1.jpg" },
+    { name: "Udaipur", price: 16900, type: "Hotels", category: "Luxury Cities", direction: "West", image: "images/card/Udaipur, Rajasthan/1.jpg" }
 ];
 
 
 
 function renderHotels(filteredHotels = hotels) {
     const grid = document.getElementById("hotelGrid");
-    grid.innerHTML = filteredHotels.map(hotel => `
-            <div class="border-2 m-auto rounded h-full w-full bg-white p-2 shadow-md">
-                <img class=" mb-1 rounded h-[100px] md:h-[160px] w-full object-cover" src="${hotel.image}" alt="">
-                <div class="flex justify-between mx-1">
-                    <h3 class="text-black font-bold text-[12px] md:text-[16px]">${hotel.name}</h3>
-                    <button><i class="fa-solid fa-circle-right text-red-500"></i></button>
+    grid.innerHTML = filteredHotels.map(hotel =>
+        `   
+        <a href="card.html?destination=${hotel.name.toLowerCase().replace(/\s+/g, '-').replace(/,/g, '')}" class="block">
+            <div class="border border-[#253d2c] hover:shadow-md m-auto rounded h-full w-full imp p-2 ">
+            <img class=" mb-1 rounded sharp h-[100px] md:h-[160px] w-full object-cover object-top" src="${hotel.image}" alt="">
+                <div class="flex justify-between">
+                    <h3 class="dark4 font-bold text-[12px] md:text-[16px]">${hotel.name}</h3>
+                    <button><i class="fa-solid fa-circle-right dark1 text-[14px] md:text-[18px]"></i></button>
                 </div>
-                <p class="text-gray-600 text-sm">₹${hotel.price}</p>
+                <p class="font-bold dark1 text-[14px] md:text-[18px]">₹ ${hotel.price}</p>
             </div>
+        </a>
         `).join('');
 
-        updateResultCount(filteredHotels.length);  // ✅ Total results update karna
-    }
-    
-    function updateResultCount(count) {
-        document.getElementById("resultCount").textContent = `Results Found: ${count}`;
-    }
+    updateResultCount(filteredHotels.length);  //Total results update karna
+}
+
+function updateResultCount(count) {
+    document.getElementById("resultCount").textContent = `Results Found: ${count}`;
+}
 
 
 
@@ -133,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (categoryCheckbox) {
             categoryCheckbox.checked = true;
         }
-        
+
         // Apply filters automatically
         applyFilters();
     }

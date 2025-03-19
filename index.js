@@ -23,9 +23,9 @@ const topDestinations = [
     { name: "Shimla, Himachal Pradesh", img: "images/card/Shimla, Himachal Pradesh/1.jpg" },
     { name: "Manali, Himachal Pradesh", img: "images/card/Manali, Himachal Pradesh/1.jpg" },
     { name: "Darjeeling, West Bengal", img: "images/card/Darjeeling, West Bengal/1.jpg" },
-    { name: "Leh-Ladakh, Jammu & Kashmir", img: "images/card/Leh-Ladakh, Jammu & Kashmir/1.jpg" },
+    { name: "Leh-Ladakh, Jammu and Kashmir", img: "images/card/Leh-Ladakh, Jammu & Kashmir/1.jpg" },
     { name: "Khajuraho, Madhya Pradesh", img: "images/card/Khajuraho, Madhya Pradesh/1.jpg" },
-    { name: "Ajanta & Ellora Caves, Maharashtra", img: "images/card/Ajanta and Ellora Caves, Maharashtra/1.jpg" },
+    { name: "Ajanta and Ellora Caves, Maharashtra", img: "images/card/Ajanta and Ellora Caves, Maharashtra/1.jpg" },
     { name: "Sundarbans, West Bengal", img: "images/card/Sundarbans, West Bengal/1.jpg" },
     { name: "Andaman and Nicobar Islands", img: "images/card/Andaman and Nicobar Islands/1.jpg" }
 ];
@@ -36,20 +36,19 @@ function generateCards() {
     cardWrapper.innerHTML = "";
     cards.forEach(card => {
         const cardDiv = `
-            <div class="card bg-white shadow-lg text-black p-1.5 border-2 box-border border-black mx-1 rounded min-w-[calc(100%/2-6px)] md:min-w-[calc(100%/4-6px)]">
-            <a href="card.html?destination=${card.name.toLowerCase().replace(/\s+/g, '-')}" class="block">    
-            <img class="mb-1 m-auto rounded h-[100px] md:h-[200px] w-full object-cover" src="${card.img}" alt="${card.name}">
-            </a>
-                <h1 class="text-[16px] font-extrabold">${card.name}</h1>
-                <h2 class="text-[12px] text-gray-500">${card.location}</h2>
-                <div class="bg-gray-600 h-0.5 my-2"></div>
+            <div class="card imp hover:shadow-md border box-border border-[#253d2c] p-1.5 mx-1 rounded min-w-[calc(100%/2-6px)] md:min-w-[calc(100%/4-6px)]">
+             <a href="card.html?destination=${card.name.toLowerCase().replace(/\s+/g, '-').replace(/,/g, '')}" class="block">
+            <img class="mb-1 m-auto sharp rounded h-[100px] md:h-[200px] w-full object-cover object-top" src="${card.img}" alt="${card.name}">
+                <h1 class="text-[16px] text-white font-extrabold">${card.name}</h1>
+                <h2 class="text-[12px] dark1">${card.location}</h2>
+                <div class="head h-0.5 my-2"></div>
                 <div class="flex justify-between items-center">
-                    <p class="text-[12px] text-red-600 font-bold">${card.discount}</p>
-                    <a href="card.html?destination=${card.name.toLowerCase().replace(/\s+/g, '-')}" class="block">
-                    <button class="bg-green-500/80 text-white font-bold p-1 px-2 rounded">${card.price}</button>
-                    </a>
+                    <p class="text-[13px] dark4 rounded font-bold">${card.discount}</p>
+                    <button class="head cursor-pointer dark1 font-bold p-1 px-2 rounded">${card.price}</button>
+ 
                 </div>
             </div>
+           </a> 
         `;
         cardWrapper.innerHTML += cardDiv;
     });
@@ -63,12 +62,12 @@ function generateTopDestinations() {
     topDestWrapper.innerHTML = "";
     topDestinations.forEach(dest => {
         const destDiv = `
-        <a href="tour-details.html?destination=${dest.name.toLowerCase().replace(/\s+/g, '-')}" class="block">
-            <div class="border-2 m-auto rounded h-full w-full p-1.5 flex flex-col justify-between hover:shadow-md transition-all">
-                <img class="rounded h-[80px] md:h-[160px] w-full object-cover" src="${dest.img}" alt="${dest.name}">
+         <a href="card.html?destination=${dest.name.toLowerCase().replace(/\s+/g, '-').replace(/,/g, '')}" class="block">
+            <div class="border imp m-auto rounded h-full w-full p-1.5 flex flex-col justify-between hover:shadow-md transition-all">
+                <img class="rounded sharp h-[80px] md:h-[160px] w-full object-cover object-top" src="${dest.img}" alt="${dest.name}">
                 <div class="flex justify-between items-end mt-auto">
-                    <h2 class="text-black font-bold text-[12px] md:text-[16px] w-[80%]">${dest.name}</h2>
-                    <i class="fa-solid fa-circle-right text-red-500 text-[18px]"></i>
+                    <h2 class="text-white font-bold text-[12px] md:text-[16px] w-[80%]">${dest.name}</h2>
+                    <i class="fa-solid fa-circle-right dark4 text-[18px]"></i>
                 </div>
             </div>
         </a>

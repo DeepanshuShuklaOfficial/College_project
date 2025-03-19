@@ -5,32 +5,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="output.css">
-
+  <link rel="stylesheet" href="custom.css">
   <title>Tour and Travel - Home</title>
 </head>
 
-<body class="bg-amber-50">
+<body class="bg">
 
   <!-- nav bar starts here -->
   <header id="header">
-    <nav class="h-[30px] w-full bg-red-500/80  flex justify-between items-center p-5">
+    <nav class="h-[30px] head w-full flex justify-between items-center p-5">
 
       <!-- this is for right left hand side part -->
       <div class="flex gap-2">
         <img class="h-[28px] rounded-full" src="images/site logo.png" alt="Website Logo">
         <ul class="gap-1 md:flex hidden justify-between items-center">
-          <li class="font-bold text-white px-3 rounded-[4px] hover:bg-white hover:text-red-500/80"><a href="#"
+          <li class="tab"><a href="#"
               class="">Home</a></li>
-          <li class="font-bold text-white px-3 rounded-[4px] hover:bg-white hover:text-red-500/80"><a href="explore.html?category=Culture%20Trips"
-              class="">Destinations</a></li>
-          <li class="font-bold text-white px-3 rounded-[4px] hover:bg-white hover:text-red-500/80"><a href="#"
+          <li class="tab"><a
+              href="explore.html?category=Culture%20Trips" class="">Destinations</a></li>
+          <li class="tab"><a href="#"
               class="">Packages</a></li>
-          <li class="font-bold text-white px-3 rounded-[4px] hover:bg-white hover:text-red-500/80"><a href="#"
+          <li class="tab"><a href="#"
               class="">Blog</a></li>
-          <li class="font-bold text-white px-3 rounded-[4px] hover:bg-white hover:text-red-500/80"><a href="#"
+          <li class="tab"><a href="#"
               class="">About us</a></li>
-          <li class="font-bold text-white px-3 rounded-[4px] hover:bg-white hover:text-red-500/80"><a href="#"
-              class="">Contact</a></li>
+          <li class="tab"><a href=" #">
+            Contact</a></li>
         </ul>
       </div>
 
@@ -38,34 +38,33 @@
       <div class="flex items-center gap-3">
         <div class="relative">
           <input
-            class="w-[150px] md:w-[300px] pr-8 pl-1.5 py-0.5 border text-white font-bold border-gray-300 rounded-full outline-none focus:ring-2 focus:ring-blue-400"
+            class="w-[150px] md:w-[300px] pr-8 pl-1.5 py-0.5 border text-[#cfffdc] font-bold border-[#cfffdc] rounded-full outline-none focus:ring-2 focus:ring-[#68BA7F]"
             type="text" placeholder="Search destinations, tours, or flights...">
-          <i class="fa-solid fa-magnifying-glass absolute right-3 top-1/2 transform -translate-y-1/2 text-white"></i>
+          <i class="fa-solid fa-magnifying-glass absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-[#cfffdc]"></i>
         </div>
-        <button onclick="scrollToLogin()" class="text-white flex items-center space-x-2 cursor-pointer">
+        <button onclick="scrollToLogin()" class="text-[#cfffdc] flex items-center space-x-2 cursor-pointer">
           <strong>Login</strong>
-          <i class="fa-solid fa-user-plus text-white"></i>
+          <i class="fa-solid fa-user-plus text-[#cfffdc]"></i>
         </button>
-        <button id="menuBtn" class="md:hidden text-white cursor-pointer">&#9776;</button>
+        <button id="menuBtn" class="md:hidden text-[#cfffdc] font-extrabold cursor-pointer">&#9776;</button>
       </div>
     </nav>
     <!-- Mobile Menu (Hidden Initially) -->
     <div id="mobileMenu"
-      class="overflow-hidden fixed z-50 top-0 right-0 h-screen bg-amber-50 shadow-lg translate-x-full transition:transform 0.4s ease-in-out; duration-[1000ms] ease-in-out p-5 md:hidden">
+      class="overflow-hidden fixed z-50 top-0 right-0 h-screen bg border-2 border-[#2e6f40] shadow-lg translate-x-full transition:transform 0.4s ease-in-out; duration-[1000ms] ease-in-out p-5 md:hidden">
       <button id="closeBtn"
-        class="text-red-500 text-2xl font-bold absolute top-[1%] px-1.5 pb-0.5 rounded left-[2%] hover:bg-red-500 hover:text-white">&times;</button>
+        class="text-[#2e6f40] text-2xl font-bold absolute top-[1%] px-1.5 pb-0.5 rounded left-[2%] hover:bg-[#2e6f40] hover:text-[#cfffdc]">&times;</button>
       <ul class="mt-9 space-y-2">
-        <li class="font-bold text-red-500 px-3 rounded-[4px] hover:bg-red-500 hover:text-white"><a href="#">Home</a>
+        <li class="mobile-tab"><a href="#">Home</a>
         </li>
-        <li class="font-bold text-red-500 px-3 rounded-[4px] hover:bg-red-500 hover:text-white"><a
-            href="explore.html?category=Culture%20Trips">Destinations</a></li>
-        <li class="font-bold text-red-500 px-3 rounded-[4px] hover:bg-red-500 hover:text-white"><a href="#">Packages</a>
+        <li class="mobile-tab"><a href="explore.html?category=Culture%20Trips">Destinations</a></li>
+        <li class="mobile-tab"><a href="#">Packages</a>
         </li>
-        <li class="font-bold text-red-500 px-3 rounded-[4px] hover:bg-red-500 hover:text-white"><a href="#">Blog</a>
+        <li class="mobile-tab"><a href="#">Blog</a>
         </li>
-        <li class="font-bold text-red-500 px-3 rounded-[4px] hover:bg-red-500 hover:text-white"><a href="#">About us</a>
+        <li class="mobile-tab"><a href="#">About us</a>
         </li>
-        <li class="font-bold text-red-500 px-3 rounded-[4px] hover:bg-red-500 hover:text-white"><a href="#">Contact</a>
+        <li class="mobile-tab"><a href="#">Contact</a>
         </li>
       </ul>
     </div>
@@ -75,20 +74,20 @@
 
 
   <!-- hero section start here -->
-  <div class="h-auto flex shadow-lg justify-center items-start m-3.5 md:items-center md:mt-3.5 ">
-    <div class="border-2 h-[60vh] w-[90vw] md:h-[90vh] relative overflow-hidden">
+  <div class="h-auto flex justify-center items-start m-3.5 md:items-center md:mt-3.5 ">
+    <div class="h-[60vh] w-[95vw] md:h-[90vh] relative overflow-hidden">
       <!-- Image Wrapper -->
       <div id="slider" class=" inset-0 absolute flex transition-transform duration-1000 ">
-        <img class="slide min-w-full object-cover" src="images/hero-section/1.jpg" alt="hero image no.1">
-        <img class="slide min-w-full object-cover" src="images/hero-section/2.jpg" alt="hero image no.2">
-        <img class="slide min-w-full object-cover" src="images/hero-section/3.jpg" alt="hero image no.3">
-        <img class="slide min-w-full object-cover" src="images/hero-section/4.jpg" alt="hero image no.4">
-        <img class="slide min-w-full object-cover" src="images/hero-section/5.jpg" alt="hero image no.5">
-        <img class="slide min-w-full object-cover" src="images/hero-section/6.jpg" alt="hero image no.6">
-        <img class="slide min-w-full object-cover" src="images/hero-section/7.jpg" alt="hero image no.7">
-        <img class="slide min-w-full object-cover" src="images/hero-section/8.jpg" alt="hero image no.8">
-        <img class="slide min-w-full object-cover" src="images/hero-section/9.jpg" alt="hero image no.9">
-        <img class="slide min-w-full object-cover" src="images/hero-section/10.jpg" alt="hero image no.10">
+        <img class="slide min-w-full object-cover sharp" src="images/hero-section/1.jpg" alt="hero image no.1">
+        <img class="slide min-w-full object-cover sharp" src="images/hero-section/2.jpg" alt="hero image no.2">
+        <img class="slide min-w-full object-cover sharp" src="images/hero-section/3.jpg" alt="hero image no.3">
+        <img class="slide min-w-full object-cover sharp" src="images/hero-section/4.jpg" alt="hero image no.4">
+        <img class="slide min-w-full object-cover sharp" src="images/hero-section/5.jpg" alt="hero image no.5">
+        <img class="slide min-w-full object-cover sharp" src="images/hero-section/6.jpg" alt="hero image no.6">
+        <img class="slide min-w-full object-cover sharp" src="images/hero-section/7.jpg" alt="hero image no.7">
+        <img class="slide min-w-full object-cover sharp" src="images/hero-section/8.jpg" alt="hero image no.8">
+        <img class="slide min-w-full object-cover sharp" src="images/hero-section/9.jpg" alt="hero image no.9">
+        <img class="slide min-w-full object-cover sharp" src="images/hero-section/10.jpg" alt="hero image no.10">
       </div>
 
       <!-- book now section -->
@@ -97,26 +96,29 @@
         <div class="p-1 w-[70vw] md:w-[40vw] flex flex-col items-center">
           <h1 class="text-2xl md:text-4xl font-extrabold text-white text-center">Pack Your Bags,</h1>
           <h1 class="text-2xl md:text-3xl font-extrabold text-white text-center">The World is Waiting! </h1>
-          <p class="text-white text-[10px] md:text-[16px] text-center">Discover breathtaking destinations with
+          <p class="text-white text-[10px] font-bold md:text-[16px] text-center">Discover breathtaking destinations with
             us! From hidden gems to iconic landmarks, we craft unforgettable travel experiences just for
             you.</p>
         </div>
         <div class="flex justify-around w-[70vw] md:w-[25vw]  items-center">
-          <button onclick="scrollToBookNow()" class="cursor-pointer border text-white bg-red-500/80 rounded-xs px-1.5 py-0.5 font-semibold">Book Now &nbsp;<i class="fa-solid fa-paper-plane"></i></button>
-          <a href="explore.html"><button class="cursor-pointer border-2 text-black bg-white/85 rounded-xs px-1.5 py-0.5 font-semibold">Explore
-            More</button></a>
+          <button onclick="scrollToBookNow()"
+            class="cursor-pointer border text-[#cfffdc] bg-[#2e6f40] hover:bg-[#cfffdc] hover:text-[#2e6f40]  rounded-xs px-1.5 py-0.5 font-semibold">Book Now
+            &nbsp;<i class="fa-solid fa-paper-plane"></i></button>
+          <a href="explore.html"><button
+              class="cursor-pointer border text-[#253d2c] bg-[#cfffdc] hover:text-[#cfffdc] hover:bg-[#253d2c] rounded-xs px-1.5 py-0.5 font-semibold">Explore
+              More</button></a>
         </div>
       </div>
 
       <!-- Buttons for images-->
-      <div class="absolute opacity-70 bottom-0 left-0 right-0 flex justify-between gap-5 p-4 ">
+      <div class="absolute bottom-0 left-0 right-0 flex justify-between gap-5 p-4 ">
         <!-- Left Button -->
-        <button onclick="goPre()" class="bg-black/60 text-white p-2 rounded hover:bg-black">
+        <button onclick="goPre()" class="bg-[#253d2c] text-[#cfffdc] p-2 rounded hover:bg-[#2e6f40]">
           <i class="fa-solid fa-circle-left text-2xl"></i>
         </button>
 
         <!-- Right Button -->
-        <button onclick="goNext()" class="bg-black/60 text-white p-2 rounded hover:bg-black">
+        <button onclick="goNext()" class="bg-[#253d2c] text-[#cfffdc] p-2 rounded hover:bg-[#2e6f40]">
           <i class="fa-solid fa-circle-right text-2xl"></i>
         </button>
       </div>
@@ -126,10 +128,10 @@
 
   <!-- main section start here -->
   <main id="Booking" class="w-full">
-    <div class="my-2 p-2 flex justify-center bg-amber-300 border-2">
+    <div class="mb-2 p-1 flex head dark1 justify-center">
       <h1 class="font-extrabold">Best Offer</h1>
     </div>
-      
+
     </div>
 
     <!-- Card Section Start -->
@@ -139,10 +141,10 @@
       </div>
     </div>
 
-    <div class="p-2 bg-white border-2">
-      <div class="px-2 flex justify-between items-center">
-        <button class="text-black" onclick="prevSlide()"><i class="fa-solid fa-circle-left text-2xl"></i></button>
-        <button class="text-black" onclick="nextSlide()"><i class="fa-solid fa-circle-right text-2xl"></i></button>
+    <div class="bg">
+      <div class="px-3.5 md:px-5 flex justify-between items-center">
+        <button class="text-black" onclick="prevSlide()"><i class="fa-solid fa-circle-left bg-[#2e6f40] text-[#cfffdc] p-2 rounded "></i></button>
+        <button class="text-black" onclick="nextSlide()"><i class="fa-solid fa-circle-right bg-[#2e6f40] text-[#cfffdc] p-2 rounded "></i></button>
       </div>
     </div>
     <!-- Card Section End -->
@@ -150,7 +152,7 @@
     <div class="bg-gray-600 w-[90vw] m-auto h-0.5 my-4"></div>
 
     <!-- Top Destination Section Start -->
-    <div class="p-2 flex justify-center bg-amber-300 border-2">
+    <div class="p-1 flex justify-center head dark1">
       <h1 class="font-extrabold">Top Destination</h1>
     </div>
     <div class="mx-2 my-4">
@@ -165,7 +167,7 @@
 
   <!-- Login/signup section start here -->
   <div id="login-section" class="w-full flex justify-center items-center">
-    <div class="w-full sm:w-md px-8 py-4 space-y-6 bg-amber-50 rounded-lg">
+    <div class="w-full sm:w-md px-8 py-4 space-y-6 bg rounded-lg">
       <h2 id="form-title" class="text-2xl font-bold text-center">Login</h2>
 
       <form id="login-form" class="space-y-4">
@@ -184,7 +186,7 @@
             </button>
           </div>
         </div>
-        <button type="submit" class="w-full p-2 text-white bg-blue-600 rounded hover:bg-blue-700">Login</button>
+        <button type="submit" class="w-full p-2 font-bold text-white bg-blue-600 rounded hover:bg-blue-700">Login</button>
       </form>
 
       <form id="signup-form" class="space-y-4 hidden">
@@ -207,7 +209,7 @@
             </button>
           </div>
         </div>
-        <button type="submit" class="w-full p-2 text-white bg-green-600 rounded hover:bg-green-700">Sign
+        <button type="submit" class="w-full p-2 text-white font-bold bg-green-600 rounded hover:bg-green-700">Sign
           Up</button>
       </form>
 
@@ -222,7 +224,7 @@
   <div class="bg-gray-600 w-[90vw] m-auto h-0.5 my-4"></div>
 
   <!-- footer start here -->
-  <footer class="bg-slate-600 text-white/50">
+  <footer class="footer dark1">
     <div class="md:w-[90vw] w-auto grid grid-cols-2 md:grid-cols-4 gap-y-2 py-2 px-4 m-auto">
 
       <div class="order-3 md:order-none">
@@ -265,9 +267,11 @@
 
       <div class="order-4 md:order-none">
         <h1 class="font-extrabold text-2xl">Newsletter</h1>
-        <div class="border text-white rounded cursor-pointer font-bold w-fit ">
-          <input class="w-[120px] md:w-[250px] pl-1" type="text" placeholder="Enter your email...">
-          <i class="pr-1 fa-solid fa-magnifying-glass"></i>
+        <div class="relative">
+          <input
+            class="w-[150px] md:w-[250px] pr-8 pl-1.5 py-0.5 border text-[#cfffdc] font-bold border-[#cfffdc] rounded outline-none focus:ring-2 focus:ring-[#68BA7F]"
+            type="text" placeholder="Enter Your Email...">
+          <i class="fa-solid fa-magnifying-glass absolute right-5 md:right-10 top-1/2 transform -translate-y-1/2 text-white"></i>
         </div>
         <h1 class="font-extrabold text-2xl mt-3">Customer Support</h1>
         <strong>+1900 12 21321</strong>
@@ -275,13 +279,13 @@
       </div>
     </div>
 
-    <div class="bg-white/50 w-[90vw] m-auto h-0.5 my-4"></div>
+    <div class="bg w-[90vw] m-auto h-0.5 my-4"></div>
 
     <div class="flex justify-between pb-7 px-4 md:px-[5vw]">
       <div>
         <p>&copy; 2025 Panda Tour. All rights reserved.</p>
       </div>
-      <div class="cursor-pointer" onclick="scrollToTop()""><i class=" bg-white/50 p-0.5 text-slate-600 fa-solid
+      <div class="cursor-pointer" onclick="scrollToTop()""><i class="rounded bg dark4 p-1 fa-solid
         fa-chevron-up"></i></div>
     </div>
 
