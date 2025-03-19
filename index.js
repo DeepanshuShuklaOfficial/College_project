@@ -233,4 +233,3 @@ closeBtn.addEventListener('click', () => {
 });
 
 
-

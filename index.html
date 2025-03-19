@@ -19,7 +19,7 @@
       <div class="flex gap-2">
         <img class="h-[28px] rounded-full" src="images/site logo.png" alt="Website Logo">
         <ul class="gap-1 md:flex hidden justify-between items-center">
-          <li class="tab"><a href="#"
+          <li class="tab"><a href="index.html"
               class="">Home</a></li>
           <li class="tab"><a
               href="explore.html?category=Culture%20Trips" class="">Destinations</a></li>
@@ -36,16 +36,25 @@
 
       <!-- this is for right hand side part -->
       <div class="flex items-center gap-3">
+
+        <!-- bhai search box ki js explore.js may hai -->
         <div class="relative">
-          <input
+          <input id="searchInput"
             class="w-[150px] md:w-[300px] pr-8 pl-1.5 py-0.5 border text-[#cfffdc] font-bold border-[#cfffdc] rounded-full outline-none focus:ring-2 focus:ring-[#68BA7F]"
-            type="text" placeholder="Search destinations, tours, or flights...">
-          <i class="fa-solid fa-magnifying-glass absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-[#cfffdc]"></i>
+            type="text" placeholder="Search destinations, tours, or flights..."onkeyup="showSuggestions()" autocomplete="off" aria-autocomplete="none">
+            
+
+          <i class="fa-solid fa-magnifying-glass absolute z-30 right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-[#cfffdc]"onclick="performSearch()"></i>
+      
+          <!-- 🟢 Suggestions Dropdown -->
+          <ul id="suggestionsBox" class="absolute z-30 dark3 font-semibold head dark1 w-full mt-2 rounded shadow-lg border-2 border-[#253d2c] hidden h-[50vh] overflow-y-auto"></ul>
         </div>
+      
         <button onclick="scrollToLogin()" class="text-[#cfffdc] flex items-center space-x-2 cursor-pointer">
           <strong>Login</strong>
           <i class="fa-solid fa-user-plus text-[#cfffdc]"></i>
         </button>
+      
         <button id="menuBtn" class="md:hidden text-[#cfffdc] font-extrabold cursor-pointer">&#9776;</button>
       </div>
     </nav>

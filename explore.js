@@ -145,4 +145,69 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+// for search bar
+
+function getHotelLink(destination) {
+    let hotel = hotels.find(h => h.name.toLowerCase() === destination.toLowerCase());
+    return hotel ? `card.html?destination=${hotel.name.toLowerCase().replace(/\s+/g, '-').replace(/,/g, '')}` : null;
+}
+
+function showSuggestions() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let suggestionsBox = document.getElementById("suggestionsBox");
+
+    // Clear previous suggestions
+    suggestionsBox.innerHTML = "";
+
+    if (input === "") {
+        suggestionsBox.classList.add("hidden");
+        return;
+    }
+
+    let filtered = hotels.filter(h => h.name.toLowerCase().includes(input));
+
+    if (filtered.length === 0) {
+        suggestionsBox.classList.add("hidden");
+        return;
+    }
+
+    filtered.forEach(hotel => {
+        let li = document.createElement("li");
+        let hotelLink = getHotelLink(hotel.name);
+        li.innerHTML = `<a href="${hotelLink}" class="block px-4 py-2 cursor-pointer hover:bg-[#cfffdc] hover:text-[#2e6f40]">${hotel.name}</a>`;
+        suggestionsBox.appendChild(li);
+    });
+
+    suggestionsBox.classList.remove("hidden");
+}
+
+// 🔍 Search Functionality on Icon Click
+function performSearch() {
+    let query = document.getElementById("searchInput").value.trim();
+
+    if (query === "") {
+        alert("Please enter a search term!");
+        return;
+    }
+
+    let hotelLink = getHotelLink(query);
+
+    if (hotelLink) {
+        window.location.href = hotelLink;  // Open hotel link in same tab
+    } else {
+        window.location.href = "notfound.html";
+    }
+}
+
+
+// Hide suggestions on click outside
+document.addEventListener("click", function (event) {
+    let searchBox = document.getElementById("searchInput");
+    let suggestionsBox = document.getElementById("suggestionsBox");
+    if (!searchBox.contains(event.target)) {
+        suggestionsBox.classList.add("hidden");
+    }
+});
+
+
 
