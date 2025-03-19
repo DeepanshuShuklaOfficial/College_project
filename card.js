@@ -541,9 +541,9 @@ if (tour) {
 
     tourElement.innerHTML = `
     <div class="relative w-full md:h-[70vh] h-[40vh] rounded flex items-center justify-center">
-        <button id="prev-btn" class="cursor-pointer absolute left-2 head dark1 z-100 px-3 py-1 rounded-lg" onclick="prevImage()">❮</button>
+        <button id="prev-btn" class="cursor-pointer absolute left-2 head dark1 z-20 px-3 py-1 rounded-lg" onclick="prevImage()">❮</button>
         <img id="main-image" src="${tour.images[currentIndex]}"class="sharp w-full h-full object-cover rounded-lg">
-        <button id="next-btn" class="cursor-pointer absolute right-2 head dark1 z-100 px-3 py-1 rounded-lg" onclick="nextImage()">❯</button>
+        <button id="next-btn" class="cursor-pointer absolute right-2 head dark1 z-20 px-3 py-1 rounded-lg" onclick="nextImage()">❯</button>
     </div>
 
     <p id="image-index"class="text-center font-bold dark1 mt-2">Image 1 of ${tour.images.length}</p>

@@ -19,18 +19,13 @@
       <div class="flex gap-2">
         <img class="h-[28px] rounded-full" src="images/site logo.png" alt="Website Logo">
         <ul class="gap-1 md:flex hidden justify-between items-center">
-          <li class="tab"><a href="index.html"
-              class="">Home</a></li>
-          <li class="tab"><a
-              href="explore.html?category=Culture%20Trips" class="">Destinations</a></li>
-          <li class="tab"><a href="#"
-              class="">Packages</a></li>
-          <li class="tab"><a href="#"
-              class="">Blog</a></li>
-          <li class="tab"><a href="#"
-              class="">About us</a></li>
+          <li class="tab"><a href="index.html" class="">Home</a></li>
+          <li class="tab"><a href="#" class="">Destinations</a></li>
+          <li class="tab"><a href="#" class="">Packages</a></li>
+          <li class="tab"><a href="#" class="">Blog</a></li>
+          <li class="tab"><a href="#" class="">About us</a></li>
           <li class="tab"><a href=" #">
-            Contact</a></li>
+              Contact</a></li>
         </ul>
       </div>
 
@@ -41,20 +36,24 @@
         <div class="relative">
           <input id="searchInput"
             class="w-[150px] md:w-[300px] pr-8 pl-1.5 py-0.5 border text-[#cfffdc] font-bold border-[#cfffdc] rounded-full outline-none focus:ring-2 focus:ring-[#68BA7F]"
-            type="text" placeholder="Search destinations, tours, or flights..."onkeyup="showSuggestions()" autocomplete="off" aria-autocomplete="none">
-            
+            type="text" placeholder="Search destinations, tours, or flights..." onkeyup="showSuggestions()"
+            autocomplete="off" aria-autocomplete="none">
 
-          <i class="fa-solid fa-magnifying-glass absolute z-30 right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-[#cfffdc]"onclick="performSearch()"></i>
-      
+
+          <i class="fa-solid fa-magnifying-glass absolute z-30 right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-[#cfffdc]"
+            onclick="performSearch()"></i>
+
           <!-- 🟢 Suggestions Dropdown -->
-          <ul id="suggestionsBox" class="absolute z-30 dark3 font-semibold head dark1 w-full mt-2 rounded shadow-lg border-2 border-[#253d2c] hidden h-[50vh] overflow-y-auto"></ul>
+          <ul id="suggestionsBox"
+            class="absolute z-30 dark3 font-semibold head dark1  mt-2 rounded shadow-lg border-2 border-[#253d2c] hidden md:w-full w-[60vw] md:h-[50vh] h-[30vh] overflow-y-auto">
+          </ul>
         </div>
-      
+
         <button onclick="scrollToLogin()" class="text-[#cfffdc] flex items-center space-x-2 cursor-pointer">
           <strong>Login</strong>
           <i class="fa-solid fa-user-plus text-[#cfffdc]"></i>
         </button>
-      
+
         <button id="menuBtn" class="md:hidden text-[#cfffdc] font-extrabold cursor-pointer">&#9776;</button>
       </div>
     </nav>
@@ -64,9 +63,9 @@
       <button id="closeBtn"
         class="text-[#2e6f40] text-2xl font-bold absolute top-[1%] px-1.5 pb-0.5 rounded left-[2%] hover:bg-[#2e6f40] hover:text-[#cfffdc]">&times;</button>
       <ul class="mt-9 space-y-2">
-        <li class="mobile-tab"><a href="#">Home</a>
+        <li class="mobile-tab"><a href="index.html">Home</a>
         </li>
-        <li class="mobile-tab"><a href="explore.html?category=Culture%20Trips">Destinations</a></li>
+        <li class="mobile-tab"><a href="#">Destinations</a></li>
         <li class="mobile-tab"><a href="#">Packages</a>
         </li>
         <li class="mobile-tab"><a href="#">Blog</a>
@@ -111,7 +110,8 @@
         </div>
         <div class="flex justify-around w-[70vw] md:w-[25vw]  items-center">
           <button onclick="scrollToBookNow()"
-            class="cursor-pointer border text-[#cfffdc] bg-[#2e6f40] hover:bg-[#cfffdc] hover:text-[#2e6f40]  rounded-xs px-1.5 py-0.5 font-semibold">Book Now
+            class="cursor-pointer border text-[#cfffdc] bg-[#2e6f40] hover:bg-[#cfffdc] hover:text-[#2e6f40]  rounded-xs px-1.5 py-0.5 font-semibold">Book
+            Now
             &nbsp;<i class="fa-solid fa-paper-plane"></i></button>
           <a href="explore.html"><button
               class="cursor-pointer border text-[#253d2c] bg-[#cfffdc] hover:text-[#cfffdc] hover:bg-[#253d2c] rounded-xs px-1.5 py-0.5 font-semibold">Explore
@@ -152,8 +152,10 @@
 
     <div class="bg">
       <div class="px-3.5 md:px-5 flex justify-between items-center">
-        <button class="text-black" onclick="prevSlide()"><i class="fa-solid fa-circle-left bg-[#2e6f40] text-[#cfffdc] p-2 rounded "></i></button>
-        <button class="text-black" onclick="nextSlide()"><i class="fa-solid fa-circle-right bg-[#2e6f40] text-[#cfffdc] p-2 rounded "></i></button>
+        <button class="text-black" onclick="prevSlide()"><i
+            class="fa-solid fa-circle-left bg-[#2e6f40] text-[#cfffdc] p-2 rounded "></i></button>
+        <button class="text-black" onclick="nextSlide()"><i
+            class="fa-solid fa-circle-right bg-[#2e6f40] text-[#cfffdc] p-2 rounded "></i></button>
       </div>
     </div>
     <!-- Card Section End -->
@@ -195,7 +197,8 @@
             </button>
           </div>
         </div>
-        <button type="submit" class="w-full p-2 font-bold text-white bg-blue-600 rounded hover:bg-blue-700">Login</button>
+        <button type="submit"
+          class="w-full p-2 font-bold text-white bg-blue-600 rounded hover:bg-blue-700">Login</button>
       </form>
 
       <form id="signup-form" class="space-y-4 hidden">
@@ -280,7 +283,8 @@
           <input
             class="w-[150px] md:w-[250px] pr-8 pl-1.5 py-0.5 border text-[#cfffdc] font-bold border-[#cfffdc] rounded outline-none focus:ring-2 focus:ring-[#68BA7F]"
             type="text" placeholder="Enter Your Email...">
-          <i class="fa-solid fa-magnifying-glass absolute right-5 md:right-10 top-1/2 transform -translate-y-1/2 text-white"></i>
+          <i
+            class="fa-solid fa-magnifying-glass absolute right-5 md:right-10 top-1/2 transform -translate-y-1/2 text-white"></i>
         </div>
         <h1 class="font-extrabold text-2xl mt-3">Customer Support</h1>
         <strong>+1900 12 21321</strong>
@@ -294,8 +298,8 @@
       <div>
         <p>&copy; 2025 Panda Tour. All rights reserved.</p>
       </div>
-      <div class="cursor-pointer" onclick="scrollToTop()""><i class="rounded bg dark4 p-1 fa-solid
-        fa-chevron-up"></i></div>
+      <div class="cursor-pointer" onclick="scrollToTop()""><i class=" rounded bg dark4 p-1 fa-solid fa-chevron-up"></i>
+      </div>
     </div>
 
 

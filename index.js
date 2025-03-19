@@ -63,7 +63,7 @@ function generateTopDestinations() {
     topDestinations.forEach(dest => {
         const destDiv = `
          <a href="card.html?destination=${dest.name.toLowerCase().replace(/\s+/g, '-').replace(/,/g, '')}" class="block">
-            <div class="border imp m-auto rounded h-full w-full p-1.5 flex flex-col justify-between hover:shadow-md transition-all">
+            <div class="border border-[#253d2c] imp m-auto rounded h-full w-full p-1.5 flex flex-col justify-between hover:shadow-md transition-all">
                 <img class="rounded sharp h-[80px] md:h-[160px] w-full object-cover object-top" src="${dest.img}" alt="${dest.name}">
                 <div class="flex justify-between items-end mt-auto">
                     <h2 class="text-white font-bold text-[12px] md:text-[16px] w-[80%]">${dest.name}</h2>

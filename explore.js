@@ -209,5 +209,14 @@ document.addEventListener("click", function (event) {
     }
 });
 
+document.getElementById("searchInput").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        performSearch();
+    }
+});
+
+
+
+
 
 
