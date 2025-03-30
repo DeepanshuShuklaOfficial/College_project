@@ -232,4 +232,12 @@ closeBtn.addEventListener('click', () => {
     mobileMenu.classList.add('translate-x-full'); // Slide out
 });
 
+function profilebtn() {
+  const profile =  document.getElementById("auth-container");
+   if(profile.style.display === "none"){
+    profile.style.display = "block";
+   }else{
+    profile.style.display = "none";
+   }
+}
 
