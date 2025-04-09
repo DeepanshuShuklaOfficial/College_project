@@ -29,6 +29,13 @@ async function createBooking(event){
 
           const data = await response.json();
           console.log("Booking Response:", data);
+           if (response.ok) {
+       const msg= document.getElementById("msg").innerHTML;
+       msg = "booking successful"
+        location.reload(); 
+    } else {
+        console.log(data.error);
+    }
           // getUserBooking();
         } catch (error) {
           console.error("Error creating booking:", error);
