@@ -30,7 +30,7 @@ async function registerUser(event) {
     const data = await response.json();
 
     if (response.ok) {
-        console.log("User registered successfully!");
+        alert("User registered successfully!");
         localStorage.setItem("user", JSON.stringify(data.user)); 
         location.reload(); 
     } else {

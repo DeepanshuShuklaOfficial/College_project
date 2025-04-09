@@ -1,5 +1,4 @@
 // for best offer and top destination card generation
-// Card Data
 const cards = [
     { name: "Ayodhya", location: "Uttar Pradesh", img: "images/card/Ayodhya, Uttar Pradesh/1.jpg", price: "₹8,000", discount: "Save 18%" },
     { name: "Taj Mahal", location: "Agra", img: "images/card/Taj Mahal, Agra/1.jpg", price: "₹6,000", discount: "Save 25%" },
@@ -233,7 +232,7 @@ closeBtn.addEventListener('click', () => {
 });
 
 function profilebtn() {
-  const profile =  document.getElementById("auth-container");
+  const profile =  document.getElementById("auth-singup");
    if(profile.style.display === "none"){
     profile.style.display = "block";
    }else{

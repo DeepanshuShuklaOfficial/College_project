@@ -40,8 +40,6 @@ const hotels = [
     { name: "Taj Mahal", price: 15800, type: "Hotels", category: "Culture Trips", direction: "North", image: "images/card/Taj Mahal, Agra/1.jpg" },
     { name: "Udaipur", price: 16900, type: "Hotels", category: "Luxury Cities", direction: "West", image: "images/card/Udaipur, Rajasthan/1.jpg" }
 ];
-const data = JSON.parse(localStorage.getItem("user"))
-console.log(data.username);
 
 function renderHotels(filteredHotels = hotels) {
     const grid = document.getElementById("hotelGrid");

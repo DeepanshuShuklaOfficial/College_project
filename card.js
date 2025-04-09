@@ -571,7 +571,7 @@ if (tour) {
         `).join("")}
     </ul>
 
-    <button class="footer dark1 px-4 py-2 rounded cursor-pointer font-bold mt-4">Book Now</button>
+    <button class="footer dark1 px-4 py-2 rounded cursor-pointer font-bold mt-4"> <a href="book.html" >Book Now</a></button>
 
     <h2 class="text-xl dark4 font-semibold mt-4">Frequently Asked Questions</h2>
     <ul class="mt-2 dark1">
@@ -634,4 +634,4 @@ function toggleFAQ(index) {
     }
 }
 
-
+console.log(tour.title)
