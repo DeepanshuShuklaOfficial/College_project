@@ -1,9 +1,17 @@
+document.addEventListener("DOMContentLoaded", function(){
+document.getElementById("bookbtn").addEventListener("click",createBooking);
+});
 
-async function createBooking(){
+async function createBooking(event){
+  event.preventDefault();
+  const fullname = document.getElementById("fullname").value;
+  const email = document.getElementById("email").value;
   const phoneno = document.getElementById("phoneno").value;
+  const current_location = document.getElementById("location").value;
    const bookon = document.getElementById("bookon").value;
     const adult = document.getElementById("adult").value;
     const child = document.getElementById("child").value;
+
         try {
           const response = await fetch("https://tour-backend-hac6.onrender.com/booking/book", {
             method: "POST",
@@ -11,8 +19,8 @@ async function createBooking(){
               "Content-Type": "application/json",
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
-            body: JSON.stringify({
-              phoneno,
+            body: JSON.stringify({fullname,email,
+              phoneno, current_location,
               bookon,
               adult,
               child,
