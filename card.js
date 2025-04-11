@@ -1,3 +1,26 @@
+document.addEventListener("DOMContentLoaded",() => {
+   document.getElementById("bookbtn").addEventListener("click",createBooking);
+});
+
+function openbook(){
+    const showbookingpage = document.getElementById("Booking-form");
+    const main = document.getElementById("tour-container");
+    const hidden = showbookingpage.classList.contains("hidden");
+    if(hidden){
+     showbookingpage.classList.remove("hidden");
+     main.classList.add("hidden");
+    }
+};
+
+function closebook(){
+    const showbookingpage = document.getElementById("Booking-form");
+    const main = document.getElementById("tour-container");
+    const hidden = main.classList.contains("hidden");
+    if(hidden){
+     showbookingpage.classList.add("hidden");
+     main.classList.remove("hidden");
+    }
+};
 const tours = {
     "ajanta-and-ellora-caves-maharashtra": {
         title: "Ajanta and Ellora Caves Tour",
@@ -522,8 +545,6 @@ const tours = {
     
 };
 
-
-
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
@@ -571,7 +592,7 @@ if (tour) {
         `).join("")}
     </ul>
 
-    <button class="footer dark1 px-4 py-2 rounded cursor-pointer font-bold mt-4"> <a href="book.html" >Book Now</a></button>
+    <button id="bookingbtn" onclick="openbook()" class="footer dark1 px-4 py-2 rounded cursor-pointer font-bold mt-4"> Book Now</button>
 
     <h2 class="text-xl dark4 font-semibold mt-4">Frequently Asked Questions</h2>
     <ul class="mt-2 dark1">
@@ -586,7 +607,6 @@ if (tour) {
         `).join("")}
     </ul>
 `;
-
 
     tourContainer.appendChild(tourElement);
 
@@ -633,5 +653,53 @@ function toggleFAQ(index) {
         icon.innerText = "−";
     }
 }
+const response = document.createElement("bookingplace");
+        response.innerHTML = tour.title
+        document.getElementById("place").appendChild(response);
 
-console.log(tour.title)
+async function createBooking(event){
+  event.preventDefault();
+  const booking_place = document.getElementById("bookingplace").value = tour.title;
+  const fullname = document.getElementById("fullname").value;
+  const email = document.getElementById("email").value;
+  const phoneno = document.getElementById("phoneno").value;
+  const current_location = document.getElementById("location").value;
+   const bookon = document.getElementById("bookon").value;
+    const adult = document.getElementById("adult").value;
+    const child = document.getElementById("child").value;
+    const status = "confirmed";
+
+        try {
+          const response = await fetch("https://tour-backend-hac6.onrender.com/booking/book", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+            body: JSON.stringify({ booking_place , fullname,
+              email,
+              phoneno, current_location,
+              bookon,
+              adult,
+              child,
+              status
+            }),
+          });
+
+          const data = await response.json();
+          console.log("Booking Response:", data);
+           if (response.ok) {
+       const msg= document.getElementById("msg");
+       msg.innerHTML = "booking successful"
+       document.getElementById("resmsg").appendChild(msg)
+       setTimeout(function() {
+        location.reload();
+       }, 500) // 0.5 second delay
+    } else {
+        console.log(data.error);
+    }
+          // getUserBooking();
+        } catch (error) {
+          console.error("Error creating booking:", error);
+        }
+      }
