@@ -56,22 +56,17 @@
         </button>
          <button id="profilebnt" onclick="profilebtn()" class= "space-x-2 cursor-pointer hidden"><i class="fa-solid fa-circle-user fa-xl" style="color: #63e6be;"></i></button>
          <!-- profile page -->
-         <div id="auth-singup" class="h-90 w-90 hidden z-40 absolute bg-emerald-400 top-7">
-                            <h1>Welcome, <span id="h1username"></span></h1>
-                            <h1>email:<span id="logemail"></span></h1>
-                             <button onclick="logout()" class=" text-center">logout</button>
-                        </div>
 
-                        <!-- <div id="auth-container"  class="h-90 w-90 hidden z-40 absolute bg-emerald-400 top-7">
+                        <div id="auth-container"  class="h-90 w-90 hidden z-40 absolute bg-emerald-400 top-7">
                           <button onclick="getProfile()" class="bg-fuchsia-700">Load Profile</button>
                             <div><span><h1 id="logname"></h1></span></div>
                             <span><h1 id="logemail"></h1></span>
                              <button onclick="logout()" class=" bg-amber-950">logout</button>
-                              <h2>Update Profile</h2>
+                              <!-- <h2>Update Profile</h2>
     <input type="text" id="upd-username" placeholder="New Username"  class="bg-blue-600"/><br />
     <input type="email" id="upd-email" placeholder="New Email" class="bg-blue-600" /><br />
-    <button class="bg-amber-700 rounded-xl" onclick="updateProfile()">Update Profile</button>
-                        </div> -->
+    <button class="bg-amber-700 rounded-xl" onclick="updateProfile()">Update Profile</button> -->
+                        </div>
 
         <button id="menuBtn" class="md:hidden text-[#cfffdc] font-extrabold cursor-pointer">&#9776;</button>
       </div>
@@ -216,7 +211,7 @@
             </button>
           </div>
         </div>
-        <button onclick="login(event)" id="login-button" 
+        <button onclick="login(e)" id="login-button" 
           class="w-full p-2 font-bold text-white bg-blue-600 rounded hover:bg-blue-700">Login</button>
       </form>
 

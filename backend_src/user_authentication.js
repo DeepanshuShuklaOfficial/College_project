@@ -5,10 +5,10 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("login-section").style.display = "none";
         document.getElementById("profilebnt").style.display ="block";
         document.getElementById("loginbnt").style.display = "none";
-        const userIcon = document.createElement("h1username");
-        userIcon.innerHTML = user.username
-        userIcon.style.cursor = "pointer";
-        document.getElementById("auth-singup").appendChild(userIcon);
+        // const userIcon = document.createElement("logname");
+        // userIcon.innerHTML = user.username
+        // userIcon.style.cursor = "pointer";
+        // document.getElementById("auth-container").appendChild(userIcon);
     }
     document.getElementById("login-button").addEventListener("click", login);
 });
@@ -33,6 +33,7 @@ async function registerUser(event) {
         alert("User registered successfully!");
         localStorage.setItem("user", JSON.stringify(data.user)); 
         location.reload(); 
+         getProfile()// Call profile fetch function
     } else {
         console.log(data.error);
     }
@@ -85,14 +86,14 @@ async function login(e) {
         }
       }
   
-       async function getProfile() {
+    async function getProfile() {
         const token = localStorage.getItem("token");
         if (!token) {
           console.log("Please login first");
           return;
         }
 
-        const res = await fetch("https://tour-backend-hac6.onrender.com/user/profile", {
+        const res = await fetch("https://tour-backend-hac6.onrender.com/user/profile",{
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -102,19 +103,19 @@ async function login(e) {
 
         const data = await res.json();
         console.log("user:",data );
-         const logname= document.createElement("logname");
-         logname.innerHTML = data.username
+        const logname= document.createElement("logname");
+        logname.innerHTML = data.username
         logname.style.cursor = "pointer";
-         const logemail = document.createElement("logemail");
+        const logemail = document.createElement("logemail");
         logemail.innerHTML = data.email
         logemail.style.cursor = "pointer";
-   document.getElementById("auth-container")
+        document.getElementById("auth-container")
       
-       
+      
       }
 
-       
-       async function updateProfile() {
+    
+      async function updateProfile() {
         const token = localStorage.getItem("token");
         if (!token) {
           console.log("Please login first");
