@@ -1,8 +1,13 @@
 document.addEventListener("DOMContentLoaded",() => {
    document.getElementById("bookbtn").addEventListener("click",createBooking);
 });
-
 function openbook(){
+       const token = localStorage.getItem("token");
+        if (!token) {
+             alert("please login first")
+            history.back();
+          return;
+        }else{
     const showbookingpage = document.getElementById("Booking-form");
     const main = document.getElementById("tour-container");
     const hidden = showbookingpage.classList.contains("hidden");
@@ -10,6 +15,7 @@ function openbook(){
      showbookingpage.classList.remove("hidden");
      main.classList.add("hidden");
     }
+}
 };
 
 function closebook(){
@@ -663,7 +669,7 @@ async function createBooking(event){
   const fullname = document.getElementById("fullname").value;
   const email = document.getElementById("email").value;
   const phoneno = document.getElementById("phoneno").value;
-  const current_location = document.getElementById("location").value;
+  const current_location = document.getElementById("currentlocation").value;
    const bookon = document.getElementById("bookon").value;
     const adult = document.getElementById("adult").value;
     const child = document.getElementById("child").value;
