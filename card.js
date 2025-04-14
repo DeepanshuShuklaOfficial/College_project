@@ -659,17 +659,67 @@ function toggleFAQ(index) {
         icon.innerText = "−";
     }
 }
+
+
+ let cities = [];
+
+  // Fetch Indian cities once
+  fetch("https://countriesnow.space/api/v0.1/countries/cities", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ country: "India" }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      cities = data.data;
+    })
+    .catch((err) => console.error("Error fetching cities:", err));
+
+  function filterCities() {
+    const input = document.getElementById("currentLocation");
+    const errorMsg = document.getElementById("errorMsg");
+    const suggestionBox = document.getElementById("suggestions");
+    const query = input.value.trim().toLowerCase();
+
+    suggestionBox.innerHTML = "";
+    suggestionBox.classList.add("hidden");
+    errorMsg.textContent = "";
+
+    if (!query) return;
+
+    const matches = cities.filter((city) =>
+      city.toLowerCase().startsWith(query)
+    );
+
+    if (matches.length === 0) {
+      errorMsg.textContent = "Please enter a correct city name";
+    } else {
+      suggestionBox.classList.remove("hidden");
+      matches.forEach((city) => {
+        const li = document.createElement("li");
+        li.textContent = city;
+        li.className =
+          "px-4 py-2 cursor-pointer hover:bg-blue-100 transition-colors";
+        li.onclick = () => {
+          input.value = city;
+          suggestionBox.innerHTML = "";
+          suggestionBox.classList.add("hidden");
+        };
+        suggestionBox.appendChild(li);
+      });
+    }
+  }
+
 const response = document.createElement("bookingplace");
         response.innerHTML = tour.title
         document.getElementById("place").appendChild(response);
-
 async function createBooking(event){
   event.preventDefault();
   const booking_place = document.getElementById("bookingplace").value = tour.title;
   const fullname = document.getElementById("fullname").value;
   const email = document.getElementById("email").value;
   const phoneno = document.getElementById("phoneno").value;
-  const current_location = document.getElementById("currentlocation").value;
+  const current_location = document.getElementById("currentLocation").value;
    const bookon = document.getElementById("bookon").value;
     const adult = document.getElementById("adult").value;
     const child = document.getElementById("child").value;
