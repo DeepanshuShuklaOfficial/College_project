@@ -5,10 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("login-section").style.display = "none";
         document.getElementById("profilebnt").style.display ="block";
         document.getElementById("loginbnt").style.display = "none";
-        // const userIcon = document.createElement("logname");
-        // userIcon.innerHTML = user.username
-        // userIcon.style.cursor = "pointer";
-        // document.getElementById("auth-container").appendChild(userIcon);
     }
     document.getElementById("login-button").addEventListener("click", login);
 });
@@ -19,35 +15,48 @@ async function registerUser(event) {
     const username = document.getElementById("username").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    const role = "user";  // Default role, modify as needed
+    const userreg = document.getElementById("userreg");
 
     const response = await fetch("https://tour-backend-hac6.onrender.com/user/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, email, password, role })
+        body: JSON.stringify({ username, email, password})
     });
 
     const data = await response.json();
 
     if (response.ok) {
-        alert("User registered successfully!");
-        localStorage.setItem("user", JSON.stringify(data.user)); 
-        location.reload(); 
-         getProfile()// Call profile fetch function
+        console.log("User registered successfully!");
+        userreg.textContent = " successfully!";
+
+        // ✅ Auto-login right after successful registration
+        const loginResponse = await fetch("https://tour-backend-hac6.onrender.com/user/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password })
+        });
+
+        const loginData = await loginResponse.json();
+
+        if (loginResponse.ok && loginData.token) {
+            localStorage.setItem("token", loginData.token);
+            await getProfile();
+            location.reload();
+        } else {
+            console.log("Auto-login after register failed:", loginData.error);
+        }
     } else {
-        console.log(data.error);
+        console.log(data.error || "Registration failed");
     }
-
 }
-
-
 async function login(e) {
        e.preventDefault();
         const email = document.getElementById("loginemail").value;
         const password = document.getElementById("loginpassword").value;
-        
+        const logingerror = document.getElementById("logingerror");
+        const infillmsg = document.getElementById("infillmsg");
         if (!email || !password) {
-        console.log("Please enter both email and password.");
+        infillmsg.textContent = "Please enter both email and password.";
         return;
     }
 
@@ -57,8 +66,6 @@ async function login(e) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email, password }),
           })
-          .then()
-           
           const data = await res.json();
 
           // Debugging logs
@@ -67,6 +74,7 @@ async function login(e) {
 
           if (!res.ok) {
             console.log(data.error || "Login failed");
+            logingerror.textContent = data.error;
             return;
           }
 
@@ -85,60 +93,34 @@ async function login(e) {
           console.log("An error occurred during login.");
         }
       }
-  
+
     async function getProfile() {
-        const token = localStorage.getItem("token");
-        if (!token) {
-          console.log("Please login first");
-          return;
-        }
+    const token = localStorage.getItem("token");
+    if (!token) {
+        console.log("Please login first");
+        return;
+    }
 
-        const res = await fetch("https://tour-backend-hac6.onrender.com/user/profile",{
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`, // Ensure "Bearer" is included
-          },
-        });
-
-        const data = await res.json();
-        console.log("user:",data );
-        const logname= document.createElement("logname");
-        logname.innerHTML = data.username
-        logname.style.cursor = "pointer";
-        const logemail = document.createElement("logemail");
-        logemail.innerHTML = data.email
-        logemail.style.cursor = "pointer";
-        document.getElementById("auth-container")
-      
-      
-      }
-
-    
-      async function updateProfile() {
-        const token = localStorage.getItem("token");
-        if (!token) {
-          console.log("Please login first");
-          return;
-        }
-
-        const username = document.getElementById("upd-username").value;
-        const email = document.getElementById("upd-email").value;
-
-        const res = await fetch("https://tour-backend-ac6.onrender.com/user/update", {
-          method: "PUT",
-          headers: {
+    const res = await fetch("https://tour-backend-hac6.onrender.com/user/profile", {
+        method: "GET",
+        headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({ username, email }),
-        });
-        const data = await res.json();
-        console.log(data.message || data.error);
-        getProfile();
-      }
+        },
+    });
 
-    
+    const data = await res.json();
+    console.log("user:", data);
+     const usernameEl = document.getElementById("profile-username");
+    const emailEl = document.getElementById("profile-email");
+
+    if (usernameEl && emailEl) {
+        usernameEl.textContent = `Username: ${data.username}`;
+        emailEl.textContent = `Email: ${data.email}`;
+    } else {
+        console.log("Profile elements not found in HTML");
+    }
+}
 function logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");

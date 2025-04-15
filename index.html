@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="output.css">
   <link rel="stylesheet" href="custom.css">
-   <script src="./backend_src/user_authentication.js"></script>
+   <script src="./backend_src/user_register.js"></script>
   <title>Tour and Travel - Home</title>
 </head>
 
@@ -54,18 +54,13 @@
           <strong>Login</strong>
           <i class="fa-solid fa-user-plus text-[#cfffdc]"></i>
         </button>
-         <button id="profilebnt" onclick="profilebtn()" class= "space-x-2 cursor-pointer hidden"><i class="fa-solid fa-circle-user fa-xl" style="color: #63e6be;"></i></button>
+         <button id="profilebnt" onclick="profilebtn() , getProfile()" class= "space-x-2 cursor-pointer hidden"><i class="fa-solid fa-circle-user fa-xl" style="color: #63e6be;"></i></button>
          <!-- profile page -->
 
-                        <div id="auth-container"  class="h-90 w-90 hidden z-40 absolute bg-emerald-400 top-7">
-                          <button onclick="getProfile()" class="bg-fuchsia-700">Load Profile</button>
-                            <div><span><h1 id="logname"></h1></span></div>
-                            <span><h1 id="logemail"></h1></span>
-                             <button onclick="logout()" class=" bg-amber-950">logout</button>
-                              <!-- <h2>Update Profile</h2>
-    <input type="text" id="upd-username" placeholder="New Username"  class="bg-blue-600"/><br />
-    <input type="email" id="upd-email" placeholder="New Email" class="bg-blue-600" /><br />
-    <button class="bg-amber-700 rounded-xl" onclick="updateProfile()">Update Profile</button> -->
+                        <div id="auth-container"  class="h-90 w-58 hidden z-40 absolute bg-emerald-400 top-7">
+                           <span id="profile-username"></span><br>
+                           <span id="profile-email"></span><br>
+                             <button onclick="logout()" class=" h-10 w-18 bg-[#00FFFF] rounded-3xl hover:bg-[#AFEEEE] ml-1.5 mt-5 border-[2px] border-[#00FFFF] p-1">logout</button>
                         </div>
 
         <button id="menuBtn" class="md:hidden text-[#cfffdc] font-extrabold cursor-pointer">&#9776;</button>
@@ -199,6 +194,7 @@
         <div>
           <label class="block mb-1 font-medium">Email</label>
           <input type="email" id="loginemail" class="w-full p-2 border rounded" placeholder="Enter your email" required>
+          <small id="logingerror" class="text-red-500 mt-1 block"></small>
         </div>
         <div>
           <label class="block mb-1 font-medium">Password</label>
@@ -209,12 +205,13 @@
               onclick="togglePassword('loginpassword', 'toggle-login')">
               <i id="toggle-login" class="fa-solid fa-eye text-gray-600"></i>
             </button>
+            <small id="infillmsg" class="text-red-500 mt-1 block"></small>
           </div>
         </div>
         <button onclick="login(e)" id="login-button" 
           class="w-full p-2 font-bold text-white bg-blue-600 rounded hover:bg-blue-700">Login</button>
       </form>
-
+     
       <form id="signup-form" onsubmit="registerUser(event)"  class="space-y-4 hidden">
         <div>
           <label class="block mb-1 font-medium">Full Name</label>
@@ -230,13 +227,14 @@
             <input type="password" id="password" class="w-full p-2 border rounded pr-10"
               placeholder="Create a password" required>
             <button type="button" class="absolute inset-y-0 right-2 flex items-center"
-              onclick="togglePassword('signup-password', 'toggle-signup')">
+              onclick="togglePassword('password', 'toggle-signup')">
               <i id="toggle-signup" class="fa-solid fa-eye text-gray-600"></i>
             </button>
           </div>
         </div>
         <button type="submit" class="w-full p-2 text-white font-bold bg-green-600 rounded hover:bg-green-700">Sign
           Up</button>
+          <p id="userreg" class="text-blue-500 mt-1 block"></p>
       </form>
 
       <p class="text-center text-sm">
