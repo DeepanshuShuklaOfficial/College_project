@@ -717,7 +717,7 @@ async function createBooking(event){
   event.preventDefault();
   const booking_place = document.getElementById("bookingplace").value = tour.title;
   const fullname = document.getElementById("fullname").value;
-  const email = document.getElementById("email").value;
+  const email = document.getElementById("bookemail").value;
   const phoneno = document.getElementById("phoneno").value;
   const current_location = document.getElementById("currentLocation").value;
    const bookon = document.getElementById("bookon").value;

@@ -78,33 +78,51 @@ async function login(e) {
           console.log("An error occurred during login.");
         }
       }
-
-    async function getProfile() {
+async function getProfile() {
     const token = localStorage.getItem("token");
     if (!token) {
         console.log("Please login first");
         return;
     }
 
-    const res = await fetch("https://tour-backend-hac6.onrender.com/user/profile", {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-        },
-    });
+    try {
+        const res = await fetch("https://tour-backend-hac6.onrender.com/user/profile", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+            },
+        });
 
-    const data = await res.json();
-     const usernameEl = document.getElementById("profile-username");
-    const emailEl = document.getElementById("profile-email");
+        const data = await res.json();
 
-    if (usernameEl && emailEl) {
-        usernameEl.textContent = `Username: ${data.username}`;
-        emailEl.textContent = `Email: ${data.email}`;
-    } else {
-        console.log("Profile elements not found in HTML");
+        if (res.ok) {
+            // ✅ Auto-fill form inputs
+            const usernameInput = document.getElementById("fullname");
+            const emailInput = document.getElementById("bookemail");
+
+            if (usernameInput && emailInput) {
+                usernameInput.value = data.username;
+                emailInput.value = data.email;
+            }
+
+            // ✅ Optional: display on the page too
+            const usernameEl = document.getElementById("profile-username");
+            const emailEl = document.getElementById("profile-email");
+
+            if (usernameEl && emailEl) {
+                usernameEl.textContent = `Username: ${data.username}`;
+                emailEl.textContent = `Email: ${data.email}`;
+            }
+        } else {
+            console.log(data.error || "Failed to load profile");
+        }
+    } catch (error) {
+        console.error("Error fetching profile:", error);
     }
 }
+
+
 function logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
