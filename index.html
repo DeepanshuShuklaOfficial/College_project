@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="output.css">
   <link rel="stylesheet" href="custom.css">
-   <script src="./backend_src/user_register.js"></script>
+   <script src="./javascript/user_register.js"></script>
   <title>Tour and Travel - Home</title>
 </head>
 
@@ -54,7 +54,7 @@
           <strong>Login</strong>
           <i class="fa-solid fa-user-plus text-[#cfffdc]"></i>
         </button>
-         <button id="profilebnt" onclick="profilebtn() , getProfile()" class= "space-x-2 cursor-pointer hidden"><i class="fa-solid fa-circle-user fa-xl" style="color: #63e6be;"></i></button>
+         <button id="profilebnt" onclick="profilebtn()" class= "space-x-2 cursor-pointer hidden"><i class="fa-solid fa-circle-user fa-xl" style="color: #63e6be;"></i></button>
          <!-- profile page -->
 
                         <div id="auth-container"  class="h-90 w-58 hidden z-40 absolute bg-emerald-400 top-7">
@@ -243,11 +243,9 @@
       </p>
     </div>
   </div>
-    
+  
   <!-- Login/signup section ends here -->
-
   <div class="bg-gray-600 w-[90vw] m-auto h-0.5 my-4"></div>
-
   <!-- footer start here -->
   <footer class="footer dark1">
     <div class="md:w-[90vw] w-auto grid grid-cols-2 md:grid-cols-4 gap-y-2 py-2 px-4 m-auto">
@@ -296,11 +294,8 @@
           <input
             class="w-full pr-10 pl-2 py-1 border text-[#cfffdc] font-bold border-[#cfffdc] rounded outline-none focus:ring-2 focus:ring-[#68BA7F] bg-transparent"
             type="text"
-            placeholder="Enter Your Email..."
-          >
-          <i
-            class="fa-solid fa-magnifying-glass absolute right-2 top-1/2 transform -translate-y-1/2 text-[#cfffdc]"
-          ></i>
+            placeholder="Enter Your Email...">
+          <i class="fa-solid fa-magnifying-glass absolute right-2 top-1/2 transform -translate-y-1/2 text-[#cfffdc]"></i>
         </div>
         
         <h1 class="font-extrabold text-2xl mt-3">Customer Support</h1>
@@ -315,21 +310,15 @@
       <div>
         <p>&copy; 2025 Panda Tour. All rights reserved.</p>
       </div>
-      <div class="cursor-pointer" onclick="scrollToTop()""><i class=" rounded bg dark4 p-1 fa-solid fa-chevron-up"></i>
+      <div class="cursor-pointer" onclick="scrollToTop()"><i class=" rounded bg dark4 p-1 fa-solid fa-chevron-up"></i>
       </div>
     </div>
-
-
   </footer>
   <!-- footer ends here -->
-
-  <!-- Java scripts -->
   <script src="https://kit.fontawesome.com/dc91047fb7.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <script src="index.js"></script>
   <script src="explore.js"></script>
   <script src="card.js"></script>
-  <!-- Java scripts end here -->
 </body>
-
 </html>

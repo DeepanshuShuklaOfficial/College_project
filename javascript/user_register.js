@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const user = JSON.parse(localStorage.getItem("user"));
     const token = localStorage.getItem("token");
-    if (user || token) {
+    if ( token) {
+       getProfile();
         document.getElementById("login-section").style.display = "none";
         document.getElementById("profilebnt").style.display ="block";
         document.getElementById("loginbnt").style.display = "none";
@@ -29,22 +29,11 @@ async function registerUser(event) {
         console.log("User registered successfully!");
         userreg.textContent = " successfully!";
 
-        // ✅ Auto-login right after successful registration
-        const loginResponse = await fetch("https://tour-backend-hac6.onrender.com/user/login", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email, password })
-        });
-
-        const loginData = await loginResponse.json();
-
-        if (loginResponse.ok && loginData.token) {
-            localStorage.setItem("token", loginData.token);
-            await getProfile();
-            location.reload();
-        } else {
-            console.log("Auto-login after register failed:", loginData.error);
+         if (data.token) {
+            localStorage.setItem("token", data.token);
         }
+        localStorage.setItem("user", JSON.stringify(data.user)); 
+        location.reload(); 
     } else {
         console.log(data.error || "Registration failed");
     }
@@ -67,8 +56,6 @@ async function login(e) {
             body: JSON.stringify({ email, password }),
           })
           const data = await res.json();
-
-          // Debugging logs
           console.log("Login Response Status:", res.status);
           console.log("Login Response Data:", data);
 
@@ -80,10 +67,8 @@ async function login(e) {
 
           if (data.token) {
             localStorage.setItem("token", data.token);
-            console.log("Token Saved:", localStorage.getItem("token")); // Debugging
             console.log("Login successful!");
             location.reload();
-            getProfile()// Call profile fetch function
           }
           else {
             console.log("No token received from server!");
@@ -110,7 +95,6 @@ async function login(e) {
     });
 
     const data = await res.json();
-    console.log("user:", data);
      const usernameEl = document.getElementById("profile-username");
     const emailEl = document.getElementById("profile-email");
 
