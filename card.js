@@ -661,7 +661,7 @@ function toggleFAQ(index) {
 }
 
 
- let cities = [];
+ const cities = [];
 
   // Fetch Indian cities once
   fetch("https://countriesnow.space/api/v0.1/countries/cities", {

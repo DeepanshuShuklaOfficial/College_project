@@ -117,6 +117,12 @@ async function getProfile() {
         } else {
             console.log(data.error || "Failed to load profile");
         }
+        
+        if(data.error === "Invalid token" ){
+            localStorage.removeItem("token");
+          location.reload();
+        }
+
     } catch (error) {
         console.error("Error fetching profile:", error);
     }
