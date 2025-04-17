@@ -661,7 +661,7 @@ function toggleFAQ(index) {
 }
 
 
- const cities = [];
+ let cities = [];
 
   // Fetch Indian cities once
   fetch("https://countriesnow.space/api/v0.1/countries/cities", {
@@ -710,9 +710,12 @@ function toggleFAQ(index) {
     }
   }
 
-const response = document.createElement("bookingplace");
-        response.innerHTML = tour.title
-        document.getElementById("place").appendChild(response);
+
+
+//  for booking form 
+
+  document.getElementById("bookingplace").value = tour.title;
+
 async function createBooking(event){
   event.preventDefault();
   const booking_place = document.getElementById("bookingplace").value = tour.title;
@@ -746,11 +749,11 @@ async function createBooking(event){
           console.log("Booking Response:", data);
            if (response.ok) {
        const msg= document.getElementById("msg");
-       msg.innerHTML = "booking successful"
+       msg.innerHTML = "booking successful..."
        document.getElementById("resmsg").appendChild(msg)
        setTimeout(function() {
         location.reload();
-       }, 500) // 0.5 second delay
+       }, 5000) // 5 second delay
     } else {
         console.log(data.error);
     }

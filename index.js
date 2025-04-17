@@ -190,6 +190,8 @@ function togglePassword(inputId, iconId) {
     }
 }
 
+
+
 // for login scroll 
 
 function scrollToLogin() {

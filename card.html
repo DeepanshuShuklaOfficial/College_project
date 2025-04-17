@@ -2,33 +2,28 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="output.css">
-    <link rel="stylesheet" href="custom.css">
-    <script src="javascript/user_register.js"></script>
-    <title>Tour and Travel - Explore</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="output.css">
+  <link rel="stylesheet" href="custom.css">
+  <script src="javascript/user_register.js"></script>
+  <title>Tour and Travel - Explore</title>
 </head>
+
 <body class="bg">
-   <!-- nav bar starts here -->
+  <!-- nav bar starts here -->
   <header id="header">
     <nav class="h-[30px] w-full head flex justify-between items-center p-5">
       <!-- this is for right left hand side part -->
       <div class="flex gap-2">
         <img class="h-[28px] rounded-full" src="images/site logo.png" alt="Website Logo">
         <ul class="gap-1 md:flex hidden justify-between items-center">
-          <li class="tab"><a href="index.html"
-              class="">Home</a></li>
-          <li class="tab"><a href="#"
-              class="">Destinations</a></li>
-          <li class="tab"><a href="#"
-              class="">Packages</a></li>
-          <li class="tab"><a href="#"
-              class="">Blog</a></li>
-          <li class="tab"><a href="#"
-              class="">About us</a></li>
-          <li class="tab"><a href="#"
-              class="">Contact</a></li>
+          <li class="tab"><a href="index.html" class="">Home</a></li>
+          <li class="tab"><a href="#" class="">Destinations</a></li>
+          <li class="tab"><a href="#" class="">Packages</a></li>
+          <li class="tab"><a href="#" class="">Blog</a></li>
+          <li class="tab"><a href="#" class="">About us</a></li>
+          <li class="tab"><a href="#" class="">Contact</a></li>
         </ul>
       </div>
       <!-- this is for right hand side part -->
@@ -36,10 +31,14 @@
         <div class="relative">
           <input id="searchInput"
             class="w-[200px] md:w-[300px] pr-8 pl-1.5 py-0.5 border text-[#cfffdc] font-bold border-[#cfffdc] rounded-full outline-none focus:ring-2 focus:ring-[#68BA7F]"
-            type="text" placeholder="Search destinations, tours, or flights..."onkeyup="showSuggestions()" autocomplete="off" aria-autocomplete="none">
-          <i class="fa-solid fa-magnifying-glass absolute z-30 right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-[#cfffdc]"onclick="performSearch()"></i>
+            type="text" placeholder="Search destinations, tours, or flights..." onkeyup="showSuggestions()"
+            autocomplete="off" aria-autocomplete="none">
+          <i class="fa-solid fa-magnifying-glass absolute z-30 right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-[#cfffdc]"
+            onclick="performSearch()"></i>
           <!-- 🟢 Suggestions Dropdown -->
-          <ul id="suggestionsBox" class="absolute z-30 dark3 font-semibold md:w-full w-[60vw] md:h-[50vh] h-[30vh] head dark1 mt-2 rounded shadow-lg border-2 border-[#253d2c] hidden overflow-y-auto"></ul>
+          <ul id="suggestionsBox"
+            class="absolute z-30 dark3 font-semibold md:w-full w-[60vw] md:h-[50vh] h-[30vh] head dark1 mt-2 rounded shadow-lg border-2 border-[#253d2c] hidden overflow-y-auto">
+          </ul>
         </div>
         </button>
         <button id="menuBtn" class="md:hidden text-[#cfffdc] font-extrabold cursor-pointer">&#9776;</button>
@@ -65,192 +64,146 @@
       </ul>
     </div>
   </header>
-    <main>
-        <div id="tour-container" class="mx-4 md:mx-5 mt-3 md:my-5 pt-3"></div>
-        <!-- do not touch these   -->
-        <div class="hidden">
-            <div id="cardWrapper"></div>
-            <div id="topDestWrapper"></div>
-        </div>
-        <button id="toggle-btn"></button>
-        </div>
-      </main>
-    <div id="Booking-section" class="w-full flex justify-center items-center ">
-      <div id="Booking-form" class="w-full sm:w-md px-8 py-4 space-y-6 bg rounded-lg hidden ">
-        <form
-          onsubmit="createBooking(event)"
-          class="space-y-4"
-        >
-        <div id="place" class="justify-center">
-            <label class="block mb-1 font-medium">Place</label>
-             <h1 id="bookingplace"> </h1>
-          </div>
-          <div>
-            <label class="block mb-1 font-medium">Full Name</label>
-            <input
-              type="text"
-              id="fullname"
-              class="w-full p-2 border rounded"
-              placeholder="Enter your full name"
-              required
-            />
-          </div>
-          <div>
-            <label class="block mb-1 font-medium">Email</label>
-            <input
-              type="email"
-              id="bookemail"
-              class="w-full p-2 border rounded"
-              placeholder="Enter your email"
-              required
-            />
-          </div>
-          <div>
-          <label class="block mb-1 font-medium">phone no.</label>
-          <div class="relative w-full max-w-sm">
-  <span id="countrycode" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">+91</span>
-  <input
-    type="text"
-    id="phoneno"
-    oninput="nummassage()"
-    class="pl-12 pr-4 py-2 w-full border border-gray-400 rounded bg-blue-100 focus:outline-none"
-    maxlength="10"
-    minlength="10"
-    placeholder="           Enter 10-digit phone number"
-  />
-   <input type="hidden"
-            id="fullno"
-            name="fullno"
-            />
-            <small id="nummsg" class="text-red-500 mt-1 block" style="color: red;"></small>
-          </div>
-            <script>
-              function nummassage() {
-  const errorMsg = document.getElementById("nummsg");
-  const fullno = document.getElementById("phoneno");
+  <main>
+    <div id="tour-container" class="mx-4 md:mx-5 mt-3 md:my-5 pt-3"></div>
+    <!-- do not touch these   -->
+    <div class="hidden">
+      <div id="cardWrapper"></div>
+      <div id="topDestWrapper"></div>
+    </div>
+    <button id="toggle-btn"></button>
+    </div>
+  </main>
 
-  if (fullno.value.length !== 10) {
-    errorMsg.textContent = "Please enter your 10-digit contact number";
-  } else {
-    errorMsg.textContent = ""; // clear message if valid
-  }
-}
-              function submitphone(){
-                const countrycode = document.getElementById("countrycode").value;
-                const phone = document.getElementById("phoneno").value;
-                document.getElementById("fullno").value = countrycode + phone;
-                return true;
-              }
-            </script>
+  <!-- booking section -->
+  <div id="Booking-section" class="w-full flex justify-center items-center bg py-8 px-4">
+    <div id="Booking-form"
+      class="w-full sm:w-[32rem] p-8 bg-white rounded-2xl shadow-2xl space-y-4 hidden transition duration-300 ease-in-out">
+      <form onsubmit="createBooking(event)" class="space-y-4">
+
+        <div>
+          <label class="block mb-2 text-lg font-bold text-gray-800">Place</label>
+          <input type="text" id="bookingplace"
+            class="w-full p-3 border border-gray-300 font-bold rounded-lg bg-gray-100 text-gray-600 cursor-not-allowed"
+            readonly />
+        </div>
+
+        <div>
+          <label class="block mb-2 text-lg font-semibold text-gray-800">Full Name</label>
+          <input type="text" id="fullname"
+            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter your full name" required />
+        </div>
+
+        <div>
+          <label class="block mb-2 text-lg font-semibold text-gray-800">Email</label>
+          <input type="email" id="bookemail"
+            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter your email" required />
+        </div>
+
+        <div>
+          <label class="block mb-2 text-lg font-semibold text-gray-800">Phone No.</label>
+          <div class="relative">
+            <span id="countrycode" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">+91</span>
+            <input type="text" id="phoneno" oninput="nummassage()"
+              class="pl-12 pr-4 py-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              maxlength="10" minlength="10" placeholder="Enter 10-digit phone number" />
+            <input type="hidden" id="fullno" name="fullno" />
+            <small id="nummsg" class="text-red-500 mt-1 block text-sm"></small>
           </div>
-          <div class="relative w-full max-w-md">
-            <label for="currentLocation" class="block mb-1 font-medium">current location</label>
-            <input
-              type="text"
-              id="currentLocation"
-              class="w-full p-2 border rounded pr-10"
-              placeholder="your current location"
-              oninput="filterCities()" 
-              autocomplete="on"
-              required
-            />
-            <ul
-  id="suggestions"
-  class="absolute z-10 w-[75%] mt-1  border border-gray-300 rounded shadow-lg max-h-60 overflow-y-auto overflow-x-hidden hidden"
-  style="max-height: 15rem; overflow-y: auto; background-color: whitesmoke;"
-></ul>
-  <small id="errorMsg" class="text-red-500 mt-1 block" style="color: red;"></small>
+        </div>
+
+        <div class="relative">
+          <label for="currentLocation" class="block mb-2 text-lg font-semibold text-gray-800">Current Location</label>
+          <input type="text" id="currentLocation"
+            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Your current location" oninput="filterCities()" autocomplete="on" required />
+          <ul id="suggestions"
+            class="absolute z-50 w-full mt-2 bg-white border border-gray-300 rounded-xl shadow-lg hidden max-h-60 overflow-y-auto transition-all duration-200 ease-in-out">
+          </ul>
+
+          <small id="errorMsg" class="text-red-500 mt-1 block text-sm"></small>
+        </div>
+
+        <div>
+          <label class="block mb-2 text-lg font-semibold text-gray-800">Book on Date</label>
+          <input type="date" id="bookon"
+            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required />
+          <script>
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, "0");
+            const dd = String(today.getDate()).padStart(2, "0");
+            const mindate = `${yyyy}-${mm}-${dd}`;
+            const maxdate = `${yyyy + 1}-12-31`;
+            const dateinput = document.getElementById("bookon");
+            dateinput.min = mindate;
+            dateinput.max = maxdate;
+          </script>
+        </div>
+
+        <div class="grid grid-cols-2 gap-6">
+          <div>
+            <label class="block mb-2 text-lg font-semibold text-gray-800">Adult</label>
+            <input type="number" min="0" max="30" id="adult"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              oninput="checkadult(this)" placeholder="0" required />
+            <small id="secmsg" class="text-red-500 mt-1 block text-sm"></small>
           </div>
           <div>
-            <label class="block mb-1 font-medium">book on date</label>
-            <input
-              type="date"
-              id="bookon"
-              class="w-full p-2 border rounded pr-10"
-              required
-            />
-            <script>
-              const today = new Date();
-              const yyyy = today.getFullYear();
-              const mm = String(today.getMonth() + 1).padStart(2, "0");
-              const dd = String(today.getDate()).padStart(2, "0");
-              const mindate = `${yyyy}-${mm}-${dd}`;
-              const maxdate = `${yyyy + 1}-12-31`;
-              const dateinput = document.getElementById("bookon");
-              dateinput.min = mindate;
-               dateinput.max = maxdate;
-            </script>
+            <label class="block mb-2 text-lg font-semibold text-gray-800">Child</label>
+            <input type="number" min="0" max="20" id="child"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              oninput="checkchild(this)" placeholder="0" required />
+            <small id="themsg" class="text-red-500 mt-1 block text-sm"></small>
           </div>
-          <div>
-            <span><label class="block mb-1 font-medium">adult</label></span>
-            <span
-              ><input
-                type="number"
-                min="0"
-                max="30"
-                id="adult"
-                class="w-15 p-2 border rounded pr-2"
-                oninput="checkadult(this)"
-                placeholder="0"
-                required
-              />
-              <small id="secmsg"  class="text-red-500 mt-1 block" style="color: red;"></small>
-            </span>
-            <script>
-              function checkadult(input){
-                 const errorMsg = document.getElementById("secmsg");
-                if(input.value > 30){
-                   errorMsg.textContent = "only 30 person are allow";
-                  input.value = 30;
-                }
+          <script>
+            function checkadult(input) {
+              const errorMsg = document.getElementById("secmsg");
+              if (input.value > 30) {
+                errorMsg.textContent = "Only 30 persons are allowed";
+                input.value = 30;
+              } else {
+                errorMsg.textContent = "";
               }
-            </script>
-          </div>
-          <div>
-            <label class="block mb-1 font-medium">child</label>
-            <input
-              type="number"
-              min="0"
-              max="20"
-              id="child"
-              class="w-25 p-2 border rounded pr-3"
-              oninput="checkchild(this)"
-              placeholder="0"
-              required
-            />
-            <small id="themsg"  class="text-red-500 mt-1 block" style="color: red;"></small>
-            <script>
-              function checkchild(input){
-                 const errorMsg = document.getElementById("themsg");
-                if(input.value > 20){
-                  errorMsg.textContent = "only 20 childrens are allow";
-                  input.value = 20;
-                }
+            }
+
+            function checkchild(input) {
+              const errorMsg = document.getElementById("themsg");
+              if (input.value > 20) {
+                errorMsg.textContent = "Only 20 children are allowed";
+                input.value = 20;
+              } else {
+                errorMsg.textContent = "";
               }
-            </script>
-          </div>
-          <button
-          id="cancelbtn"
-            type="reset"
-            class="w-30 p-2 text-white font-bold bg-blue-600 rounded hover:bg-blue-800 mr-10"
-            onclick="closebook()"
-          >
+            }
+          </script>
+        </div>
+
+        <div class="flex justify-between mt-6">
+          <button id="cancelbtn" type="reset"
+            class="px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-800 transition"
+            onclick="closebook()">
             Cancel
           </button>
-          <button
-            type="submit"
-            id="bookbtn"
-            class="w-30 p-2  text-white font-bold bg-green-600 rounded hover:bg-green-700"
-            onclick="submitphone()"
-          >
-            book
+          <button type="submit" id="bookbtn"
+            class="px-6 py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition"
+            onclick="submitphone()">
+            Book
           </button>
-        </form>
-         <div id="resmsg" class="max-w-full">
-        <h1 id="msg"> </h1>
         </div>
+      </form>
+
+      <div id="resmsg" class="mt-4 text-center">
+        <h1 id="msg" class="text-xl font-semibold text-green-700 bg-green-100 border border-green-300 rounded-xl p-4 mt-4 shadow-md text-center transition-all ease-in-out"
+></h1>
+
       </div>
     </div>
+  </div>
+
   <!-- footer start here -->
   <footer class="footer dark1">
     <div class="md:w-[90vw] w-auto grid grid-cols-2 md:grid-cols-4 gap-y-2 py-2 px-4 m-auto">
@@ -298,14 +251,11 @@
         <div class="relative w-[150px] md:w-[250px]">
           <input
             class="w-full pr-10 pl-2 py-1 border text-[#cfffdc] font-bold border-[#cfffdc] rounded outline-none focus:ring-2 focus:ring-[#68BA7F] bg-transparent"
-            type="text"
-            placeholder="Enter Your Email..."
-          >
+            type="text" placeholder="Enter Your Email...">
           <i
-            class="fa-solid fa-magnifying-glass absolute right-2 top-1/2 transform -translate-y-1/2 text-[#cfffdc]"
-          ></i>
+            class="fa-solid fa-magnifying-glass absolute right-2 top-1/2 transform -translate-y-1/2 text-[#cfffdc]"></i>
         </div>
-        
+
         <h1 class="font-extrabold text-2xl mt-3">Customer Support</h1>
         <strong>+1900 12 21321</strong>
         <p>office@pandatour.com</p>
@@ -324,10 +274,10 @@
 
 
   </footer>
-    <script src="https://kit.fontawesome.com/dc91047fb7.js" crossorigin="anonymous"></script>
-    <script src="index.js"></script>
-    <script src="explore.js"></script>
-    <script src="card.js"></script>
+  <script src="https://kit.fontawesome.com/dc91047fb7.js" crossorigin="anonymous"></script>
+  <script src="index.js"></script>
+  <script src="explore.js"></script>
+  <script src="card.js"></script>
 </body>
 
 </html>
