@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (token) {
         getProfile();
         document.getElementById("login-section").style.display = "none";
+        document.getElementById("form-line").style.display = "none";
         document.getElementById("profilebnt").style.display = "block";
         document.getElementById("loginbnt").style.display = "none";
     }
@@ -17,36 +18,51 @@ async function registerUser(event) {
     const password = document.getElementById("password").value;
     const userreg = document.getElementById("userreg");
 
-    // ✅ Validate input
+    userreg.textContent = "";
+
+    // Validate
     if (!validateEmail(email)) {
         userreg.textContent = "Please enter a valid email address.";
         return;
     }
-
     if (!validatePassword(password)) {
         userreg.textContent = "Password must be at least 8 characters long and include letters and numbers.";
         return;
     }
 
-    const response = await fetch("https://tour-backend-hac6.onrender.com/user/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, email, password })
-    });
+    // Show spinner
+    document.getElementById("signup-btn-text").classList.add("hidden");
+    document.getElementById("signup-spinner").classList.remove("hidden");
 
-    const data = await response.json();
+    try {
+        const response = await fetch("https://tour-backend-hac6.onrender.com/user/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, email, password })
+        });
 
-    if (response.ok) {
-        console.log("User registered successfully!");
-        userreg.textContent = " successfully!";
+        const data = await response.json();
 
-        if (data.token) {
-            localStorage.setItem("token", data.token);
+        // Hide spinner
+        document.getElementById("signup-btn-text").classList.remove("hidden");
+        document.getElementById("signup-spinner").classList.add("hidden");
+
+        if (response.ok) {
+            console.log("User registered successfully!");
+            userreg.textContent = "Successfully registered!";
+            if (data.token) {
+                localStorage.setItem("token", data.token);
+            }
+            localStorage.setItem("user", JSON.stringify(data.user));
+            location.reload();
+        } else {
+            userreg.textContent = data.error || "Registration failed";
         }
-        localStorage.setItem("user", JSON.stringify(data.user));
-        location.reload();
-    } else {
-        console.log(data.error || "Registration failed");
+    } catch (error) {
+        console.error("Registration error:", error);
+        userreg.textContent = "An error occurred. Please try again.";
+        document.getElementById("signup-btn-text").classList.remove("hidden");
+        document.getElementById("signup-spinner").classList.add("hidden");
     }
 }
 
@@ -57,10 +73,10 @@ async function login(e) {
     const logingerror = document.getElementById("logingerror");
     const infillmsg = document.getElementById("infillmsg");
 
-    // 🔥 Clear previous messages
     logingerror.textContent = "";
     infillmsg.textContent = "";
 
+    // Validate
     if (!email || !password) {
         infillmsg.textContent = "Please enter both email and password.";
         return;
@@ -69,42 +85,47 @@ async function login(e) {
         infillmsg.textContent = "Please enter a valid email.";
         return;
     }
-
     if (!validatePassword(password)) {
         infillmsg.textContent = "Invalid password. Use at least 8 characters with a mix of letters and numbers.";
         return;
     }
 
+    // Show spinner
+    document.getElementById("login-btn-text").classList.add("hidden");
+    document.getElementById("login-spinner").classList.remove("hidden");
 
     try {
         const res = await fetch("https://tour-backend-hac6.onrender.com/user/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email, password }),
-        })
+        });
+
         const data = await res.json();
-        console.log("Login Response Status:", res.status);
-        console.log("Login Response Data:", data);
+
+        // Hide spinner
+        document.getElementById("login-btn-text").classList.remove("hidden");
+        document.getElementById("login-spinner").classList.add("hidden");
 
         if (!res.ok) {
-            console.log(data.error || "Login failed");
             logingerror.textContent = data.error;
             return;
         }
 
         if (data.token) {
             localStorage.setItem("token", data.token);
-            console.log("Login successful!");
             location.reload();
-        }
-        else {
-            console.log("No token received from server!");
+        } else {
+            console.log("No token received!");
         }
     } catch (error) {
-        console.error("Login Error:", error);
-        console.log("An error occurred during login.");
+        console.error("Login error:", error);
+        logingerror.textContent = "An error occurred. Please try again.";
+        document.getElementById("login-btn-text").classList.remove("hidden");
+        document.getElementById("login-spinner").classList.add("hidden");
     }
 }
+
 async function getProfile() {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -124,7 +145,6 @@ async function getProfile() {
         const data = await res.json();
 
         if (res.ok) {
-            // ✅ Auto-fill form inputs
             const usernameInput = document.getElementById("fullname");
             const emailInput = document.getElementById("bookemail");
 
@@ -133,7 +153,6 @@ async function getProfile() {
                 emailInput.value = data.email;
             }
 
-            // ✅ Optional: display on the page too
             const usernameEl = document.getElementById("profile-username");
             const emailEl = document.getElementById("profile-email");
 
@@ -155,9 +174,8 @@ async function getProfile() {
     }
 }
 
-
 function logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    location.reload(); // Refresh page after logout
+    location.reload();
 }

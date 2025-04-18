@@ -234,11 +234,12 @@ closeBtn.addEventListener('click', () => {
 });
 
 function profilebtn() {
-  const profile =  document.getElementById("auth-container");
-   if(profile.style.display === "none"){
-    profile.style.display = "block";
-   }else{
-    profile.style.display = "none";
-   }
+    const profile = document.getElementById("auth-container");
+    if (profile.style.display === "none") {
+        profile.style.display = "block";
+    } else {
+        profile.style.display = "none";
+    }
 }
+
 
