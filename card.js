@@ -661,104 +661,190 @@ function toggleFAQ(index) {
 }
 
 
- let cities = [];
+let cities = [];
 
-  // Fetch Indian cities once
-  fetch("https://countriesnow.space/api/v0.1/countries/cities", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ country: "India" }),
+// Fetch Indian cities once
+fetch("https://countriesnow.space/api/v0.1/countries/cities", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ country: "India" }),
+})
+  .then((res) => res.json())
+  .then((data) => {
+    cities = data.data;
   })
-    .then((res) => res.json())
-    .then((data) => {
-      cities = data.data;
-    })
-    .catch((err) => console.error("Error fetching cities:", err));
+  .catch((err) => console.error("Error fetching cities:", err));
 
-  function filterCities() {
-    const input = document.getElementById("currentLocation");
-    const errorMsg = document.getElementById("errorMsg");
-    const suggestionBox = document.getElementById("suggestions");
-    const query = input.value.trim().toLowerCase();
+function filterCities() {
+  const input = document.getElementById("currentLocation");
+  const errorMsg = document.getElementById("errorMsg");
+  const suggestionBox = document.getElementById("suggestions");
+  const query = input.value.trim().toLowerCase();
 
-    suggestionBox.innerHTML = "";
-    suggestionBox.classList.add("hidden");
-    errorMsg.textContent = "";
+  suggestionBox.innerHTML = "";
+  suggestionBox.classList.add("hidden");
+  errorMsg.textContent = "";
 
-    if (!query) return;
+  if (!query) return;
 
-    const matches = cities.filter((city) =>
-      city.toLowerCase().startsWith(query)
-    );
+  const matches = cities.filter((city) => city.toLowerCase().startsWith(query));
 
-    if (matches.length === 0) {
-      errorMsg.textContent = "Please enter a correct city name";
-    } else {
-      suggestionBox.classList.remove("hidden");
-      matches.forEach((city) => {
-        const li = document.createElement("li");
-        li.textContent = city;
-        li.className =
-          "px-4 py-2 cursor-pointer hover:bg-blue-100 transition-colors";
-        li.onclick = () => {
-          input.value = city;
-          suggestionBox.innerHTML = "";
-          suggestionBox.classList.add("hidden");
-        };
-        suggestionBox.appendChild(li);
-      });
-    }
+  if (matches.length === 0) {
+    errorMsg.textContent = "Please enter a correct city name";
+  } else {
+    suggestionBox.classList.remove("hidden");
+    matches.forEach((city) => {
+      const li = document.createElement("li");
+      li.textContent = city;
+      li.className =
+        "px-4 py-2 cursor-pointer hover:bg-blue-100 transition-colors";
+      li.onclick = () => {
+        input.value = city;
+        suggestionBox.innerHTML = "";
+        suggestionBox.classList.add("hidden");
+      };
+      suggestionBox.appendChild(li);
+    });
+  }
+}
+
+// Set the booking place dynamically
+document.getElementById("bookingplace").value = tour.title;
+
+async function createBooking(event) {
+  event.preventDefault();
+
+  let isValid = true;
+
+  // Reset error messages
+  resetErrorMessages();
+
+  // Validate Full Name
+  const fullname = document.getElementById("fullname");
+  if (!fullname.value.trim()) {
+    toggleErrorMessage("fullname-error", true);
+    isValid = false;
   }
 
+  // Validate Email
+  const email = document.getElementById("bookemail");
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email.value)) {
+    toggleErrorMessage("email-error", true);
+    isValid = false;
+  }
 
+  // Validate Phone Number
+  const phoneno = document.getElementById("phoneno");
+  if (!/^\d{10}$/.test(phoneno.value)) {
+    toggleErrorMessage("phone-error", true);
+    isValid = false;
+  }
 
-//  for booking form 
+  // Validate Current Location
+  const currentLocation = document.getElementById("currentLocation");
+  if (!currentLocation.value.trim()) {
+    toggleErrorMessage("location-error", true);
+    isValid = false;
+  }
 
-  document.getElementById("bookingplace").value = tour.title;
+  // Validate Date
+  const bookon = document.getElementById("bookon");
+  if (new Date(bookon.value) < new Date()) {
+    toggleErrorMessage("date-error", true);
+    isValid = false;
+  }
 
-async function createBooking(event){
-  event.preventDefault();
-  const booking_place = document.getElementById("bookingplace").value = tour.title;
-  const fullname = document.getElementById("fullname").value;
-  const email = document.getElementById("bookemail").value;
-  const phoneno = document.getElementById("phoneno").value;
-  const current_location = document.getElementById("currentLocation").value;
-   const bookon = document.getElementById("bookon").value;
+  // Validate Adult
+  const adult = document.getElementById("adult");
+  if (adult.value < 0 || adult.value > 30) {
+    toggleErrorMessage("adult-error", true);
+    isValid = false;
+  }
+
+  // Validate Child
+  const child = document.getElementById("child");
+  if (child.value < 0 || child.value > 20) {
+    toggleErrorMessage("child-error", true);
+    isValid = false;
+  }
+
+  // If validation passes, proceed with booking
+  if (isValid) {
+    // Proceed with creating the booking
+    const booking_place = document.getElementById("bookingplace").value = tour.title;
+    const fullname = document.getElementById("fullname").value;
+    const email = document.getElementById("bookemail").value;
+    const phoneno = document.getElementById("phoneno").value;
+    const current_location = document.getElementById("currentLocation").value;
+    const bookon = document.getElementById("bookon").value;
     const adult = document.getElementById("adult").value;
     const child = document.getElementById("child").value;
     const status = "confirmed";
 
-        try {
-          const response = await fetch("https://tour-backend-hac6.onrender.com/booking/book", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-            body: JSON.stringify({ booking_place , fullname,
-              email,
-              phoneno, current_location,
-              bookon,
-              adult,
-              child,
-              status
-            }),
-          });
+    try {
+      const response = await fetch("https://tour-backend-hac6.onrender.com/booking/book", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify({
+          booking_place,
+          fullname,
+          email,
+          phoneno,
+          current_location,
+          bookon,
+          adult,
+          child,
+          status,
+        }),
+      });
 
-          const data = await response.json();
-          console.log("Booking Response:", data);
-           if (response.ok) {
-       const msg= document.getElementById("msg");
-       msg.innerHTML = "booking successful..."
-       document.getElementById("resmsg").appendChild(msg)
-       setTimeout(function() {
-        location.reload();
-       }, 5000) // 5 second delay
-    } else {
+      const data = await response.json();
+      console.log("Booking Response:", data);
+      if (response.ok) {
+        // Get the success message container and message element
+        const msg = document.getElementById("msg");
+        const resmsg = document.getElementById("resmsg");
+
+        // Set the success message
+        msg.innerHTML = "Booking successful";
+
+        // Show the message container
+        resmsg.style.display = "block";
+
+        // Optionally, hide the message after 5 seconds
+        setTimeout(function () {
+          location.reload();
+        }, 4000);
+      } else {
         console.log(data.error);
-    }
-          // getUserBooking();
-        } catch (error) {
-          console.error("Error creating booking:", error);
-        }
       }
+    } catch (error) {
+      console.error("Error creating booking:", error);
+    }
+  }
+}
+
+// Reset all error messages
+function resetErrorMessages() {
+  const errorMessages = document.querySelectorAll(".text-red-500");
+  errorMessages.forEach((msg) => {
+    msg.classList.add("hidden");
+    msg.classList.remove("block");
+  });
+}
+
+// Toggle the visibility of error messages
+function toggleErrorMessage(id, show) {
+  const errorMsg = document.getElementById(id);
+  if (show) {
+    errorMsg.classList.remove("hidden");
+    errorMsg.classList.add("block");
+  } else {
+    errorMsg.classList.add("hidden");
+    errorMsg.classList.remove("block");
+  }
+}
