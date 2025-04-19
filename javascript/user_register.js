@@ -33,12 +33,11 @@ async function registerUser(event) {
     // Show spinner
     document.getElementById("signup-btn-text").classList.add("hidden");
     document.getElementById("signup-spinner").classList.remove("hidden");
-  const useridentity = Math.random().toString(36).substring(2, 15);
     try {
         const response = await fetch("https://tour-backend-hac6.onrender.com/user/register", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ useridentity, username, email, password })
+            body: JSON.stringify({  username, email, password })
         });
 
         const data = await response.json();
