@@ -34,7 +34,7 @@ const tours = {
         price: "₹15,600",
         discount: "Save 10%",
         description: "Explore the stunning rock-cut caves of Ajanta and Ellora with expert guides.",
-        images: ["images/card/Ajanta and Ellora Caves, Maharashtra/1.jpg","images/card/Ajanta and Ellora Caves, Maharashtra/1.jpg"],
+        images: ["images/card/Ajanta and Ellora Caves, Maharashtra/1.webp","images/card/Ajanta and Ellora Caves, Maharashtra/1.webp"],
         highlights: ["Historical Monuments", "Cultural Heritage", "Local Guide"],
         faq: [
             { question: "Are entry fees included?", answer: "No, entry fees need to be paid separately." },
@@ -569,7 +569,7 @@ if (tour) {
     tourElement.innerHTML = `
     <div class="relative w-full md:h-[70vh] h-[40vh] rounded flex items-center justify-center">
         <button id="prev-btn" class="cursor-pointer absolute left-2 head dark1 z-20 px-3 py-1 rounded-lg" onclick="prevImage()">❮</button>
-        <img id="main-image" src="${tour.images[currentIndex]}"class="sharp w-full h-full object-cover rounded-lg">
+        <img id="main-image" src="${tour.images[currentIndex]}"class="sharp w-full h-full object-cover rounded-lg" loading="lazy">
         <button id="next-btn" class="cursor-pointer absolute right-2 head dark1 z-20 px-3 py-1 rounded-lg" onclick="nextImage()">❯</button>
     </div>
 
@@ -578,7 +578,7 @@ if (tour) {
     <div class="flex mt-2 space-x-2 justify-center">
         ${tour.images.map((img, index) => `
             <img src="${img}" class="thumbnail sharp rounded ${index === 0 ? 'active' : ''}" 
-            onclick="changeImage(${index})">
+            onclick="changeImage(${index})" loading="lazy">
         `).join("")}
     </div>
 

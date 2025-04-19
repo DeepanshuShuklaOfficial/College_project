@@ -24,7 +24,7 @@ const topDestinations = [
     { name: "Darjeeling, West Bengal", img: "images/card/Darjeeling, West Bengal/1.jpg" },
     { name: "Leh-Ladakh, Jammu and Kashmir", img: "images/card/Leh-Ladakh, Jammu & Kashmir/1.jpg" },
     { name: "Khajuraho, Madhya Pradesh", img: "images/card/Khajuraho, Madhya Pradesh/1.jpg" },
-    { name: "Ajanta and Ellora Caves, Maharashtra", img: "images/card/Ajanta and Ellora Caves, Maharashtra/1.jpg" },
+    { name: "Ajanta and Ellora Caves, Maharashtra", img: "images/card/Ajanta and Ellora Caves, Maharashtra/1.webp" },
     { name: "Sundarbans, West Bengal", img: "images/card/Sundarbans, West Bengal/1.jpg" },
     { name: "Andaman and Nicobar Islands", img: "images/card/Andaman and Nicobar Islands/1.jpg" }
 ];
@@ -37,7 +37,7 @@ function generateCards() {
         const cardDiv = `
             <div class="card imp hover:shadow-md border box-border border-[#253d2c] p-1.5 mx-1 rounded min-w-[calc(100%/2-6px)] md:min-w-[calc(100%/4-6px)]">
              <a href="card.html?destination=${card.name.toLowerCase().replace(/\s+/g, '-').replace(/,/g, '')}" class="block">
-            <img class="mb-1 m-auto sharp rounded h-[100px] md:h-[200px] w-full object-cover object-top" src="${card.img}" alt="${card.name}">
+            <img class="mb-1 m-auto sharp rounded h-[100px] md:h-[200px] w-full object-cover object-top" src="${card.img}" alt="${card.name}" loading="lazy">
                 <h1 class="text-[16px] text-white font-extrabold">${card.name}</h1>
                 <h2 class="text-[12px] dark1">${card.location}</h2>
                 <div class="head h-0.5 my-2"></div>
@@ -63,7 +63,7 @@ function generateTopDestinations() {
         const destDiv = `
          <a href="card.html?destination=${dest.name.toLowerCase().replace(/\s+/g, '-').replace(/,/g, '')}" class="block">
             <div class="border border-[#253d2c] imp m-auto rounded h-full w-full p-1.5 flex flex-col justify-between hover:shadow-md transition-all">
-                <img class="rounded sharp h-[80px] md:h-[160px] w-full object-cover object-top" src="${dest.img}" alt="${dest.name}">
+                <img class="rounded sharp h-[80px] md:h-[160px] w-full object-cover object-top" src="${dest.img}" alt="${dest.name}" loading="lazy">
                 <div class="flex justify-between items-end mt-auto">
                     <h2 class="text-white font-bold text-[12px] md:text-[16px] w-[80%]">${dest.name}</h2>
                     <i class="fa-solid fa-circle-right dark4 text-[18px]"></i>

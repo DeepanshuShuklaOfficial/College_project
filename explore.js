@@ -1,5 +1,5 @@
 const hotels = [
-    { name: "Ajanta and Ellora Caves, Maharashtra", price: 15600, type: "Hotels", category: "Culture Trips", direction: "West", image: "images/card/Ajanta and Ellora Caves, Maharashtra/1.jpg" },
+    { name: "Ajanta and Ellora Caves, Maharashtra", price: 15600, type: "Hotels", category: "Culture Trips", direction: "West", image: "images/card/Ajanta and Ellora Caves, Maharashtra/1.webp" },
     { name: "Amritsar, Punjab", price: 9400, type: "Hotels", category: "Culture Trips", direction: "North", image: "images/card/Amritsar, Punjab/1.jpg" },
     { name: "Andaman and Nicobar Islands", price: 19400, type: "Resorts", category: "Honeymoon", direction: "East", image: "images/card/Andaman and Nicobar Islands/1.jpg" },
     { name: "Ayodhya", price: 15200, type: "Hotels", category: "Culture Trips", direction: "North", image: "images/card/Ayodhya, Uttar Pradesh/1.jpg" },
