@@ -772,6 +772,7 @@ async function createBooking(event) {
   // If validation passes, proceed with booking
   if (isValid) {
     // Proceed with creating the booking
+    const parent_ID = Math.random().toString(36).substring(2, 15);
     const booking_place = document.getElementById("bookingplace").value = tour.title;
     const fullname = document.getElementById("fullname").value;
     const email = document.getElementById("bookemail").value;
@@ -790,6 +791,7 @@ async function createBooking(event) {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
         body: JSON.stringify({
+            parent_ID,
           booking_place,
           fullname,
           email,
