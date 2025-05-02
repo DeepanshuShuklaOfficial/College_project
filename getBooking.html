@@ -5,10 +5,9 @@
     <title>Your Bookings</title>
     <script src="./javascript/user_register.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="custom.css" />
   </head>
-  <body class="bg">
-    <h1 class="text-3xl font-bold text-center text-purple-700 mb-6">
+  <body class="bg-[#cfffdc] min-h-screen p-4 sm:p-6 lg:p-8">
+    <h1 class="text-2xl sm:text-3xl font-bold text-center text-purple-700 mb-6">
       Your Orders
     </h1>
 
@@ -19,10 +18,8 @@
 
     <script>
       window.onload = () => {
-        let Orders;
-        Orders = JSON.parse(sessionStorage.getItem("orders"));
+        let Orders = JSON.parse(sessionStorage.getItem("orders"));
 
-        // Check if Orders and Orders.bookings exist
         if (!Orders || !Array.isArray(Orders.bookings)) {
           console.error("Orders.bookings is not an array:", Orders);
           return;
@@ -33,51 +30,53 @@
 
         if (bookings.length === 0) {
           container.innerHTML = `
-          <p class="text-center text-gray-500 col-span-full">No bookings found.</p>
-        `;
+            <p class="text-center text-gray-500 col-span-full">No bookings found.</p>
+          `;
           return;
         }
 
         bookings.forEach((booking) => {
           const card = document.createElement("div");
           card.className =
-            "bg-white p-5 rounded-2xl shadow hover:shadow-lg transition duration-300";
-          const bookingId = booking.id;
+            "bg-white p-4 rounded-2xl shadow hover:shadow-lg transition duration-300";
+          card.id = `booking-${booking._id}`;
+
           card.innerHTML = `
-          <h2 class="text-xl font-semibold text-gray-800 mb-2">${
-            booking.booking_place || "Tour Name"
-          }</h2>
-          <p class="text-sm text-gray-600">Fullname: <span class="font-medium">${
-            booking.fullname
-          }</span></p>
-          <p class="text-sm text-gray-600">email: <span class="font-medium">${
-            booking.email
-          }</span></p>
-          <p class="text-sm text-gray-600">phone no: <span class="font-medium">${
-            booking.phoneno
-          }</span></p>
-           <p class="text-sm text-gray-600">pickup location: <span class="font-medium">${
-             booking.current_location
-           }</span></p>
-           <p class="text-sm text-gray-600">Date: <span class="font-medium">${
-             booking.bookon
-           }</span></p>
-           <p class="text-sm text-gray-600">adult: <span class="font-medium">${
-             booking.adult
-           }</span> , child: <span class="font-medium">${
+            <h2 class="text-lg sm:text-xl font-semibold text-gray-800 mb-2">${
+              booking.booking_place || "Tour Name"
+            }</h2>
+            <p class="text-sm text-gray-600 mb-1">Fullname: <span class="font-medium">${
+              booking.fullname
+            }</span></p>
+            <p class="text-sm text-gray-600 mb-1">Email: <span class="font-medium">${
+              booking.email
+            }</span></p>
+            <p class="text-sm text-gray-600 mb-1">Phone No: <span class="font-medium">${
+              booking.phoneno
+            }</span></p>
+            <p class="text-sm text-gray-600 mb-1">Pickup Location: <span class="font-medium">${
+              booking.current_location
+            }</span></p>
+            <p class="text-sm text-gray-600 mb-1">Date: <span class="font-medium">${
+              booking.bookon
+            }</span></p>
+            <p class="text-sm text-gray-600 mb-1">Adult: <span class="font-medium">${
+              booking.adult
+            }</span>, Child: <span class="font-medium">${
             booking.child
           }</span></p>
-          <p class="text-sm text-gray-600">Status:
-            <span class="px-2 py-1 rounded text-white text-xs bg-green-500">${
-              booking.status
-            }</span>
-          </p>
-            <div class="flex justify-end mt-3">
-          <button  onclick="cancelBooking('${
-            booking._id
-          }')" class="w-32 py-2 rounded-3xl bg-cyan-400 hover:bg-cyan-300 dark4">Cancel Order</button>
-          </div>
-        `;
+            <p class="text-sm text-gray-600 mb-3">Status:
+              <span class="px-2 py-1 rounded text-white text-xs bg-green-500">${
+                booking.status
+              }</span>
+            </p>
+            <div class="flex justify-end">
+              <button onclick="cancelBooking('${booking._id}')"
+                class="w-full sm:w-32 py-2 rounded-full bg-cyan-500 hover:bg-cyan-400 text-white text-sm font-medium transition">
+                Cancel Order
+              </button>
+            </div>
+          `;
           container.appendChild(card);
         });
       };
@@ -85,19 +84,19 @@
       function cancelBooking(bookingId) {
         const token = localStorage.getItem("token");
 
-        fetch(`http://localhost:9000/booking/cancel/${bookingId}`, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`, // ✅ Important
-          },
-          // No need to send body if bookingId is already in the URL
-        })
+        fetch(
+          `https://tour-backend-hac6.onrender.com/booking/cancel/${bookingId}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
           .then((response) => response.json())
           .then((data) => {
             alert(data.message || "Booking canceled successfully");
-
-            // Optionally: remove booking card from UI
             const card = document.getElementById(`booking-${bookingId}`);
             if (card) card.remove();
           })
