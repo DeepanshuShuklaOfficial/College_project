@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     const token = localStorage.getItem("token");
-    if (token) {
-        getProfile();
+    if ( token) {
+       getProfile();
         document.getElementById("login-section").style.display = "none";
-        document.getElementById("form-line").style.display = "none";
-        document.getElementById("profilebnt").style.display = "block";
+        document.getElementById("profilebnt").style.display ="block";
         document.getElementById("loginbnt").style.display = "none";
     }
     document.getElementById("login-button").addEventListener("click", login);
@@ -18,113 +17,68 @@ async function registerUser(event) {
     const password = document.getElementById("password").value;
     const userreg = document.getElementById("userreg");
 
-    userreg.textContent = "";
+    const response = await fetch("https://tour-backend-hac6.onrender.com/user/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, email, password})
+    });
 
-    // Validate
-    if (!validateEmail(email)) {
-        userreg.textContent = "Please enter a valid email address.";
-        return;
-    }
-    if (!validatePassword(password)) {
-        userreg.textContent = "Password must be at least 8 characters long and include letters and numbers.";
-        return;
-    }
+    const data = await response.json();
 
-    // Show spinner
-    document.getElementById("signup-btn-text").classList.add("hidden");
-    document.getElementById("signup-spinner").classList.remove("hidden");
-    try {
-        const response = await fetch("https://tour-backend-hac6.onrender.com/user/register", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({  username, email, password })
-        });
+    if (response.ok) {
+        console.log("User registered successfully!");
+        userreg.textContent = " successfully!";
 
-        const data = await response.json();
-
-        // Hide spinner
-        document.getElementById("signup-btn-text").classList.remove("hidden");
-        document.getElementById("signup-spinner").classList.add("hidden");
-
-        if (response.ok) {
-            console.log("User registered successfully!");
-            userreg.textContent = "Successfully registered!";
-            if (data.token) {
-                localStorage.setItem("token", data.token);
-            }
-            localStorage.setItem("user", JSON.stringify(data.user));
-            location.reload();
-        } else {
-            userreg.textContent = data.error || "Registration failed";
+         if (data.token) {
+            localStorage.setItem("token", data.token);
         }
-    } catch (error) {
-        console.error("Registration error:", error);
-        userreg.textContent = "An error occurred. Please try again.";
-        document.getElementById("signup-btn-text").classList.remove("hidden");
-        document.getElementById("signup-spinner").classList.add("hidden");
+        localStorage.setItem("user", JSON.stringify(data.user)); 
+        location.reload(); 
+    } else {
+        console.log(data.error || "Registration failed");
     }
 }
-
 async function login(e) {
-    e.preventDefault();
-    const email = document.getElementById("loginemail").value;
-    const password = document.getElementById("loginpassword").value;
-    const logingerror = document.getElementById("logingerror");
-    const infillmsg = document.getElementById("infillmsg");
-
-    logingerror.textContent = "";
-    infillmsg.textContent = "";
-
-    // Validate
-    if (!email || !password) {
+       e.preventDefault();
+        const email = document.getElementById("loginemail").value;
+        const password = document.getElementById("loginpassword").value;
+        const logingerror = document.getElementById("logingerror");
+        const infillmsg = document.getElementById("infillmsg");
+        if (!email || !password) {
         infillmsg.textContent = "Please enter both email and password.";
         return;
     }
-    if (!validateEmail(email)) {
-        infillmsg.textContent = "Please enter a valid email.";
-        return;
-    }
-    if (!validatePassword(password)) {
-        infillmsg.textContent = "Invalid password. Use at least 8 characters with a mix of letters and numbers.";
-        return;
-    }
 
-    // Show spinner
-    document.getElementById("login-btn-text").classList.add("hidden");
-    document.getElementById("login-spinner").classList.remove("hidden");
-
-    try {
-        const res = await fetch("https://tour-backend-hac6.onrender.com/user/login", {
+        try {
+          const res = await fetch("http://localhost:9000/user/login", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: { "Content-Type": "application/json"
+             },
             body: JSON.stringify({ email, password }),
-        });
+          })
+          const data = await res.json();
+          console.log("Login Response Status:", res.status);
+          console.log("Login Response Data:", data);
 
-        const data = await res.json();
-
-        // Hide spinner
-        document.getElementById("login-btn-text").classList.remove("hidden");
-        document.getElementById("login-spinner").classList.add("hidden");
-
-        if (!res.ok) {
+          if (!res.ok) {
+            console.log(data.error || "Login failed");
             logingerror.textContent = data.error;
             return;
-        }
+          }
 
-        if (data.token) {
+          if (data.token) {
             localStorage.setItem("token", data.token);
+            console.log("Login successful!");
             location.reload();
-        } else {
-            console.log("No token received!");
+          }
+          else {
+            console.log("No token received from server!");
+          }
+        } catch (error) {
+          console.error("Login Error:", error);
+          console.log("An error occurred during login.");
         }
-    } catch (error) {
-        console.error("Login error:", error);
-        logingerror.textContent = "An error occurred. Please try again.";
-        document.getElementById("login-btn-text").classList.remove("hidden");
-        document.getElementById("login-spinner").classList.add("hidden");
-    }
-}
-
+      }
 async function getProfile() {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -144,6 +98,7 @@ async function getProfile() {
         const data = await res.json();
 
         if (res.ok) {
+            // ✅ Auto-fill form inputs
             const usernameInput = document.getElementById("fullname");
             const emailInput = document.getElementById("bookemail");
 
@@ -152,6 +107,7 @@ async function getProfile() {
                 emailInput.value = data.email;
             }
 
+            // ✅ Optional: display on the page too
             const usernameEl = document.getElementById("profile-username");
             const emailEl = document.getElementById("profile-email");
 
@@ -162,10 +118,11 @@ async function getProfile() {
         } else {
             console.log(data.error || "Failed to load profile");
         }
-
-        if (data.error === "Invalid token") {
-            localStorage.removeItem("token");
-            location.reload();
+        
+        if(data.error === "Invalid " ){
+           localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    location.reload();
         }
 
     } catch (error) {
@@ -173,8 +130,36 @@ async function getProfile() {
     }
 }
 
+
 function logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    location.reload();
+    location.reload(); // Refresh page after logout
 }
+
+async function getBooking() {
+    const token = localStorage.getItem("token");
+    if (!token) {
+        console.log("Please login first");
+        return;
+    }
+
+    try {
+        const res = await fetch("https://tour-backend-hac6.onrender.com/booking/profile", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+            },
+        });
+
+        const data = await res.json();
+sessionStorage.setItem('orders',JSON.stringify(data))
+        console.log(data);
+        console.log(data.error)
+window.location.href= 'getBooking.html';
+    } catch (error) {
+        console.error("Error fetching profile:", error);
+    }
+}
+
