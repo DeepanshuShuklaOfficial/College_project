@@ -130,6 +130,7 @@ async function getProfile() {
     const token = localStorage.getItem("token");
     if (!token) {
         console.log("Please login first");
+        window.location.replace("index.html#footer");  
         return;
     }
 
@@ -178,4 +179,30 @@ function logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     location.reload();
+}
+
+async function getBooking() {
+    const token = localStorage.getItem("token");
+    if (!token) {
+        console.log("Please login first");
+        return;
+    }
+
+    try {
+        const res = await fetch("https://tour-backend-hac6.onrender.com/booking/profile", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+            },
+        });
+
+        const data = await res.json();
+sessionStorage.setItem('orders',JSON.stringify(data))
+        console.log(data);
+        console.log(data.error)
+window.location.href= 'getBooking.html';
+    } catch (error) {
+        console.error("Error fetching profile:", error);
+    }
 }

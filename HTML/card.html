@@ -4,10 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="output.css">
-  <link rel="stylesheet" href="custom.css">
-  <script src="javascript/user_register.js"></script>
-  <title>Tour and Travel - Explore</title>
+  <link rel="stylesheet" href="/CSS/output.css">
+  <link rel="stylesheet" href="/CSS/custom.css">
+  <script src="/javascript/user_register.js"></script>
+  <script src="/javascript/validation.js"></script>
+  <title>PandaTour - Destination</title>
 </head>
 
 <body class="bg">
@@ -16,16 +17,27 @@
     <nav class="h-[30px] w-full head flex justify-between items-center p-5">
       <!-- this is for right left hand side part -->
       <div class="flex gap-2">
-        <img class="h-[28px] rounded-full" src="images/site logo.png" alt="Website Logo">
+        <img class="h-[28px] rounded-full" src="/images/site logo.png" alt="Website Logo">
         <ul class="gap-1 md:flex hidden justify-between items-center">
-          <li class="tab"><a href="index.html" class="">Home</a></li>
-          <li class="tab"><a href="#" class="">Destinations</a></li>
-          <li class="tab"><a href="#" class="">Packages</a></li>
-          <li class="tab"><a href="#" class="">Blog</a></li>
-          <li class="tab"><a href="#" class="">About us</a></li>
-          <li class="tab"><a href="#" class="">Contact</a></li>
+          <li class="tab"><a href="index.html">Home</a></li>
+          <li class="tab relative">
+            <button id="destinations-btn" class="flex items-center gap-1 cursor-pointer font-bold">
+              Destinations <i id="desktop-chevron" class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+            </button>
+            <ul id="dropdown-menu"
+                class="absolute mt-3 left-0 right-0 hidden flex-col border-2 p-2 border-[#253d2c] head dark1 shadow-lg rounded z-50">
+              <li><a href="explore.html?direction=East" class="block w-full px-4 py-1 hover:bg-[#cfffdc] hover:text-[#2e6f40]">East</a></li>
+              <li><a href="explore.html?direction=West" class="block w-full px-4 py-1 hover:bg-[#cfffdc] hover:text-[#2e6f40]">West</a></li>
+              <li><a href="explore.html?direction=North" class="block w-full px-4 py-1 hover:bg-[#cfffdc] hover:text-[#2e6f40]">North</a></li>
+              <li><a href="explore.html?direction=South" class="block w-full px-4 py-1 hover:bg-[#cfffdc] hover:text-[#2e6f40]">South</a></li>
+            </ul>
+          </li>
+          <li class="tab"><a href="explore.html">Packages</a></li>
+          <li onclick="scrollTobottom()" class="tab"><a href="#">About us</a></li>
+          <li onclick="scrollTobottom()" class="tab"><a href="#">Contact</a></li>
         </ul>
-      </div>
+      </div>    
+
       <!-- this is for right hand side part -->
       <div class="flex items-center gap-3">
         <div class="relative">
@@ -52,14 +64,23 @@
       <ul class="mt-9 space-y-2">
         <li class="mobile-tab"><a href="index.html">Home</a>
         </li>
-        <li class="mobile-tab"><a href="#">Destinations</a></li>
-        <li class="mobile-tab"><a href="#">Packages</a>
+        <li class="mobile-tab">
+          <button id="mobile-destinations-btn" class="flex items-center w-full font-bold">
+            Destinations&nbsp;<i class="fa fa-chevron-down transition-transform duration-300" id="mobile-chevron"></i>
+          </button>
+          <ul id="mobile-dropdown-menu"
+              class="max-h-0 min-h-0 overflow-hidden transition-all duration-100 ease-in-out space-y-1 ">
+            <li><a href="explore.html?direction=East" class="block w-full px-2 rounded border-[#253d2c] border-1 text-center hover:bg-[#cfffdc] hover:text-[#2e6f40]">East</a></li>
+            <li><a href="explore.html?direction=West" class="block w-full px-2 rounded border-[#253d2c] border-1 text-center hover:bg-[#cfffdc] hover:text-[#2e6f40]">West</a></li>
+            <li><a href="explore.html?direction=North" class="block w-full px-2 rounded border-[#253d2c] border-1 text-center hover:bg-[#cfffdc] hover:text-[#2e6f40]">North</a></li>
+            <li><a href="explore.html?direction=South" class="block w-full px-2 rounded border-[#253d2c] border-1 text-center hover:bg-[#cfffdc] hover:text-[#2e6f40]">South</a></li>
+          </ul>   
+          </li>  
+        <li class="mobile-tab"><a href="explore.html">Packages</a>
         </li>
-        <li class="mobile-tab"><a href="#">Blog</a>
+        <li onclick="scrollTobottom()" class="mobile-tab"><a href="#">About us</a>
         </li>
-        <li class="mobile-tab"><a href="#">About us</a>
-        </li>
-        <li class="mobile-tab"><a href="#">Contact</a>
+        <li onclick="scrollTobottom()" class="mobile-tab"><a href="#">Contact</a>
         </li>
       </ul>
     </div>
@@ -144,9 +165,10 @@
       <!-- Book on Date -->
       <div>
         <label for="bookon" class="block mb-2 text-lg font-semibold text-gray-800">Book on Date</label>
-        <input type="date" id="bookon" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required 
+        <input type="date" id="bookon" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required
         onfocus="this.showPicker()" />
-        <small id="date-error" class="text-red-500 mt-1 hidden text-sm">Please select a valid date.</small>
+        <small id="date-error" class="text-red-500 mt-1 hidden text-sm">Please select a date in the future.</small>
+        <small id="date-future-error" class="text-red-500 mt-1 hidden text-sm">Booking can only be made within the next 6 months.</small>
       </div>
       
 
@@ -183,61 +205,61 @@
   </div>
 </div>
 
-  <!-- footer start here -->
-  <footer class="footer dark1">
+   <!-- footer start here -->
+   <footer id="footer" class="footer dark1">
     <div class="md:w-[90vw] w-auto grid grid-cols-2 md:grid-cols-4 gap-y-2 py-2 px-4 m-auto">
 
       <div class="order-3 md:order-none">
         <h1 class="font-extrabold text-2xl">About us</h1>
         <ul>
           <li class="space-x-1.5">
-            <i class="text-3xl fa-brands fa-square-facebook"></i>
-            <i class="text-3xl fa-brands fa-square-instagram"></i>
-            <i class="text-3xl fa-brands fa-x-twitter"></i>
-            <i class="text-3xl fa-brands fa-square-youtube"></i>
+            <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+              <i class="text-3xl fa-brands fa-square-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+              <i class="text-3xl fa-brands fa-square-instagram"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+              <i class="text-3xl fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="https://www.youtube.com" target="_blank" aria-label="YouTube">
+              <i class="text-3xl fa-brands fa-square-youtube"></i>
+            </a>
           </li>
+          
         </ul>
       </div>
 
       <div class="order-1 md:order-none md:mr-20">
         <h1 class="font-extrabold text-2xl">Travel Specialists</h1>
         <ul class="list-disc list-inside">
-          <li>Honeymoon</li>
-          <li>Winter Holidays</li>
-          <li>Safari Season</li>
-          <li>Luxury Cities</li>
-          <li>Family Holidays</li>
-          <li>Culture Trips</li>
-          <li>Tropical Adventure</li>
+          <li><a href="explore.html?category=Honeymoon">Honeymoon</a></li>
+          <li><a href="explore.html?category=Winter%20Holidays">Winter Holidays</a></li>
+          <li><a href="explore.html?category=Safari%20Season">Safari Season</a></li>
+          <li><a href="explore.html?category=Luxury%20Cities">Luxury Cities</a></li>
+          <li><a href="explore.html?category=Family%20Holidays">Family Holidays</a></li>
+          <li><a href="explore.html?category=Culture%20Trips">Culture Trips</a></li>
+          <li><a href="explore.html?category=Tropical%20Adventure">Tropical Adventure</a></li>
         </ul>
       </div>
 
       <div class="order-2 md:order-none">
         <h1 class="font-extrabold text-2xl">Quick Links</h1>
         <ul class="list-disc list-inside">
-          <li>Make reservation</li>
-          <li>FAQ</li>
-          <li>Payment Options</li>
-          <li>Booking Tips</li>
-          <li>Information</li>
-          <li>Hotel Awards</li>
-          <li>Press Room</li>
+            <li><a href="quicklinks.html#reservation">Make Reservation</a></li>
+            <li><a href="quicklinks.html#faq">FAQs</a></li>
+            <li><a href="quicklinks.html#payment-options">Payment Options</a></li>
+            <li><a href="quicklinks.html#booking-tips">Booking Tips</a></li>
+            <li><a href="quicklinks.html#information">Information</a></li>
         </ul>
       </div>
 
       <div class="order-4 md:order-none">
-        <h1 class="font-extrabold text-2xl">Newsletter</h1>
-        <div class="relative w-[150px] md:w-[250px]">
-          <input
-            class="w-full pr-10 pl-2 py-1 border text-[#cfffdc] font-bold border-[#cfffdc] rounded outline-none focus:ring-2 focus:ring-[#68BA7F] bg-transparent"
-            type="text" placeholder="Enter Your Email...">
-          <i
-            class="fa-solid fa-magnifying-glass absolute right-2 top-1/2 transform -translate-y-1/2 text-[#cfffdc]"></i>
-        </div>
-
-        <h1 class="font-extrabold text-2xl mt-3">Customer Support</h1>
-        <strong>+1900 12 21321</strong>
-        <p>office@pandatour.com</p>
+        <h1 class="font-extrabold text-2xl">Customer Support</h1>
+        <a href="tel:+919999988888" class="font-extrabold text-2xl">+91 99999 88888</a>
+        <p>
+          <a href="mailto:office@pandatour.com" class="text-blue-500">office@pandatour.com</a>
+        </p>
       </div>
     </div>
 
@@ -250,13 +272,15 @@
       <div class="cursor-pointer" onclick="scrollToTop()"><i class=" rounded bg dark4 p-1 fa-solid fa-chevron-up"></i>
       </div>
     </div>
-
-
   </footer>
+  <!-- footer ends here -->
   <script src="https://kit.fontawesome.com/dc91047fb7.js" crossorigin="anonymous"></script>
-  <script src="index.js"></script>
-  <script src="explore.js"></script>
-  <script src="card.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="/javascript/Data.js"></script>
+  <script src="/javascript/card.js"></script>
+  <script src="/javascript/user_register.js"></script>
+  <script src="/javascript/explore.js"></script>
+  <script src="/javascript/getBooking.js"></script>
 </body>
 
 </html>

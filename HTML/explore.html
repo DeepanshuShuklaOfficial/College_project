@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/CSS/output.css">
+  <link rel="stylesheet" href="/CSS/custom.css">
+  <script src="/javascript/user_register.js"></script>
+  <script src="/javascript/validation.js"></script>
+  <title>PandaTour - Explore</title>
+</head>
+
+<body class="bg">
+
+  <!-- nav bar starts here -->
+  <header id="header">
+    <nav class="h-[30px] w-full head flex justify-between items-center p-5">
+
+      <!-- this is for right left hand side part -->
+      <div class="flex gap-2">
+        <img class="h-[28px] rounded-full" src="/images/site logo.png" alt="Website Logo">
+        <ul class="gap-1 md:flex hidden justify-between items-center">
+          <li class="tab"><a href="index.html">Home</a></li>
+          <li class="tab relative">
+            <button id="destinations-btn" class="flex items-center gap-1 cursor-pointer font-bold">
+              Destinations <i id="desktop-chevron" class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+            </button>
+            <ul id="dropdown-menu"
+                class="absolute mt-3 left-0 right-0 hidden flex-col border-2 p-2 border-[#253d2c] head dark1 shadow-lg rounded z-50">
+              <li><a href="explore.html?direction=East" class="block w-full px-4 py-1 hover:bg-[#cfffdc] hover:text-[#2e6f40]">East</a></li>
+              <li><a href="explore.html?direction=West" class="block w-full px-4 py-1 hover:bg-[#cfffdc] hover:text-[#2e6f40]">West</a></li>
+              <li><a href="explore.html?direction=North" class="block w-full px-4 py-1 hover:bg-[#cfffdc] hover:text-[#2e6f40]">North</a></li>
+              <li><a href="explore.html?direction=South" class="block w-full px-4 py-1 hover:bg-[#cfffdc] hover:text-[#2e6f40]">South</a></li>
+            </ul>
+          </li>
+          <li class="tab"><a href="explore.html">Packages</a></li>
+          <li onclick="scrollTobottom()" class="tab"><a href="#">About us</a></li>
+          <li onclick="scrollTobottom()" class="tab"><a href="#">Contact</a></li>
+        </ul>
+      </div>    
+
+      <!-- this is for right hand side part -->
+      <div class="flex items-center gap-3">
+        <div class="relative">
+          <input id="searchInput"
+            class="w-[200px] md:w-[300px] pr-8 pl-1.5 py-0.5 border text-[#cfffdc] font-bold border-[#cfffdc] rounded-full outline-none focus:ring-2 focus:ring-[#68BA7F]"
+            type="text" placeholder="Search destinations, tours, or flights..."onkeyup="showSuggestions()" autocomplete="off" aria-autocomplete="none" >
+          <i class="fa-solid fa-magnifying-glass absolute z-30 right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-[#cfffdc]"onclick="performSearch()"></i>
+          <!-- 🟢 Suggestions Dropdown -->
+          <ul id="suggestionsBox" class="absolute z-30 dark3 font-semibold md:w-full w-[60vw] md:h-[50vh] h-[30vh] head dark1 mt-2 rounded shadow-lg border-2 border-[#253d2c] hidden overflow-y-auto"></ul>
+        </div>
+
+            
+
+        </button>
+        <button id="menuBtn" class="md:hidden text-[#cfffdc] font-extrabold cursor-pointer">&#9776;</button>
+      </div>
+    </nav>
+    <!-- Mobile Menu (Hidden Initially) -->
+    <div id="mobileMenu"
+      class="overflow-hidden fixed z-50 top-0 right-0 h-screen bg border-2 border-[#2e6f40] shadow-lg translate-x-full transition:transform 0.4s ease-in-out; duration-[1000ms] ease-in-out p-5 md:hidden">
+      <button id="closeBtn"
+        class="text-[#2e6f40] text-2xl font-bold absolute top-[1%] px-1.5 pb-0.5 rounded left-[2%] hover:bg-[#2e6f40] hover:text-[#cfffdc]">&times;</button>
+      <ul class="mt-9 space-y-2">
+        <li class="mobile-tab"><a href="index.html">Home</a>
+        </li>
+        <li class="mobile-tab">
+          <button id="mobile-destinations-btn" class="flex items-center w-full font-bold">
+            Destinations&nbsp;<i class="fa fa-chevron-down transition-transform duration-300" id="mobile-chevron"></i>
+          </button>
+          <ul id="mobile-dropdown-menu"
+              class="max-h-0 min-h-0 overflow-hidden transition-all duration-100 ease-in-out space-y-1 ">
+            <li><a href="explore.html?direction=East" class="block w-full px-2 rounded border-[#253d2c] border-1 text-center hover:bg-[#cfffdc] hover:text-[#2e6f40]">East</a></li>
+            <li><a href="explore.html?direction=West" class="block w-full px-2 rounded border-[#253d2c] border-1 text-center hover:bg-[#cfffdc] hover:text-[#2e6f40]">West</a></li>
+            <li><a href="explore.html?direction=North" class="block w-full px-2 rounded border-[#253d2c] border-1 text-center hover:bg-[#cfffdc] hover:text-[#2e6f40]">North</a></li>
+            <li><a href="explore.html?direction=South" class="block w-full px-2 rounded border-[#253d2c] border-1 text-center hover:bg-[#cfffdc] hover:text-[#2e6f40]">South</a></li>
+          </ul>   
+          </li>  
+        <li class="mobile-tab"><a href="explore.html">Packages</a>
+        </li>
+        <li onclick="scrollTobottom()" class="mobile-tab"><a href="#">About us</a>
+        </li>
+        <li onclick="scrollTobottom()" class="mobile-tab"><a href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- nav bar ends here -->
+  
+  
+  <main>
+
+    <div class="container mx-auto p-4 flex flex-col md:flex-row">
+      <!-- Sidebar Toggle Button -->
+      <button id="toggleSidebar" class="md:hidden footer rounded dark1 font-bold p-2 mb-2">Filters</button>
+
+      <!-- Sidebar -->
+      <aside id="sidebar" class="w-full md:w-1/4 imp md:text-xl rounded border border-[#253d2c] dark4 pt-4 px-4 shadow-md mb-4 md:mb-0 hidden md:block">
+          <div class="flex justify-between">
+              <h2 class="text-xl font-bold mb-4">Filters</h2><span class="font-bold dark1" id="resultCount"></span>
+          </div>
+
+          <label class="block font-bold mb-2">Price Range : <span class="dark1 font-bold" id="priceValue">20000</span></label>
+          <input type="range" min="8500" max="20000" value="20000" class="w-full mb-4" id="priceRange">
+
+          <h3 class="font-bold">Accommodation Type</h3>
+          <ul class="mb-4">
+              <li><input type="checkbox" class="filter" data-filter="type" value="Hotels"> Hotels</li>
+              <li><input type="checkbox" class="filter" data-filter="type" value="Resorts"> Resorts</li>
+              <li><input type="checkbox" class="filter" data-filter="type" value="Guest Houses"> Guest Houses</li>
+          </ul>
+
+          <h3 class="font-bold">Direction</h3>
+          <ul class="mb-4">
+              <li><input type="checkbox" class="filter" data-filter="direction" value="North"> North</li>
+              <li><input type="checkbox" class="filter" data-filter="direction" value="West"> West</li>
+              <li><input type="checkbox" class="filter" data-filter="direction" value="East"> East</li>
+              <li><input type="checkbox" class="filter" data-filter="direction" value="South"> South</li>
+          </ul>
+
+
+          <h3 class="font-bold">Categories</h3>
+          <ul class="mb-4">
+              <li><input type="checkbox" class="filter" data-filter="category" value="Honeymoon"> Honeymoon</li>
+              <li><input type="checkbox" class="filter" data-filter="category" value="Winter Holidays"> Winter
+                  Holidays</li>
+              <li><input type="checkbox" class="filter" data-filter="category" value="Safari Season"> Safari
+                  Season</li>
+              <li><input type="checkbox" class="filter" data-filter="category" value="Luxury Cities"> Luxury
+                  Cities</li>
+              <li><input type="checkbox" class="filter" data-filter="category" value="Family Holidays"> Family
+                  Holidays</li>
+              <li><input type="checkbox" class="filter" data-filter="category" value="Culture Trips"> Culture
+                  Trips</li>
+              <li><input type="checkbox" class="filter" data-filter="category" value="Tropical Adventure">
+                  Tropical Adventure</li>
+          </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="w-full md:w-3/4 p-2 ">
+          <div class="flex justify-between mb-4">
+              <h2 class="text-2xl dark4 font-bold">Hotels</h2>
+              <select id="sort" class="border head font-semibold dark1 rounded py-1 px-2">
+                  <option value="name-asc">Name (A-Z)</option>
+                  <option value="name-desc">Name (Z-A)</option>
+                  <option value="price-asc">Price (Low to High)</option>
+                  <option value="price-desc">Price (High to Low)</option>
+              </select>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-2" id="hotelGrid">
+              <!-- Hotel Cards -->
+          </div>
+      </main>
+  </div>
+
+ 
+    
+       
+    <!-- do not touch these   -->
+    <div class="hidden"> 
+      <div id="cardWrapper"></div>
+      <div id="topDestWrapper" ></div>
+      </div>
+      <button id="toggle-btn"></button>
+    </div>    
+  
+  
+    </main>
+  
+    <!-- footer start here -->
+    <footer id="footer" class="footer dark1">
+      <div class="md:w-[90vw] w-auto grid grid-cols-2 md:grid-cols-4 gap-y-2 py-2 px-4 m-auto">
+  
+        <div class="order-3 md:order-none">
+          <h1 class="font-extrabold text-2xl">About us</h1>
+          <ul>
+            <li class="space-x-1.5">
+              <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+                <i class="text-3xl fa-brands fa-square-facebook"></i>
+              </a>
+              <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+                <i class="text-3xl fa-brands fa-square-instagram"></i>
+              </a>
+              <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                <i class="text-3xl fa-brands fa-x-twitter"></i>
+              </a>
+              <a href="https://www.youtube.com" target="_blank" aria-label="YouTube">
+                <i class="text-3xl fa-brands fa-square-youtube"></i>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+  
+        <div class="order-1 md:order-none md:mr-20">
+          <h1 class="font-extrabold text-2xl">Travel Specialists</h1>
+          <ul class="list-disc list-inside">
+            <li><a href="explore.html?category=Honeymoon">Honeymoon</a></li>
+            <li><a href="explore.html?category=Winter%20Holidays">Winter Holidays</a></li>
+            <li><a href="explore.html?category=Safari%20Season">Safari Season</a></li>
+            <li><a href="explore.html?category=Luxury%20Cities">Luxury Cities</a></li>
+            <li><a href="explore.html?category=Family%20Holidays">Family Holidays</a></li>
+            <li><a href="explore.html?category=Culture%20Trips">Culture Trips</a></li>
+            <li><a href="explore.html?category=Tropical%20Adventure">Tropical Adventure</a></li>
+          </ul>
+        </div>
+  
+        <div class="order-2 md:order-none">
+          <h1 class="font-extrabold text-2xl">Quick Links</h1>
+          <ul class="list-disc list-inside">
+              <li><a href="quicklinks.html#reservation">Make Reservation</a></li>
+              <li><a href="quicklinks.html#faq">FAQs</a></li>
+              <li><a href="quicklinks.html#payment-options">Payment Options</a></li>
+              <li><a href="quicklinks.html#booking-tips">Booking Tips</a></li>
+              <li><a href="quicklinks.html#information">Information</a></li>
+          </ul>
+        </div>
+  
+        <div class="order-4 md:order-none">
+          <h1 class="font-extrabold text-2xl">Customer Support</h1>
+          <a href="tel:+919999988888" class="font-extrabold text-2xl">+91 99999 88888</a>
+          <p>
+            <a href="mailto:office@pandatour.com" class="text-blue-500">office@pandatour.com</a>
+          </p>
+        </div>
+      </div>
+  
+      <div class="bg w-[90vw] m-auto h-0.5 my-4"></div>
+  
+      <div class="flex justify-between pb-7 px-4 md:px-[5vw]">
+        <div>
+          <p>&copy; 2025 Panda Tour. All rights reserved.</p>
+        </div>
+        <div class="cursor-pointer" onclick="scrollToTop()"><i class=" rounded bg dark4 p-1 fa-solid fa-chevron-up"></i>
+        </div>
+      </div>
+    </footer>
+    <!-- footer ends here -->
+
+  <!-- Java scripts -->
+  <script src="https://kit.fontawesome.com/dc91047fb7.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="/javascript/card.js"></script>
+  <script src="/javascript/Data.js"></script>
+  <script src="/javascript/explore.js"></script>
+  <script src="/javascript/index.js"></script>
+  <script src="/javascript/getBooking.js"></script>
+  <!-- Java scripts end here -->
+</body>
+
+</html>
