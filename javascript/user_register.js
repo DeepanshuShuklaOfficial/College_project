@@ -163,7 +163,3 @@ window.location.href= 'getBooking.html';
         console.error("Error fetching profile:", error);
     }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> e928c72448b4079e945abdf8ca7f3934cf84cc91
