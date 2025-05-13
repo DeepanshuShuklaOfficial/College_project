@@ -82,7 +82,7 @@ const slideImage = () => {
 };
 
 // Auto-slide every 5 seconds
-setInterval(goNext, 5000);
+setInterval(goNext, 4000);
 
 
 
@@ -286,7 +286,10 @@ function profilebtn() {
     });
 
 
-    // for quicklinks
+
+
+
+
 
 
    

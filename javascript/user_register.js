@@ -1,10 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
     const token = localStorage.getItem("token");
-    if ( token) {
-       getProfile();
+    if (token) {
+        getProfile();
         document.getElementById("login-section").style.display = "none";
-        document.getElementById("profilebnt").style.display ="block";
+        document.getElementById("profilebnt").style.display = "block";
         document.getElementById("loginbnt").style.display = "none";
+        document.getElementById("form-line").style.display = "none";
     }
     document.getElementById("login-button").addEventListener("click", login);
 });
@@ -20,7 +21,7 @@ async function registerUser(event) {
     const response = await fetch("https://tour-backend-hac6.onrender.com/user/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, email, password})
+        body: JSON.stringify({ username, email, password })
     });
 
     const data = await response.json();
@@ -29,61 +30,61 @@ async function registerUser(event) {
         console.log("User registered successfully!");
         userreg.textContent = " successfully!";
 
-         if (data.token) {
+        if (data.token) {
             localStorage.setItem("token", data.token);
         }
-        localStorage.setItem("user", JSON.stringify(data.user)); 
-        location.reload(); 
+        localStorage.setItem("user", JSON.stringify(data.user));
+        location.reload();
     } else {
         console.log(data.error || "Registration failed");
     }
 }
 async function login(e) {
-       e.preventDefault();
-        const email = document.getElementById("loginemail").value;
-        const password = document.getElementById("loginpassword").value;
-        const logingerror = document.getElementById("logingerror");
-        const infillmsg = document.getElementById("infillmsg");
-        if (!email || !password) {
+    e.preventDefault();
+    const email = document.getElementById("loginemail").value;
+    const password = document.getElementById("loginpassword").value;
+    const logingerror = document.getElementById("logingerror");
+    const infillmsg = document.getElementById("infillmsg");
+    if (!email || !password) {
         infillmsg.textContent = "Please enter both email and password.";
         return;
     }
 
-        try {
-          const res = await fetch("https://tour-backend-hac6.onrender.com/user/login", {
+    try {
+        const res = await fetch("https://tour-backend-hac6.onrender.com/user/login", {
             method: "POST",
-            headers: { "Content-Type": "application/json"
-             },
+            headers: {
+                "Content-Type": "application/json"
+            },
             body: JSON.stringify({ email, password }),
-          })
-          const data = await res.json();
-          console.log("Login Response Status:", res.status);
-          console.log("Login Response Data:", data);
+        })
+        const data = await res.json();
+        console.log("Login Response Status:", res.status);
+        console.log("Login Response Data:", data);
 
-          if (!res.ok) {
+        if (!res.ok) {
             console.log(data.error || "Login failed");
             logingerror.textContent = data.error;
             return;
-          }
+        }
 
-          if (data.token) {
+        if (data.token) {
             localStorage.setItem("token", data.token);
             console.log("Login successful!");
             location.reload();
-          }
-          else {
-            console.log("No token received from server!");
-          }
-        } catch (error) {
-          console.error("Login Error:", error);
-          console.log("An error occurred during login.");
         }
-      }
+        else {
+            console.log("No token received from server!");
+        }
+    } catch (error) {
+        console.error("Login Error:", error);
+        console.log("An error occurred during login.");
+    }
+}
 async function getProfile() {
     const token = localStorage.getItem("token");
     if (!token) {
         console.log("Please login first");
-        window.location.replace("index.html#footer");  
         return;
     }
 
@@ -119,11 +120,11 @@ async function getProfile() {
         } else {
             console.log(data.error || "Failed to load profile");
         }
-        
-        if(data.error === "Invalid " ){
-           localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    location.reload();
+
+        if (data.error === "Invalid ") {
+            localStorage.removeItem("token");
+            localStorage.removeItem("user");
+            location.reload();
         }
 
     } catch (error) {
@@ -155,10 +156,10 @@ async function getBooking() {
         });
 
         const data = await res.json();
-sessionStorage.setItem('orders',JSON.stringify(data))
+        sessionStorage.setItem('orders', JSON.stringify(data))
         console.log(data);
         console.log(data.error)
-window.location.href= 'getBooking.html';
+        window.location.href = 'getBooking.html';
     } catch (error) {
         console.error("Error fetching profile:", error);
     }
