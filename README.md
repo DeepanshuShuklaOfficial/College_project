@@ -1,6 +1,6 @@
 # 📌 Project Title
 **PandaTour – A Travel & Tour Booking Website**
-deployed website link - https://deepanshushuklaofficial.github.io/College_project/index.html
+**deployed website link - https://deepanshushuklaofficial.github.io/College_project/index.html **
 ---
 
 ## 📄 Project Description  
