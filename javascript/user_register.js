@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("login-section").style.display = "none";
         document.getElementById("profilebnt").style.display = "block";
         document.getElementById("loginbnt").style.display = "none";
+        document.getElementById("form-line").style.display = "none";
     }
     document.getElementById("login-button").addEventListener("click", login);
 });
