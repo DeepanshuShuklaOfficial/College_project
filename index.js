@@ -1,4 +1,35 @@
-// Generate Cards
+//This is for image slider section at the top
+const slides = document.querySelectorAll(".slide");
+const slider = document.getElementById("slider");
+let counter = 0;
+
+const goNext = () => {
+    if (counter < slides.length - 1) {
+        counter++;
+        slideImage();
+    } else {
+        counter = 0;
+        slideImage();
+    }
+};
+
+const goPre = () => {
+    if (counter > 0) {
+        counter--;
+        slideImage();
+    } else {
+        counter = slides.length - 1;
+        slideImage();
+    }
+};
+
+const slideImage = () => {
+    slider.style.transform = `translateX(-${counter * 100}%)`;
+};
+
+setInterval(goNext, 4000);
+
+//This is for best offer cards
 function generateCards() {
     const cardWrapper = document.getElementById("cardWrapper");
     cardWrapper.innerHTML = "";
@@ -22,72 +53,7 @@ function generateCards() {
     });
 }
 
-
-
-// Generate Top Destinations
-function generateTopDestinations() {
-    const topDestWrapper = document.getElementById("topDestWrapper");
-    topDestWrapper.innerHTML = "";
-    topDestinations.forEach(dest => {
-        const destDiv = `
-         <a href="card.html?destination=${dest.name.toLowerCase().replace(/\s+/g, '-').replace(/,/g, '')}" class="block">
-            <div class="border border-[#253d2c] imp m-auto rounded h-full w-full p-1.5 flex flex-col justify-between hover:shadow-md transition-all">
-                <img class="rounded sharp h-[80px] md:h-[160px] w-full object-cover object-top" src="${dest.img}" alt="${dest.name}" loading="lazy">
-                <div class="flex justify-between items-end mt-auto">
-                    <h2 class="text-white font-bold text-[12px] md:text-[16px] w-[80%]">${dest.name}</h2>
-                    <i class="fa-solid fa-circle-right dark4 text-[18px]"></i>
-                </div>
-            </div>
-        </a>
-        `;
-        topDestWrapper.innerHTML += destDiv;
-    });
-}
-
-// Call Functions
-generateCards();
-generateTopDestinations();
-
-
-// ================================================================================================================================================================================
-
-// 
-
-const slides = document.querySelectorAll(".slide");
-const slider = document.getElementById("slider");
-let counter = 0;
-
-const goNext = () => {
-    if (counter < slides.length - 1) {
-        counter++;
-        slideImage();
-    } else {
-        counter = 0;
-        slideImage();
-    }
-};
-
-const goPre = () => {
-    if (counter > 0) {
-        counter--;
-        slideImage();
-    } else {
-        counter = slides.length - 1; // Loop back to last image
-        slideImage();
-    }
-};
-
-const slideImage = () => {
-    slider.style.transform = `translateX(-${counter * 100}%)`;
-};
-
-// Auto-slide every 5 seconds
-setInterval(goNext, 4000);
-
-
-
-
-// for card section 
+//This is for best offer cards slide functionality 
 
 let index = 0;
 const cardWrapper = document.getElementById("cardWrapper");
@@ -118,10 +84,29 @@ function prevSlide() {
 
 window.addEventListener("resize", updateSlide);
 
+//This is for Top Destinations cards
+function generateTopDestinations() {
+    const topDestWrapper = document.getElementById("topDestWrapper");
+    topDestWrapper.innerHTML = "";
+    topDestinations.forEach(dest => {
+        const destDiv = `
+         <a href="card.html?destination=${dest.name.toLowerCase().replace(/\s+/g, '-').replace(/,/g, '')}" class="block">
+            <div class="border border-[#253d2c] imp m-auto rounded h-full w-full p-1.5 flex flex-col justify-between hover:shadow-md transition-all">
+                <img class="rounded sharp h-[80px] md:h-[160px] w-full object-cover object-top" src="${dest.img}" alt="${dest.name}" loading="lazy">
+                <div class="flex justify-between items-end mt-auto">
+                    <h2 class="text-white font-bold text-[12px] md:text-[16px] w-[80%]">${dest.name}</h2>
+                    <i class="fa-solid fa-circle-right dark4 text-[18px]"></i>
+                </div>
+            </div>
+        </a>
+        `;
+        topDestWrapper.innerHTML += destDiv;
+    });
+}
+generateCards();
+generateTopDestinations();
 
-
-
-// for login and signup form 
+//This is for the login and signup forms 
 const loginForm = document.getElementById("login-form");
 const signupForm = document.getElementById("signup-form");
 const formTitle = document.getElementById("form-title");
@@ -159,18 +144,13 @@ function togglePassword(inputId, iconId) {
     }
 }
 
-
-
-// for login scroll 
-
+// These is for scroll functionalities that applied different elements in the index.html pages 
 function scrollToLogin() {
     const loginSection = document.getElementById("login-section");
     if (loginSection) {
         loginSection.scrollIntoView({ behavior: "smooth" });
     }
 }
-
-// for last to top scroll
 
 function scrollToTop() {
     const header = document.getElementById("header");
@@ -179,47 +159,42 @@ function scrollToTop() {
     }
 }
 
-// for scroll to booking
 function scrollToBookNow() {
-    const Booking = document.getElementById("Booking");
-    if (Booking) {
-        Booking.scrollIntoView({ behavior: "smooth" });
+    const BookNow = document.getElementById("Booking");
+    if (BookNow) {
+        BookNow.scrollIntoView({ behavior: "smooth" });
     }
 }
 
-//for scroll to top destination
 
 function scrollToTopDestination() {
-    const Booking = document.getElementById("destinations");
-    if (Booking) {
-        Booking.scrollIntoView({ behavior: "smooth" });
+    const topDestinations = document.getElementById("destinations");
+    if (topDestinations) {
+        topDestinations.scrollIntoView({ behavior: "smooth" });
     }
 }
-
-
-//for scroll to bottom
 
 function scrollTobottom() {
-    const Booking = document.getElementById("footer");
-    if (Booking) {
-        Booking.scrollIntoView({ behavior: "smooth" });
+    const footer = document.getElementById("footer");
+    if (footer) {
+        footer.scrollIntoView({ behavior: "smooth" });
     }
 }
 
-
-// for hamburger menu
+// this controls the slide in functionality of navigation div extender [only for small screen devices]
 
 const menuBtn = document.getElementById('menuBtn');
 const closeBtn = document.getElementById('closeBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 
 menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.remove('translate-x-full'); // Slide in
+    mobileMenu.classList.remove('translate-x-full'); 
 });
 
 closeBtn.addEventListener('click', () => {
-    mobileMenu.classList.add('translate-x-full'); // Slide out
+    mobileMenu.classList.add('translate-x-full'); 
 });
+
 
 function profilebtn() {
     const profile = document.getElementById("auth-container");
@@ -230,8 +205,8 @@ function profilebtn() {
     }
 }
 
-// for desktop destination dropdown menu
 
+// this controls the destination tab both in desktop and phones
 const btn = document.getElementById('destinations-btn');
 const dropdown = document.getElementById('dropdown-menu');
 const desktopChevron = document.getElementById('desktop-chevron');
@@ -245,7 +220,6 @@ btn.addEventListener('click', (e) => {
     dropdown.classList.toggle('hidden');
     dropdown.classList.toggle('flex');
 
-    // Toggle rotation
     if (desktopMenuOpen) {
         desktopChevron.classList.add('rotate-180');
     } else {
@@ -253,7 +227,6 @@ btn.addEventListener('click', (e) => {
     }
 });
 
-// Close dropdown when clicking outside
 document.addEventListener('click', (e) => {
     if (!btn.contains(e.target) && !dropdown.contains(e.target)) {
         dropdown.classList.add('hidden');
@@ -263,7 +236,6 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// for mobile destination tab drop down menu 
 
 const dropdownBtn = document.getElementById("mobile-destinations-btn");
 const dropdownMenu = document.getElementById("mobile-dropdown-menu");
