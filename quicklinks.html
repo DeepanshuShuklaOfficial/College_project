@@ -2,54 +2,63 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="output.css">
-    <link rel="stylesheet" href="custom.css">
-    <script src="javascript/user_register.js"></script>
-    <script src="javascript/validation.js"></script>
-    <title>PandaTour - quicklinks</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="output.css">
+  <link rel="stylesheet" href="custom.css">
+  <script src="javascript/user_register.js"></script>
+  <script src="javascript/validation.js"></script>
+  <title>PandaTour - quicklinks</title>
 </head>
 
 <body class="bg">
 
-   <!-- nav bar starts here -->
+  <!-- nav bar starts here -->
   <header id="header">
     <nav class="h-[30px] w-full head flex justify-between items-center p-5">
 
 
-     <!-- this is for right left hand side part -->
-     <div class="flex gap-2">
-      <img class="h-[28px] rounded-full" src="images/site logo.png" alt="Website Logo">
-      <ul class="gap-1 md:flex hidden justify-between items-center">
-        <li class="tab"><a href="index.html">Home</a></li>
-        <li class="tab relative">
-          <button id="destinations-btn" class="flex items-center gap-1 cursor-pointer font-bold">
-            Destinations <i id="desktop-chevron" class="fa-solid fa-chevron-down transition-transform duration-300"></i>
-          </button>
-          <ul id="dropdown-menu"
+      <!-- this is for right left hand side part -->
+      <div class="flex gap-2">
+        <img class="h-[28px] rounded-full" src="images/site logo.png" alt="Website Logo">
+        <ul class="gap-1 md:flex hidden justify-between items-center">
+          <li class="tab"><a href="index.html">Home</a></li>
+          <li class="tab relative">
+            <button id="destinations-btn" class="flex items-center gap-1 cursor-pointer font-bold">
+              Destinations <i id="desktop-chevron"
+                class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+            </button>
+            <ul id="dropdown-menu"
               class="absolute mt-3 left-0 right-0 hidden flex-col border-2 p-2 border-[#253d2c] head dark1 shadow-lg rounded z-50">
-            <li><a href="explore.html?direction=East" class="block w-full px-4 py-1 hover:bg-[#cfffdc] hover:text-[#2e6f40]">East</a></li>
-            <li><a href="explore.html?direction=West" class="block w-full px-4 py-1 hover:bg-[#cfffdc] hover:text-[#2e6f40]">West</a></li>
-            <li><a href="explore.html?direction=North" class="block w-full px-4 py-1 hover:bg-[#cfffdc] hover:text-[#2e6f40]">North</a></li>
-            <li><a href="explore.html?direction=South" class="block w-full px-4 py-1 hover:bg-[#cfffdc] hover:text-[#2e6f40]">South</a></li>
-          </ul>
-        </li>
-        <li class="tab"><a href="explore.html">Packages</a></li>
-        <li onclick="scrollTobottom()" class="tab"><a href="#">About us</a></li>
-        <li onclick="scrollTobottom()" class="tab"><a href="#">Contact</a></li>
-      </ul>
-    </div>    
+              <li><a href="explore.html?direction=East"
+                  class="block w-full px-4 py-1 hover:bg-[#cfffdc] hover:text-[#2e6f40]">East</a></li>
+              <li><a href="explore.html?direction=West"
+                  class="block w-full px-4 py-1 hover:bg-[#cfffdc] hover:text-[#2e6f40]">West</a></li>
+              <li><a href="explore.html?direction=North"
+                  class="block w-full px-4 py-1 hover:bg-[#cfffdc] hover:text-[#2e6f40]">North</a></li>
+              <li><a href="explore.html?direction=South"
+                  class="block w-full px-4 py-1 hover:bg-[#cfffdc] hover:text-[#2e6f40]">South</a></li>
+            </ul>
+          </li>
+          <li class="tab"><a href="explore.html">Packages</a></li>
+          <li onclick="scrollTobottom()" class="tab"><a href="#">About us</a></li>
+          <li onclick="scrollTobottom()" class="tab"><a href="#">Contact</a></li>
+        </ul>
+      </div>
 
       <!-- this is for right hand side part -->
       <div class="flex items-center gap-3">
         <div class="relative">
           <input id="searchInput"
             class="w-[200px] md:w-[300px] pr-8 pl-1.5 py-0.5 border text-[#cfffdc] font-bold border-[#cfffdc] rounded-full outline-none focus:ring-2 focus:ring-[#68BA7F]"
-            type="text" placeholder="Search destinations, tours, or flights..."onkeyup="showSuggestions()" autocomplete="off" aria-autocomplete="none" >
-          <i class="fa-solid fa-magnifying-glass absolute z-30 right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-[#cfffdc]"onclick="performSearch()"></i>
+            type="text" placeholder="Search destinations, tours, or flights..." onkeyup="showSuggestions()"
+            autocomplete="off" aria-autocomplete="none">
+          <i class="fa-solid fa-magnifying-glass absolute z-30 right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-[#cfffdc]"
+            onclick="performSearch()"></i>
           <!-- 🟢 Suggestions Dropdown -->
-          <ul id="suggestionsBox" class="absolute z-30 dark3 font-semibold md:w-full w-[60vw] md:h-[50vh] h-[30vh] head dark1 mt-2 rounded shadow-lg border-2 border-[#253d2c] hidden overflow-y-auto"></ul>
+          <ul id="suggestionsBox"
+            class="absolute z-30 dark3 font-semibold md:w-full w-[60vw] md:h-[50vh] h-[30vh] head dark1 mt-2 rounded shadow-lg border-2 border-[#253d2c] hidden overflow-y-auto">
+          </ul>
         </div>
 
         </button>
@@ -69,13 +78,21 @@
             Destinations&nbsp;<i class="fa fa-chevron-down transition-transform duration-300" id="mobile-chevron"></i>
           </button>
           <ul id="mobile-dropdown-menu"
-              class="max-h-0 min-h-0 overflow-hidden transition-all duration-100 ease-in-out space-y-1 ">
-            <li><a href="explore.html?direction=East" class="block w-full px-2 rounded border-[#253d2c] border-1 text-center hover:bg-[#cfffdc] hover:text-[#2e6f40]">East</a></li>
-            <li><a href="explore.html?direction=West" class="block w-full px-2 rounded border-[#253d2c] border-1 text-center hover:bg-[#cfffdc] hover:text-[#2e6f40]">West</a></li>
-            <li><a href="explore.html?direction=North" class="block w-full px-2 rounded border-[#253d2c] border-1 text-center hover:bg-[#cfffdc] hover:text-[#2e6f40]">North</a></li>
-            <li><a href="explore.html?direction=South" class="block w-full px-2 rounded border-[#253d2c] border-1 text-center hover:bg-[#cfffdc] hover:text-[#2e6f40]">South</a></li>
-          </ul>   
-          </li>  
+            class="max-h-0 min-h-0 overflow-hidden transition-all duration-100 ease-in-out space-y-1 ">
+            <li><a href="explore.html?direction=East"
+                class="block w-full px-2 rounded border-[#253d2c] border-1 text-center hover:bg-[#cfffdc] hover:text-[#2e6f40]">East</a>
+            </li>
+            <li><a href="explore.html?direction=West"
+                class="block w-full px-2 rounded border-[#253d2c] border-1 text-center hover:bg-[#cfffdc] hover:text-[#2e6f40]">West</a>
+            </li>
+            <li><a href="explore.html?direction=North"
+                class="block w-full px-2 rounded border-[#253d2c] border-1 text-center hover:bg-[#cfffdc] hover:text-[#2e6f40]">North</a>
+            </li>
+            <li><a href="explore.html?direction=South"
+                class="block w-full px-2 rounded border-[#253d2c] border-1 text-center hover:bg-[#cfffdc] hover:text-[#2e6f40]">South</a>
+            </li>
+          </ul>
+        </li>
         <li class="mobile-tab"><a href="explore.html">Packages</a>
         </li>
         <li onclick="scrollTobottom()" class="mobile-tab"><a href="#">About us</a>
@@ -87,216 +104,235 @@
   </header>
 
 
-    <!-- nav bar ends here -->
+  <!-- nav bar ends here -->
 
 
-    <main>
-        <section id="reservation" class="section my-8 px-4 md:px-[5vw]">
-            <!-- Reservation Title -->
-            <h2 class="text-3xl font-extrabold mb-4">Make Reservation</h2>
-            <p class="mb-6">Booking your dream getaway with Panda Tour is seamless and intuitive. Here’s a step-by-step guide to help you reserve your next adventure:</p>
-    
-            <!-- Reservation Steps -->
-            <div class="space-y-4">
-                <div class="border-l-4 border-[#2e6f40] pl-4">
-                    <h3 class="font-bold text-xl">1. Login or Sign Up</h3>
-                    <p>Start by logging into your Panda Tour account. New to the platform? Simply create an account using our quick and secure sign-up form.</p>
-                </div>
-                <div class="border-l-4 border-[#2e6f40] pl-4">
-                    <h3 class="font-bold text-xl">2. Explore Destinations</h3>
-                    <p>Head over to the Explore page to browse a variety of carefully curated destinations across India. Each listing comes with detailed descriptions and highlights.</p>
-                </div>
-                <div class="border-l-4 border-[#2e6f40] pl-4">
-                    <h3 class="font-bold text-xl">3. Apply Smart Filters</h3>
-                    <p>Use our filter tools to narrow down your search. Filter by price range, accommodation type, travel direction, or categories to match your preferences.</p>
-                </div>
-                <div class="border-l-4 border-[#2e6f40] pl-4">
-                    <h3 class="font-bold text-xl">4. Sort Your Results</h3>
-                    <p>Prefer seeing the most affordable options first or want them alphabetically sorted? Sort your listings by A-Z, Z-A, price: low to high, or high to low.</p>
-                </div>
-                <div class="border-l-4 border-[#2e6f40] pl-4">
-                    <h3 class="font-bold text-xl">5. Select Your Desired Tour</h3>
-                    <p>Click on any tour to view full details, including photos, itinerary, and FAQs. Ensure the destination fits your expectations.</p>
-                </div>
-                <div class="border-l-4 border-[#2e6f40] pl-4">
-                    <h3 class="font-bold text-xl">6. Click "Book"</h3>
-                    <p>Once satisfied with the details, click the Book button to start the reservation process.</p>
-                </div>
-                <div class="border-l-4 border-[#2e6f40] pl-4">
-                    <h3 class="font-bold text-xl">7. Fill Out the Booking Form</h3>
-                    <p>Enter key information including your name, email, phone number, current location, booking date, and the number of adults and children joining the trip.</p>
-                </div>
-                <div class="border-l-4 border-[#2e6f40] pl-4">
-                    <h3 class="font-bold text-xl">8. Review Your Information</h3>
-                    <p>Double-check all the entered details for accuracy before final submission.</p>
-                </div>
-                <div class="border-l-4 border-[#2e6f40] pl-4">
-                    <h3 class="font-bold text-xl">9. Confirm Booking</h3>
-                    <p>Hit the “Book” button. A confirmation message will appear: “Booking Successful.”</p>
-                </div>
-            </div>
-        </section>
-    
-        <section id="faq" class="section my-8 px-4 md:px-[5vw]">
-            <h2 class="text-3xl font-extrabold mb-4">Frequently Asked Questions (FAQs)</h2>
-    
-            <!-- FAQs List -->
-            <div class="space-y-4">
-                <div class="border-l-4 border-[#2e6f40] pl-4">
-                    <h3 class="font-bold text-xl">1. Is accommodation included in the package?</h3>
-                    <p>Yes, comfortable stays in guest houses or hotels are included, depending on the destination.</p>
-                </div>
-                <div class="border-l-4 border-[#2e6f40] pl-4">
-                    <h3 class="font-bold text-xl">2. Is food included in the tour?</h3>
-                    <p>Typically, breakfast is included. Other meals may be chargeable or self-arranged based on the itinerary.</p>
-                </div>
-                <div class="border-l-4 border-[#2e6f40] pl-4">
-                    <h3 class="font-bold text-xl">3. Are transportation services provided?</h3>
-                    <p>Yes, local transportation and pick-up/drop services from major cities are usually included.</p>
-                </div>
-                <div class="border-l-4 border-[#2e6f40] pl-4">
-                    <h3 class="font-bold text-xl">4. Are flights or train tickets included in the package?</h3>
-                    <p>No, airfare or train fare is generally not included and must be booked separately.</p>
-                </div>
-                <div class="border-l-4 border-[#2e6f40] pl-4">
-                    <h3 class="font-bold text-xl">5. Are entry fees to monuments or attractions included?</h3>
-                    <p>No, most entry fees need to be paid directly at the location unless stated otherwise.</p>
-                </div>
-                <div class="border-l-4 border-[#2e6f40] pl-4">
-                    <h3 class="font-bold text-xl">6. Are guided tours included?</h3>
-                    <p>Yes, professional guides are available for sightseeing and local experiences.</p>
-                </div>
-                <div class="border-l-4 border-[#2e6f40] pl-4">
-                    <h3 class="font-bold text-xl">7. Is the tour safe for solo travelers or families?</h3>
-                    <p>Yes, safety is a priority, and the tours are designed for all types of travelers.</p>
-                </div>
-                <!-- Add other FAQ items as necessary -->
-            </div>
-        </section>
-    
-        <section id="payment-options" class="section my-8 px-4 md:px-[5vw]">
-            <h2 class="text-3xl font-extrabold mb-4">Payment Options</h2>
-            <p class="mb-6">We’re currently in the process of integrating a robust and secure payment gateway. Once launched, it will support multiple payment methods including UPI, debit/credit cards, digital wallets, and more. Your booking experience will soon be even smoother and safer—stay tuned!</p>
-        </section>
-    
-        <section id="booking-tips" class="section my-8 px-4 md:px-[5vw]">
-            <h2 class="text-3xl font-extrabold mb-4">Booking Tips</h2>
-            <ul class="list-disc pl-6 space-y-2">
-                <li>Book early to grab early-bird offers (when available).</li>
-                <li>Travel during off-peak seasons to save more.</li>
-                <li>Compare multiple tour packages before finalizing.</li>
-                <li>Keep your travel dates flexible for better pricing.</li>
-                <li>Read tour details and FAQs to avoid last-minute surprises.</li>
-                <li>Make sure to carry valid ID proof and necessary travel permits.</li>
-                <li>Use filters on our Explore page to find exactly what you want.</li>
-                <li>Always verify booking details before submission.</li>
-                <li>Contact our team for any special requests.</li>
-                <li>Watch this space – we'll soon be launching more features and offers!</li>
-            </ul>
-        </section>
-    
-        <section id="information" class="section my-8 px-4 md:px-[5vw]">
-            <h2 class="text-3xl font-extrabold mb-4">Information</h2>
-            <p class="mb-6">In today’s digital-first world, travelers want convenience, choice, and confidence—all in one place. Panda Tour delivers just that. Designed with the Indian traveler in mind, Panda Tour is a modern, responsive, and intuitive travel booking platform that simplifies every stage of your journey—from discovery to confirmation.</p>
-            <p class="mb-6">Whether you're drawn to the serene backwaters of Kerala, the spiritual temples of Tamil Nadu, or the rugged peaks of Himachal Pradesh, Panda Tour helps you explore India like never before. Our curated packages, smart filters, and detailed destination pages ensure that both first-time travelers and seasoned explorers find what they’re looking for.</p>
-            <p class="mb-6">Panda Tour also supports local tourism by featuring smaller, lesser-known destinations and giving local operators national visibility. With planned features like multilingual support, secure payment integration, admin dashboards, and real-time alerts, we’re constantly evolving to meet your needs.</p>
-            <p>Whether you're 18 or 80, tech-savvy or new to online bookings, Panda Tour ensures a smooth, enjoyable, and safe planning experience.</p>
-        </section>
+  <main>
+    <section id="reservation" class="section my-8 px-4 md:px-[5vw]">
+      <!-- Reservation Title -->
+      <h2 class="text-3xl font-extrabold mb-4">Make Reservation</h2>
+      <p class="mb-6">Booking your dream getaway with Panda Tour is seamless and intuitive. Here’s a step-by-step guide
+        to help you reserve your next adventure:</p>
 
-    
-
-       
-        <!-- do not touch these   -->
-        <div class="hidden">
-            <div id="cardWrapper"></div>
-            <div id="topDestWrapper"></div>
+      <!-- Reservation Steps -->
+      <div class="space-y-4">
+        <div class="border-l-4 border-[#2e6f40] pl-4">
+          <h3 class="font-bold text-xl">1. Login or Sign Up</h3>
+          <p>Start by logging into your Panda Tour account. New to the platform? Simply create an account using our
+            quick and secure sign-up form.</p>
         </div>
-        <button id="toggle-btn"></button>
+        <div class="border-l-4 border-[#2e6f40] pl-4">
+          <h3 class="font-bold text-xl">2. Explore Destinations</h3>
+          <p>Head over to the Explore page to browse a variety of carefully curated destinations across India. Each
+            listing comes with detailed descriptions and highlights.</p>
         </div>
-
-
-    </main>
-
-    <!-- footer start here -->
-    <footer id="footer" class="footer dark1">
-      <div class="md:w-[90vw] w-auto grid grid-cols-2 md:grid-cols-4 gap-y-2 py-2 px-4 m-auto">
-  
-        <div class="order-3 md:order-none">
-          <h1 class="font-extrabold text-2xl">About us</h1>
-          <ul>
-            <li class="space-x-1.5">
-              <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
-                <i class="text-3xl fa-brands fa-square-facebook"></i>
-              </a>
-              <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
-                <i class="text-3xl fa-brands fa-square-instagram"></i>
-              </a>
-              <a href="https://twitter.com" target="_blank" aria-label="Twitter">
-                <i class="text-3xl fa-brands fa-x-twitter"></i>
-              </a>
-              <a href="https://www.youtube.com" target="_blank" aria-label="YouTube">
-                <i class="text-3xl fa-brands fa-square-youtube"></i>
-              </a>
-            </li>
-            
-          </ul>
+        <div class="border-l-4 border-[#2e6f40] pl-4">
+          <h3 class="font-bold text-xl">3. Apply Smart Filters</h3>
+          <p>Use our filter tools to narrow down your search. Filter by price range, accommodation type, travel
+            direction, or categories to match your preferences.</p>
         </div>
-  
-        <div class="order-1 md:order-none md:mr-20">
-          <h1 class="font-extrabold text-2xl">Travel Specialists</h1>
-          <ul class="list-disc list-inside">
-            <li><a href="explore.html?category=Honeymoon">Honeymoon</a></li>
-            <li><a href="explore.html?category=Winter%20Holidays">Winter Holidays</a></li>
-            <li><a href="explore.html?category=Safari%20Season">Safari Season</a></li>
-            <li><a href="explore.html?category=Luxury%20Cities">Luxury Cities</a></li>
-            <li><a href="explore.html?category=Family%20Holidays">Family Holidays</a></li>
-            <li><a href="explore.html?category=Culture%20Trips">Culture Trips</a></li>
-            <li><a href="explore.html?category=Tropical%20Adventure">Tropical Adventure</a></li>
-          </ul>
+        <div class="border-l-4 border-[#2e6f40] pl-4">
+          <h3 class="font-bold text-xl">4. Sort Your Results</h3>
+          <p>Prefer seeing the most affordable options first or want them alphabetically sorted? Sort your listings by
+            A-Z, Z-A, price: low to high, or high to low.</p>
         </div>
-  
-        <div class="order-2 md:order-none">
-            <h1 class="font-extrabold text-2xl">Quick Links</h1>
-            <ul class="list-disc list-inside">
-                <li><a href="quicklinks.html#reservation">Make Reservation</a></li>
-                <li><a href="quicklinks.html#faq">FAQs</a></li>
-                <li><a href="quicklinks.html#payment-options">Payment Options</a></li>
-                <li><a href="quicklinks.html#booking-tips">Booking Tips</a></li>
-                <li><a href="quicklinks.html#information">Information</a></li>
-            </ul>
-          </div>
-  
-          <div class="order-4 md:order-none">
-            <h1 class="font-extrabold text-2xl">Customer Support</h1>
-            <a href="tel:+919999988888" class="font-extrabold text-2xl">+91 99999 88888</a>
-            <p>
-              <a href="mailto:office@pandatour.com" class="text-blue-500">office@pandatour.com</a>
-            </p>
-          </div>
-          
-      </div>
-  
-      <div class="bg w-[90vw] m-auto h-0.5 my-4"></div>
-  
-      <div class="flex justify-between pb-7 px-4 md:px-[5vw]">
-        <div>
-          <p>&copy; 2025 Panda Tour. All rights reserved.</p>
+        <div class="border-l-4 border-[#2e6f40] pl-4">
+          <h3 class="font-bold text-xl">5. Select Your Desired Tour</h3>
+          <p>Click on any tour to view full details, including photos, itinerary, and FAQs. Ensure the destination fits
+            your expectations.</p>
         </div>
-        <div class="cursor-pointer" onclick="scrollToTop()"><i class=" rounded bg dark4 p-1 fa-solid fa-chevron-up"></i>
+        <div class="border-l-4 border-[#2e6f40] pl-4">
+          <h3 class="font-bold text-xl">6. Click "Book"</h3>
+          <p>Once satisfied with the details, click the Book button to start the reservation process.</p>
+        </div>
+        <div class="border-l-4 border-[#2e6f40] pl-4">
+          <h3 class="font-bold text-xl">7. Fill Out the Booking Form</h3>
+          <p>Enter key information including your name, email, phone number, current location, booking date, and the
+            number of adults and children joining the trip.</p>
+        </div>
+        <div class="border-l-4 border-[#2e6f40] pl-4">
+          <h3 class="font-bold text-xl">8. Review Your Information</h3>
+          <p>Double-check all the entered details for accuracy before final submission.</p>
+        </div>
+        <div class="border-l-4 border-[#2e6f40] pl-4">
+          <h3 class="font-bold text-xl">9. Confirm Booking</h3>
+          <p>Hit the “Book” button. A confirmation message will appear: “Booking Successful.”</p>
         </div>
       </div>
-    </footer>
-    <!-- footer ends here -->
+    </section>
 
-    <!-- Java scripts -->
-    <script src="https://kit.fontawesome.com/dc91047fb7.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="Data.js"></script>
-    <script src="card.js"></script>
-    <script src="explore.js"></script>
-    <script src="getBooking.js"></script>
-    <script src="index.js"></script>
-    <!-- Java scripts end here -->
+    <section id="faq" class="section my-8 px-4 md:px-[5vw]">
+      <h2 class="text-3xl font-extrabold mb-4">Frequently Asked Questions (FAQs)</h2>
+
+      <!-- FAQs List -->
+      <div class="space-y-4">
+        <div class="border-l-4 border-[#2e6f40] pl-4">
+          <h3 class="font-bold text-xl">1. Is accommodation included in the package?</h3>
+          <p>Yes, comfortable stays in guest houses or hotels are included, depending on the destination.</p>
+        </div>
+        <div class="border-l-4 border-[#2e6f40] pl-4">
+          <h3 class="font-bold text-xl">2. Is food included in the tour?</h3>
+          <p>Typically, breakfast is included. Other meals may be chargeable or self-arranged based on the itinerary.
+          </p>
+        </div>
+        <div class="border-l-4 border-[#2e6f40] pl-4">
+          <h3 class="font-bold text-xl">3. Are transportation services provided?</h3>
+          <p>Yes, local transportation and pick-up/drop services from major cities are usually included.</p>
+        </div>
+        <div class="border-l-4 border-[#2e6f40] pl-4">
+          <h3 class="font-bold text-xl">4. Are flights or train tickets included in the package?</h3>
+          <p>No, airfare or train fare is generally not included and must be booked separately.</p>
+        </div>
+        <div class="border-l-4 border-[#2e6f40] pl-4">
+          <h3 class="font-bold text-xl">5. Are entry fees to monuments or attractions included?</h3>
+          <p>No, most entry fees need to be paid directly at the location unless stated otherwise.</p>
+        </div>
+        <div class="border-l-4 border-[#2e6f40] pl-4">
+          <h3 class="font-bold text-xl">6. Are guided tours included?</h3>
+          <p>Yes, professional guides are available for sightseeing and local experiences.</p>
+        </div>
+        <div class="border-l-4 border-[#2e6f40] pl-4">
+          <h3 class="font-bold text-xl">7. Is the tour safe for solo travelers or families?</h3>
+          <p>Yes, safety is a priority, and the tours are designed for all types of travelers.</p>
+        </div>
+        <!-- Add other FAQ items as necessary -->
+      </div>
+    </section>
+
+    <section id="payment-options" class="section my-8 px-4 md:px-[5vw]">
+      <h2 class="text-3xl font-extrabold mb-4">Payment Options</h2>
+      <p class="mb-6">We’re currently in the process of integrating a robust and secure payment gateway. Once launched,
+        it will support multiple payment methods including UPI, debit/credit cards, digital wallets, and more. Your
+        booking experience will soon be even smoother and safer—stay tuned!</p>
+    </section>
+
+    <section id="booking-tips" class="section my-8 px-4 md:px-[5vw]">
+      <h2 class="text-3xl font-extrabold mb-4">Booking Tips</h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li>Book early to grab early-bird offers (when available).</li>
+        <li>Travel during off-peak seasons to save more.</li>
+        <li>Compare multiple tour packages before finalizing.</li>
+        <li>Keep your travel dates flexible for better pricing.</li>
+        <li>Read tour details and FAQs to avoid last-minute surprises.</li>
+        <li>Make sure to carry valid ID proof and necessary travel permits.</li>
+        <li>Use filters on our Explore page to find exactly what you want.</li>
+        <li>Always verify booking details before submission.</li>
+        <li>Contact our team for any special requests.</li>
+        <li>Watch this space – we'll soon be launching more features and offers!</li>
+      </ul>
+    </section>
+
+    <section id="information" class="section my-8 px-4 md:px-[5vw]">
+      <h2 class="text-3xl font-extrabold mb-4">Information</h2>
+      <p class="mb-6">In today’s digital-first world, travelers want convenience, choice, and confidence—all in one
+        place. Panda Tour delivers just that. Designed with the Indian traveler in mind, Panda Tour is a modern,
+        responsive, and intuitive travel booking platform that simplifies every stage of your journey—from discovery to
+        confirmation.</p>
+      <p class="mb-6">Whether you're drawn to the serene backwaters of Kerala, the spiritual temples of Tamil Nadu, or
+        the rugged peaks of Himachal Pradesh, Panda Tour helps you explore India like never before. Our curated
+        packages, smart filters, and detailed destination pages ensure that both first-time travelers and seasoned
+        explorers find what they’re looking for.</p>
+      <p class="mb-6">Panda Tour also supports local tourism by featuring smaller, lesser-known destinations and giving
+        local operators national visibility. With planned features like multilingual support, secure payment
+        integration, admin dashboards, and real-time alerts, we’re constantly evolving to meet your needs.</p>
+      <p>Whether you're 18 or 80, tech-savvy or new to online bookings, Panda Tour ensures a smooth, enjoyable, and safe
+        planning experience.</p>
+    </section>
+
+
+
+
+    <!-- do not touch these   -->
+    <div class="hidden">
+      <div id="cardWrapper"></div>
+      <div id="topDestWrapper"></div>
+    </div>
+    <button id="toggle-btn"></button>
+    </div>
+
+
+  </main>
+
+  <!-- footer start here -->
+  <footer id="footer" class="footer dark1">
+    <div class="md:w-[90vw] w-auto grid grid-cols-2 md:grid-cols-4 gap-y-2 py-2 px-4 m-auto">
+
+      <div class="order-3 md:order-none">
+        <h1 class="font-extrabold text-2xl">About us</h1>
+        <ul>
+          <li class="space-x-1.5">
+            <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+              <i class="text-3xl fa-brands fa-square-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+              <i class="text-3xl fa-brands fa-square-instagram"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+              <i class="text-3xl fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="https://www.youtube.com" target="_blank" aria-label="YouTube">
+              <i class="text-3xl fa-brands fa-square-youtube"></i>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="order-1 md:order-none md:mr-20">
+        <h1 class="font-extrabold text-2xl">Travel Specialists</h1>
+        <ul class="list-disc list-inside">
+          <li><a href="explore.html?category=Honeymoon">Honeymoon</a></li>
+          <li><a href="explore.html?category=Winter%20Holidays">Winter Holidays</a></li>
+          <li><a href="explore.html?category=Safari%20Season">Safari Season</a></li>
+          <li><a href="explore.html?category=Luxury%20Cities">Luxury Cities</a></li>
+          <li><a href="explore.html?category=Family%20Holidays">Family Holidays</a></li>
+          <li><a href="explore.html?category=Culture%20Trips">Culture Trips</a></li>
+          <li><a href="explore.html?category=Tropical%20Adventure">Tropical Adventure</a></li>
+        </ul>
+      </div>
+
+      <div class="order-2 md:order-none">
+        <h1 class="font-extrabold text-2xl">Quick Links</h1>
+        <ul class="list-disc list-inside">
+          <li><a href="quicklinks.html#reservation">Make Reservation</a></li>
+          <li><a href="quicklinks.html#faq">FAQs</a></li>
+          <li><a href="quicklinks.html#payment-options">Payment Options</a></li>
+          <li><a href="quicklinks.html#booking-tips">Booking Tips</a></li>
+          <li><a href="quicklinks.html#information">Information</a></li>
+        </ul>
+      </div>
+
+      <div class="order-4 md:order-none">
+        <h1 class="font-extrabold text-2xl">Customer Support</h1>
+        <a href="tel:+919999988888" class="font-extrabold text-2xl">+91 99999 88888</a>
+        <p>
+          <a href="mailto:office@pandatour.com" class="text-blue-500">office@pandatour.com</a>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="bg w-[90vw] m-auto h-0.5 my-4"></div>
+
+    <div class="flex justify-between pb-7 px-4 md:px-[5vw]">
+      <div>
+        <p>&copy; 2025 Panda Tour. All rights reserved.</p>
+      </div>
+      <div class="cursor-pointer" onclick="scrollToTop()"><i class=" rounded bg dark4 p-1 fa-solid fa-chevron-up"></i>
+      </div>
+    </div>
+  </footer>
+  <!-- footer ends here -->
+
+  <!-- Java scripts -->
+  <script src="https://kit.fontawesome.com/dc91047fb7.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="Data.js"></script>
+  <script src="card.js"></script>
+  <script src="explore.js"></script>
+  <script src="getBooking.js"></script>
+  <script src="index.js"></script>
+  <!-- Java scripts end here -->
 </body>
 
 </html>

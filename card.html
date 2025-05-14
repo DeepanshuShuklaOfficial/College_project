@@ -22,21 +22,26 @@
           <li class="tab"><a href="index.html">Home</a></li>
           <li class="tab relative">
             <button id="destinations-btn" class="flex items-center gap-1 cursor-pointer font-bold">
-              Destinations <i id="desktop-chevron" class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+              Destinations <i id="desktop-chevron"
+                class="fa-solid fa-chevron-down transition-transform duration-300"></i>
             </button>
             <ul id="dropdown-menu"
-                class="absolute mt-3 left-0 right-0 hidden flex-col border-2 p-2 border-[#253d2c] head dark1 shadow-lg rounded z-50">
-              <li><a href="explore.html?direction=East" class="block w-full px-4 py-1 hover:bg-[#cfffdc] hover:text-[#2e6f40]">East</a></li>
-              <li><a href="explore.html?direction=West" class="block w-full px-4 py-1 hover:bg-[#cfffdc] hover:text-[#2e6f40]">West</a></li>
-              <li><a href="explore.html?direction=North" class="block w-full px-4 py-1 hover:bg-[#cfffdc] hover:text-[#2e6f40]">North</a></li>
-              <li><a href="explore.html?direction=South" class="block w-full px-4 py-1 hover:bg-[#cfffdc] hover:text-[#2e6f40]">South</a></li>
+              class="absolute mt-3 left-0 right-0 hidden flex-col border-2 p-2 border-[#253d2c] head dark1 shadow-lg rounded z-50">
+              <li><a href="explore.html?direction=East"
+                  class="block w-full px-4 py-1 hover:bg-[#cfffdc] hover:text-[#2e6f40]">East</a></li>
+              <li><a href="explore.html?direction=West"
+                  class="block w-full px-4 py-1 hover:bg-[#cfffdc] hover:text-[#2e6f40]">West</a></li>
+              <li><a href="explore.html?direction=North"
+                  class="block w-full px-4 py-1 hover:bg-[#cfffdc] hover:text-[#2e6f40]">North</a></li>
+              <li><a href="explore.html?direction=South"
+                  class="block w-full px-4 py-1 hover:bg-[#cfffdc] hover:text-[#2e6f40]">South</a></li>
             </ul>
           </li>
           <li class="tab"><a href="explore.html">Packages</a></li>
           <li onclick="scrollTobottom()" class="tab"><a href="#">About us</a></li>
           <li onclick="scrollTobottom()" class="tab"><a href="#">Contact</a></li>
         </ul>
-      </div>    
+      </div>
 
       <!-- this is for right hand side part -->
       <div class="flex items-center gap-3">
@@ -69,13 +74,21 @@
             Destinations&nbsp;<i class="fa fa-chevron-down transition-transform duration-300" id="mobile-chevron"></i>
           </button>
           <ul id="mobile-dropdown-menu"
-              class="max-h-0 min-h-0 overflow-hidden transition-all duration-100 ease-in-out space-y-1 ">
-            <li><a href="explore.html?direction=East" class="block w-full px-2 rounded border-[#253d2c] border-1 text-center hover:bg-[#cfffdc] hover:text-[#2e6f40]">East</a></li>
-            <li><a href="explore.html?direction=West" class="block w-full px-2 rounded border-[#253d2c] border-1 text-center hover:bg-[#cfffdc] hover:text-[#2e6f40]">West</a></li>
-            <li><a href="explore.html?direction=North" class="block w-full px-2 rounded border-[#253d2c] border-1 text-center hover:bg-[#cfffdc] hover:text-[#2e6f40]">North</a></li>
-            <li><a href="explore.html?direction=South" class="block w-full px-2 rounded border-[#253d2c] border-1 text-center hover:bg-[#cfffdc] hover:text-[#2e6f40]">South</a></li>
-          </ul>   
-          </li>  
+            class="max-h-0 min-h-0 overflow-hidden transition-all duration-100 ease-in-out space-y-1 ">
+            <li><a href="explore.html?direction=East"
+                class="block w-full px-2 rounded border-[#253d2c] border-1 text-center hover:bg-[#cfffdc] hover:text-[#2e6f40]">East</a>
+            </li>
+            <li><a href="explore.html?direction=West"
+                class="block w-full px-2 rounded border-[#253d2c] border-1 text-center hover:bg-[#cfffdc] hover:text-[#2e6f40]">West</a>
+            </li>
+            <li><a href="explore.html?direction=North"
+                class="block w-full px-2 rounded border-[#253d2c] border-1 text-center hover:bg-[#cfffdc] hover:text-[#2e6f40]">North</a>
+            </li>
+            <li><a href="explore.html?direction=South"
+                class="block w-full px-2 rounded border-[#253d2c] border-1 text-center hover:bg-[#cfffdc] hover:text-[#2e6f40]">South</a>
+            </li>
+          </ul>
+        </li>
         <li class="mobile-tab"><a href="explore.html">Packages</a>
         </li>
         <li onclick="scrollTobottom()" class="mobile-tab"><a href="#">About us</a>
@@ -96,117 +109,134 @@
     </div>
   </main>
 
- <!-- booking section -->
-<div id="Booking-section" class="w-full flex justify-center items-center bg py-8 px-4">
-  <div id="Booking-form" class="w-full sm:w-[32rem] p-8 bg-white rounded-2xl shadow-2xl space-y-4 hidden transition duration-300 ease-in-out">
-    <form onsubmit="createBooking(event)" class="space-y-4" id="bookingForm">
+  <!-- booking section -->
+  <div id="Booking-section" class="w-full flex justify-center items-center bg py-8 px-4">
+    <div id="Booking-form"
+      class="w-full sm:w-[32rem] p-8 bg-white rounded-2xl shadow-2xl space-y-4 hidden transition duration-300 ease-in-out">
+      <form onsubmit="createBooking(event)" class="space-y-4" id="bookingForm">
 
-      <!-- Place (readonly) -->
-      <div>
-        <label class="block mb-2 text-lg font-bold text-gray-800">Place</label>
-        <input type="text" id="bookingplace" class="w-full p-3 border border-gray-300 font-bold rounded-lg bg-gray-100 text-gray-600 cursor-not-allowed" readonly />
-      </div>
+        <!-- Place (readonly) -->
+        <div>
+          <label class="block mb-2 text-lg font-bold text-gray-800">Place</label>
+          <input type="text" id="bookingplace"
+            class="w-full p-3 border border-gray-300 font-bold rounded-lg bg-gray-100 text-gray-600 cursor-not-allowed"
+            readonly />
+        </div>
 
-      <!-- Full Name -->
-      <div>
-        <label class="block mb-2 text-lg font-semibold text-gray-800">Full Name</label>
-        <input type="text" id="fullname" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your full name" required />
-        <small id="fullname-error" class="text-red-500 mt-1 hidden text-sm">Full name is required.</small>
-      </div>
+        <!-- Full Name -->
+        <div>
+          <label class="block mb-2 text-lg font-semibold text-gray-800">Full Name</label>
+          <input type="text" id="fullname"
+            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter your full name" required />
+          <small id="fullname-error" class="text-red-500 mt-1 hidden text-sm">Full name is required.</small>
+        </div>
 
-      <!-- Email -->
-      <div>
-        <label class="block mb-2 text-lg font-semibold text-gray-800">Email</label>
-        <input type="email" id="bookemail" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your email" required />
-        <small id="email-error" class="text-red-500 mt-1 hidden text-sm">Please enter a valid email address.</small>
-      </div>
+        <!-- Email -->
+        <div>
+          <label class="block mb-2 text-lg font-semibold text-gray-800">Email</label>
+          <input type="email" id="bookemail"
+            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter your email" required />
+          <small id="email-error" class="text-red-500 mt-1 hidden text-sm">Please enter a valid email address.</small>
+        </div>
 
-      <!-- Phone No -->
-      <div>
-        <label class="block mb-2 text-lg font-semibold text-gray-800">Phone No.</label>
+        <!-- Phone No -->
+        <div>
+          <label class="block mb-2 text-lg font-semibold text-gray-800">Phone No.</label>
+          <div class="relative">
+            <span id="countrycode" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">+91</span>
+            <input type="text" id="phoneno"
+              class="pl-12 pr-4 py-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              maxlength="10" minlength="10" placeholder="Enter 10-digit phone number" required />
+          </div>
+          <small id="phone-error" class="text-red-500 mt-1 hidden text-sm">Please enter a valid 10-digit phone
+            number.</small>
+        </div>
+
+
+
+
+
+
+        <!-- Current Location -->
         <div class="relative">
-          <span id="countrycode" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">+91</span>
-          <input type="text" id="phoneno" class="pl-12 pr-4 py-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="10" minlength="10" placeholder="Enter 10-digit phone number" required />
+          <label for="currentLocation" class="block mb-2 text-lg font-semibold text-gray-800">Current Location</label>
+          <input type="text" id="currentLocation"
+            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Your current location" oninput="filterCities()" autocomplete="on" required />
+
+          <!-- Suggestions dropdown -->
+          <ul id="suggestions"
+            class="absolute z-50 w-full mt-2 bg-white border border-gray-300 rounded-xl shadow-lg hidden max-h-60 overflow-y-auto transition-all duration-200 ease-in-out">
+          </ul>
+
+          <!-- General city error like "Enter correct city name" -->
+          <small id="errorMsg" class="text-red-500 mt-1 block text-sm"></small>
+
+          <!-- Validation error if location is empty -->
+          <small id="location-error" class="text-red-500 mt-1 hidden text-sm">Location is required.</small>
         </div>
-        <small id="phone-error" class="text-red-500 mt-1 hidden text-sm">Please enter a valid 10-digit phone number.</small>
-      </div>
 
 
 
 
-      
-
-      <!-- Current Location -->
-      <div class="relative">
-        <label for="currentLocation" class="block mb-2 text-lg font-semibold text-gray-800">Current Location</label>
-        <input type="text"
-          id="currentLocation"
-          class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="Your current location"
-          oninput="filterCities()"
-          autocomplete="on"
-          required />
-      
-        <!-- Suggestions dropdown -->
-        <ul id="suggestions"
-          class="absolute z-50 w-full mt-2 bg-white border border-gray-300 rounded-xl shadow-lg hidden max-h-60 overflow-y-auto transition-all duration-200 ease-in-out">
-        </ul>
-      
-        <!-- General city error like "Enter correct city name" -->
-        <small id="errorMsg" class="text-red-500 mt-1 block text-sm"></small>
-      
-        <!-- Validation error if location is empty -->
-        <small id="location-error" class="text-red-500 mt-1 hidden text-sm">Location is required.</small>
-      </div>
-      
-
-      
-
-      <!-- Book on Date -->
-      <div>
-        <label for="bookon" class="block mb-2 text-lg font-semibold text-gray-800">Book on Date</label>
-        <input type="date" id="bookon" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required
-        onfocus="this.showPicker()" />
-        <small id="date-error" class="text-red-500 mt-1 hidden text-sm">Please select a date in the future.</small>
-        <small id="date-future-error" class="text-red-500 mt-1 hidden text-sm">Booking can only be made within the next 6 months.</small>
-      </div>
-      
-
-      <!-- Adult and Child -->
-      <div class="grid grid-cols-2 gap-6">
+        <!-- Book on Date -->
         <div>
-          <label class="block mb-2 text-lg font-semibold text-gray-800">Adult</label>
-          <input type="number" min="0" max="30" id="adult" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="0" required />
-          <small id="adult-error" class="text-red-500 mt-1 hidden text-sm">Only 30 adults are allowed.</small>
+          <label for="bookon" class="block mb-2 text-lg font-semibold text-gray-800">Book on Date</label>
+          <input type="date" id="bookon"
+            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required onfocus="this.showPicker()" />
+          <small id="date-error" class="text-red-500 mt-1 hidden text-sm">Please select a date in the future.</small>
+          <small id="date-future-error" class="text-red-500 mt-1 hidden text-sm">Booking can only be made within the
+            next 6 months.</small>
         </div>
-        <div>
-          <label class="block mb-2 text-lg font-semibold text-gray-800">Child</label>
-          <input type="number" min="0" max="20" id="child" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="0" required />
-          <small id="child-error" class="text-red-500 mt-1 hidden text-sm">Only 20 children are allowed.</small>
+
+
+        <!-- Adult and Child -->
+        <div class="grid grid-cols-2 gap-6">
+          <div>
+            <label class="block mb-2 text-lg font-semibold text-gray-800">Adult</label>
+            <input type="number" min="0" max="30" id="adult"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="0" required />
+            <small id="adult-error" class="text-red-500 mt-1 hidden text-sm">Only 30 adults are allowed.</small>
+          </div>
+          <div>
+            <label class="block mb-2 text-lg font-semibold text-gray-800">Child</label>
+            <input type="number" min="0" max="20" id="child"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="0" required />
+            <small id="child-error" class="text-red-500 mt-1 hidden text-sm">Only 20 children are allowed.</small>
+          </div>
         </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-between mt-6">
+          <button id="cancelbtn" type="reset"
+            class="px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-800 transition"
+            onclick="closebook()">
+            Cancel
+          </button>
+          <button type="submit" id="bookbtn"
+            class="px-6 py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition">
+            Book
+          </button>
+        </div>
+
+      </form>
+
+      <div id="resmsg" class="mt-4 text-center" style="display: none;">
+        <h1 id="msg"
+          class="text-xl font-semibold text-green-700 bg-green-100 border border-green-300 rounded p-2 mt-4 shadow-md text-center transition-all ease-in-out">
+        </h1>
       </div>
 
-      <!-- Buttons -->
-      <div class="flex justify-between mt-6">
-        <button id="cancelbtn" type="reset" class="px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-800 transition" onclick="closebook()">
-          Cancel
-        </button>
-        <button type="submit" id="bookbtn" class="px-6 py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition">
-          Book
-        </button>
-      </div>
-
-    </form>
-
-    <div id="resmsg" class="mt-4 text-center" style="display: none;">
-      <h1 id="msg" class="text-xl font-semibold text-green-700 bg-green-100 border border-green-300 rounded p-2 mt-4 shadow-md text-center transition-all ease-in-out"></h1>
     </div>
-
   </div>
-</div>
 
-   <!-- footer start here -->
-   <footer id="footer" class="footer dark1">
+  <!-- footer start here -->
+  <footer id="footer" class="footer dark1">
     <div class="md:w-[90vw] w-auto grid grid-cols-2 md:grid-cols-4 gap-y-2 py-2 px-4 m-auto">
 
       <div class="order-3 md:order-none">
@@ -226,7 +256,7 @@
               <i class="text-3xl fa-brands fa-square-youtube"></i>
             </a>
           </li>
-          
+
         </ul>
       </div>
 
@@ -246,11 +276,11 @@
       <div class="order-2 md:order-none">
         <h1 class="font-extrabold text-2xl">Quick Links</h1>
         <ul class="list-disc list-inside">
-            <li><a href="quicklinks.html#reservation">Make Reservation</a></li>
-            <li><a href="quicklinks.html#faq">FAQs</a></li>
-            <li><a href="quicklinks.html#payment-options">Payment Options</a></li>
-            <li><a href="quicklinks.html#booking-tips">Booking Tips</a></li>
-            <li><a href="quicklinks.html#information">Information</a></li>
+          <li><a href="quicklinks.html#reservation">Make Reservation</a></li>
+          <li><a href="quicklinks.html#faq">FAQs</a></li>
+          <li><a href="quicklinks.html#payment-options">Payment Options</a></li>
+          <li><a href="quicklinks.html#booking-tips">Booking Tips</a></li>
+          <li><a href="quicklinks.html#information">Information</a></li>
         </ul>
       </div>
 

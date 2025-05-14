@@ -79,7 +79,7 @@ const tours = {
         price: "₹15,600",
         discount: "Save 10%",
         description: "Explore the stunning rock-cut caves of Ajanta and Ellora with expert guides.",
-        images: ["images/card/Ajanta and Ellora Caves, Maharashtra/1.jpg","images/card/Ajanta and Ellora Caves, Maharashtra/1.jpg"],
+        images: ["images/card/Ajanta and Ellora Caves, Maharashtra/1.jpg", "images/card/Ajanta and Ellora Caves, Maharashtra/1.jpg"],
         highlights: ["Historical Monuments", "Cultural Heritage", "Local Guide"],
         faq: [
             { question: "Are entry fees included?", answer: "No, entry fees need to be paid separately." },
@@ -593,5 +593,5 @@ const tours = {
             { question: "Is hotel stay included?", answer: "Yes, stay in luxury hotels." }
         ]
     }
-    
+
 };
