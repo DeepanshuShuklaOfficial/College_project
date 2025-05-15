@@ -229,10 +229,15 @@ async function createBooking(event) {
 
   // This is for Validating Date
   const bookon = document.getElementById("bookon");
-  if (new Date(bookon.value) < new Date()) {
+  const selectedDate = new Date(bookon.value);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  if (!bookon.value || isNaN(selectedDate.getTime()) || selectedDate < today) {
     toggleErrorMessage("date-error", true);
     isValid = false;
   }
+
 
   // This is for Validating No. of Adults
   const adult = document.getElementById("adult");
