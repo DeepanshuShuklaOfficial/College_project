@@ -229,15 +229,38 @@ async function createBooking(event) {
 
   // This is for Validating Date
   const bookon = document.getElementById("bookon");
-  const selectedDate = new Date(bookon.value);
+  const dateError = document.getElementById("date-error");
+  const futureDateError = document.getElementById("date-future-error");
+  
+  const selectedDateStr = bookon.value;
+  const selectedDate = new Date(selectedDateStr);
   const today = new Date();
+  const sixMonthsLater = new Date();
+  sixMonthsLater.setMonth(today.getMonth() + 6);
+  
+  // Reset time to midnight for accurate comparison
   today.setHours(0, 0, 0, 0);
-
-  if (!bookon.value || isNaN(selectedDate.getTime()) || selectedDate < today) {
+  selectedDate.setHours(0, 0, 0, 0);
+  
+  if (!selectedDateStr) {
     toggleErrorMessage("date-error", true);
+    dateError.textContent = "Please select a booking date.";
+    isValid = false;
+  } else if (isNaN(selectedDate.getTime()) || selectedDate < today) {
+    toggleErrorMessage("date-error", true);
+    dateError.textContent = "Booking date cannot be in the past.";
+    isValid = false;
+  } else if (selectedDate > sixMonthsLater) {
+    toggleErrorMessage("date-future-error", true);
     isValid = false;
   }
 
+  document.addEventListener("DOMContentLoaded", () => {
+    const dateInput = document.getElementById("bookon");
+    const today = new Date().toISOString().split("T")[0]; 
+    dateInput.setAttribute("min", today);
+  });
+  
 
   // This is for Validating No. of Adults
   const adult = document.getElementById("adult");

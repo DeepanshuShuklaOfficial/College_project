@@ -175,10 +175,10 @@
         <!-- Book on Date -->
         <div>
           <label for="bookon" class="block mb-2 text-lg font-semibold text-gray-800">Book on Date</label>
-          <input type="date" id="bookon"
+          <input type="date" id="bookon" min=""
             class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             required onfocus="this.showPicker()" />
-          <small id="date-error" class="text-red-500 mt-1 hidden text-sm">Please select a valid booking date. Past dates are not allowed.</small>
+          <small id="date-error" class="text-red-500 mt-1 hidden text-sm"></small>
           <small id="date-future-error" class="text-red-500 mt-1 hidden text-sm">Booking can only be made within the
             next 6 months.</small>
         </div>
