@@ -62,7 +62,6 @@
     image-rendering: -webkit-optimize-contrast;
 }
 
-
 .thumbnail {
     width: 80px;
     height: 60px;
@@ -87,7 +86,6 @@
     opacity: 0.5;
     cursor: not-allowed;
 }
-
 
 .spinner {
     border-width: 2px;

@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("login-button").addEventListener("click", login);
 });
 
+
+// This is the function to register new user
 async function registerUser(event) {
     event.preventDefault();
 
@@ -21,7 +23,6 @@ async function registerUser(event) {
 
     userreg.textContent = "";
 
-    // Validate
     if (!validateEmail(email)) {
         userreg.textContent = "Please enter a valid email address.";
         return;
@@ -31,7 +32,6 @@ async function registerUser(event) {
         return;
     }
 
-    // Show spinner
     document.getElementById("signup-btn-text").classList.add("hidden");
     document.getElementById("signup-spinner").classList.remove("hidden");
 
@@ -44,7 +44,6 @@ async function registerUser(event) {
 
         const data = await response.json();
 
-        // Hide spinner
         document.getElementById("signup-btn-text").classList.remove("hidden");
         document.getElementById("signup-spinner").classList.add("hidden");
 
@@ -67,6 +66,7 @@ async function registerUser(event) {
     }
 }
 
+// This is the function of login into exiting account
 async function login(e) {
     e.preventDefault();
     const email = document.getElementById("loginemail").value;
@@ -77,7 +77,6 @@ async function login(e) {
     logingerror.textContent = "";
     infillmsg.textContent = "";
 
-    // Validate
     if (!email || !password) {
         infillmsg.textContent = "Please enter both email and password.";
         return;
@@ -91,7 +90,6 @@ async function login(e) {
         return;
     }
 
-    // Show spinner
     document.getElementById("login-btn-text").classList.add("hidden");
     document.getElementById("login-spinner").classList.remove("hidden");
 
@@ -104,7 +102,6 @@ async function login(e) {
 
         const data = await res.json();
 
-        // Hide spinner
         document.getElementById("login-btn-text").classList.remove("hidden");
         document.getElementById("login-spinner").classList.add("hidden");
 
@@ -127,6 +124,7 @@ async function login(e) {
     }
 }
 
+// this function will get profile info
 async function getProfile() {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -181,7 +179,7 @@ function logout() {
     location.reload();
 }
 
-
+// this function will get the all the bookings data done by the user
 async function getBooking() {
     const token = localStorage.getItem("token");
     if (!token) {

@@ -1,5 +1,4 @@
-
-
+// This is for the dynamically generation of hotels cards
 function renderHotels(filteredHotels = hotels) {
     const grid = document.getElementById("hotelGrid");
     grid.innerHTML = filteredHotels.map(hotel =>
@@ -18,6 +17,8 @@ function renderHotels(filteredHotels = hotels) {
 
     updateResultCount(filteredHotels.length);  //Total results update karna
 }
+
+//This is for the filter aside menu
 
 function updateResultCount(count) {
     document.getElementById("resultCount").textContent = `Results Found: ${count}`;
@@ -51,32 +52,32 @@ function applyFiltersAndSort() {
         filteredHotels.sort((a, b) => b.price - a.price);
     }
 
-    renderHotels(filteredHotels);  // Render the filtered and sorted hotels
+    renderHotels(filteredHotels);  
 }
 
 document.getElementById("priceRange").addEventListener("input", function () {
     document.getElementById("priceValue").textContent = this.value;
-    applyFiltersAndSort();  // Apply both filter and sort
+    applyFiltersAndSort();  
 });
 
 document.querySelectorAll(".filter").forEach(el => el.addEventListener("change", applyFiltersAndSort));
 
-renderHotels();  // Initial render of hotels
+renderHotels();  
 
-document.getElementById("sort").addEventListener("change", applyFiltersAndSort);  // Apply sort whenever the sorting option is changed
+document.getElementById("sort").addEventListener("change", applyFiltersAndSort); 
 
 document.getElementById("toggleSidebar").addEventListener("click", () => {
     let sidebar = document.getElementById("sidebar");
     sidebar.classList.toggle("hidden");
 });
 
-// Function to get URL parameters
+// This is the Function to get URL parameters
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
 }
 
-// Check for category, direction, and type filters from URL on page load
+// This Check for category, direction, and type filters from URL on page load
 document.addEventListener("DOMContentLoaded", function () {
     const categoryParam = getQueryParam("category");
     const directionParam = getQueryParam("direction");
@@ -97,10 +98,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (typeCheckbox) typeCheckbox.checked = true;
     }
 
-    applyFiltersAndSort();  // Always call applyFiltersAndSort if any filter param is present
+    applyFiltersAndSort();  
 });
 
-// for search bar
+// this is for the Search bar
 
 function getHotelLink(destination) {
     let hotel = hotels.find(h => h.name.toLowerCase() === destination.toLowerCase());
@@ -111,7 +112,7 @@ function showSuggestions() {
     let input = document.getElementById("searchInput").value.toLowerCase();
     let suggestionsBox = document.getElementById("suggestionsBox");
 
-    // Clear previous suggestions
+
     suggestionsBox.innerHTML = "";
 
     if (input === "") {
@@ -136,7 +137,6 @@ function showSuggestions() {
     suggestionsBox.classList.remove("hidden");
 }
 
-// 🔍 Search Functionality on Icon Click
 function performSearch() {
     let query = document.getElementById("searchInput").value.trim();
 
@@ -154,7 +154,6 @@ function performSearch() {
     }
 }
 
-// Hide suggestions on click outside
 document.addEventListener("click", function (event) {
     let searchBox = document.getElementById("searchInput");
     let suggestionsBox = document.getElementById("suggestionsBox");

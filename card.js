@@ -1,3 +1,4 @@
+// This is for creating bookings
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("bookbtn").addEventListener("click", createBooking);
 });
@@ -28,7 +29,7 @@ function closebook() {
   }
 };
 
-
+// This is reading URL to get the card name and generate data accordingly
 function getQueryParam(param) {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get(param);
@@ -138,7 +139,7 @@ function toggleFAQ(index) {
   }
 }
 
-
+// This is to fetch cities name using API
 let cities = [];
 
 // Fetch Indian cities once
@@ -194,17 +195,17 @@ async function createBooking(event) {
 
   let isValid = true;
 
-  // Reset error messages
+  // This is for Reset error messages
   resetErrorMessages();
 
-  // Validate Full Name
+  // This is for Validating Full Name
   const fullname = document.getElementById("fullname");
   if (!fullname.value.trim()) {
     toggleErrorMessage("fullname-error", true);
     isValid = false;
   }
 
-  // Validate Email
+  // This is for Validating Email
   const email = document.getElementById("bookemail");
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email.value)) {
@@ -212,44 +213,42 @@ async function createBooking(event) {
     isValid = false;
   }
 
-  // Validate Phone Number
+  // This is for Validating Phone Number
   const phoneno = document.getElementById("phoneno");
   if (!/^\d{10}$/.test(phoneno.value)) {
     toggleErrorMessage("phone-error", true);
     isValid = false;
   }
 
-  // Validate Current Location
+  // This is for Validating Current Location
   const currentLocation = document.getElementById("currentLocation");
   if (!currentLocation.value.trim()) {
     toggleErrorMessage("location-error", true);
     isValid = false;
   }
 
-  // Validate Date
+  // This is for Validating Date
   const bookon = document.getElementById("bookon");
   if (new Date(bookon.value) < new Date()) {
     toggleErrorMessage("date-error", true);
     isValid = false;
   }
 
-  // Validate Adult
+  // This is for Validating No. of Adults
   const adult = document.getElementById("adult");
-  if (adult.value < 0 || adult.value > 30) {
+  if (adult.value < 1 || adult.value > 30) {
     toggleErrorMessage("adult-error", true);
     isValid = false;
   }
 
-  // Validate Child
+  // This is for Validating No. of Childs
   const child = document.getElementById("child");
   if (child.value < 0 || child.value > 20) {
     toggleErrorMessage("child-error", true);
     isValid = false;
   }
 
-  // If validation passes, proceed with booking
   if (isValid) {
-    // Proceed with creating the booking
     const parent_ID = Math.random().toString(36).substring(2, 15);
     const booking_place = document.getElementById("bookingplace").value = tour.title;
     const fullname = document.getElementById("fullname").value;
@@ -285,17 +284,13 @@ async function createBooking(event) {
       const data = await response.json();
       console.log("Booking Response:", data);
       if (response.ok) {
-        // Get the success message container and message element
+
         const msg = document.getElementById("msg");
         const resmsg = document.getElementById("resmsg");
 
-        // Set the success message
         msg.innerHTML = "Booking successful";
-
-        // Show the message container
         resmsg.style.display = "block";
 
-        // Optionally, hide the message after 5 seconds
         setTimeout(function () {
           location.reload();
         }, 4000);
@@ -308,7 +303,7 @@ async function createBooking(event) {
   }
 }
 
-// Reset all error messages
+// This is for the reseting all the error message
 function resetErrorMessages() {
   const errorMessages = document.querySelectorAll(".text-red-500");
   errorMessages.forEach((msg) => {
@@ -317,7 +312,6 @@ function resetErrorMessages() {
   });
 }
 
-// Toggle the visibility of error messages
 function toggleErrorMessage(id, show) {
   const errorMsg = document.getElementById(id);
   if (show) {

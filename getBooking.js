@@ -50,7 +50,6 @@ window.onload = () => {
       }
             </span>
           </p>
-          <button onclick="deleteBooking('${booking._id}')" class="text-red-600 text-sm mt-1 hover:underline">Delete</button>
         </div>
 
         ${!isCancelled
@@ -60,14 +59,16 @@ window.onload = () => {
           <button onclick="cancelBooking('${booking._id}')" class="w-full py-2 rounded-3xl bg-cyan-400 hover:bg-cyan-300 text-sm font-medium">Cancel Order</button>
         </div>
         <form id="form-${booking._id}" class="mt-4 hidden space-y-3" onsubmit="submitEdit(event, '${booking._id}')">
-          <h3 class="font-semibold text-sm mb-2">Change your travel date and group size:</h3>
-          <input type="date" name="bookon" class="w-full p-2 border rounded" required>
-          <label class="text-sm">Adults:</label>
-          <input type="number" name="adult" value="${booking.adult}" min="1" class="w-full p-2 border rounded" required>
-          <label class="text-sm">Children:</label>
-          <input type="number" name="child" value="${booking.child}" min="0" class="w-full p-2 border rounded" required>
-          <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 text-sm font-medium">Save</button>
-        </form>
+  <h3 class="font-semibold text-sm mb-2">Change your travel date and group size:</h3>
+  <input type="date" name="bookon" class="w-full p-2 border rounded" required>
+  <label class="text-sm">Adults:</label>
+  <input type="number" name="adult" value="${booking.adult}" min="1" class="w-full p-2 border rounded" required>
+  <label class="text-sm">Children:</label>
+  <input type="number" name="child" value="${booking.child}" min="0" class="w-full p-2 border rounded" required>
+  <p class="text-sm text-red-500" id="error-${booking._id}"></p>
+  <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 text-sm font-medium">Save</button>
+</form>
+
         `
         : ""
       }
@@ -85,12 +86,50 @@ function showEditForm(bookingId) {
 function submitEdit(event, bookingId) {
   event.preventDefault();
   const form = document.getElementById(`form-${bookingId}`);
+  const errorEl = document.getElementById(`error-${bookingId}`);
   const token = localStorage.getItem("token");
 
+  const bookon = form.bookon.value;
+  const adult = parseInt(form.adult.value);
+  const child = parseInt(form.child.value);
+
+  const today = new Date();
+  const selectedDate = new Date(bookon);
+  const maxDate = new Date();
+  maxDate.setMonth(maxDate.getMonth() + 6); 
+
+  errorEl.textContent = ""; 
+
+  // Date validation
+  if (!bookon) {
+    errorEl.textContent = "Please select a valid booking date.";
+    return;
+  }
+
+  if (selectedDate < today.setHours(0, 0, 0, 0)) {
+    errorEl.textContent = "Booking date cannot be in the past.";
+    return;
+  }
+
+  if (selectedDate > maxDate) {
+    errorEl.textContent = "Booking date cannot be more than 6 months from today.";
+    return;
+  }
+
+  if (isNaN(adult) || adult < 1 || adult > 30) {
+    errorEl.textContent = "Number of adults must be between 1 and 30.";
+    return;
+  }
+
+  if (isNaN(child) || child < 0 || child > 20) {
+    errorEl.textContent = "Number of children must be between 0 and 20.";
+    return;
+  }
+
   const updatedData = {
-    bookon: form.bookon.value,
-    adult: parseInt(form.adult.value),
-    child: parseInt(form.child.value),
+    bookon,
+    adult,
+    child,
   };
 
   fetch(`https://tour-backend-hac6.onrender.com/booking/update/${bookingId}`, {
@@ -114,7 +153,7 @@ function submitEdit(event, bookingId) {
     })
     .catch((err) => {
       console.error(err);
-      alert("Failed to update booking");
+      errorEl.textContent = "Failed to update booking. Please try again later.";
     });
 }
 

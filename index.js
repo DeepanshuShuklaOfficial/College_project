@@ -64,6 +64,7 @@ function getCardsToShow() {
 }
 
 function updateSlide() {
+    const totalCards = document.querySelectorAll(".card").length;
     const cardsToShow = getCardsToShow();
     const totalSlides = Math.ceil(totalCards / cardsToShow);
 
@@ -71,6 +72,7 @@ function updateSlide() {
     const translateX = index * -100;
     cardWrapper.style.transform = `translateX(${translateX}%)`;
 }
+
 
 function nextSlide() {
     index++;

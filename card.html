@@ -12,10 +12,9 @@
 </head>
 
 <body class="bg">
-  <!-- nav bar starts here -->
+  <!-- This for the navigation -->
   <header id="header">
     <nav class="h-[30px] w-full head flex justify-between items-center p-5">
-      <!-- this is for right left hand side part -->
       <div class="flex gap-2">
         <img class="h-[28px] rounded-full" src="images/site logo.png" alt="Website Logo">
         <ul class="gap-1 md:flex hidden justify-between items-center">
@@ -43,8 +42,9 @@
         </ul>
       </div>
 
-      <!-- this is for right hand side part -->
       <div class="flex items-center gap-3">
+
+        <!-- This is for the search bar -->
         <div class="relative">
           <input id="searchInput"
             class="w-[200px] md:w-[300px] pr-8 pl-1.5 py-0.5 border text-[#cfffdc] font-bold border-[#cfffdc] rounded-full outline-none focus:ring-2 focus:ring-[#68BA7F]"
@@ -52,7 +52,6 @@
             autocomplete="off" aria-autocomplete="none">
           <i class="fa-solid fa-magnifying-glass absolute z-30 right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-[#cfffdc]"
             onclick="performSearch()"></i>
-          <!-- 🟢 Suggestions Dropdown -->
           <ul id="suggestionsBox"
             class="absolute z-30 dark3 font-semibold md:w-full w-[60vw] md:h-[50vh] h-[30vh] head dark1 mt-2 rounded shadow-lg border-2 border-[#253d2c] hidden overflow-y-auto">
           </ul>
@@ -61,7 +60,8 @@
         <button id="menuBtn" class="md:hidden text-[#cfffdc] font-extrabold cursor-pointer">&#9776;</button>
       </div>
     </nav>
-    <!-- Mobile Menu (Hidden Initially) -->
+   
+    <!-- This part is for the navigation bar for small screen devices -->
     <div id="mobileMenu"
       class="overflow-hidden fixed z-50 top-0 right-0 h-screen bg border-2 border-[#2e6f40] shadow-lg translate-x-full transition:transform 0.4s ease-in-out; duration-[1000ms] ease-in-out p-5 md:hidden">
       <button id="closeBtn"
@@ -100,8 +100,7 @@
   </header>
   <main>
     <div id="tour-container" class="mx-4 md:mx-5 mt-3 md:my-5 pt-3"></div>
-    <!-- do not touch these   -->
-    <div class="hidden">
+      <div class="hidden">
       <div id="cardWrapper"></div>
       <div id="topDestWrapper"></div>
     </div>
@@ -109,7 +108,7 @@
     </div>
   </main>
 
-  <!-- booking section -->
+  <!-- This is for the booking form -->
   <div id="Booking-section" class="w-full flex justify-center items-center bg py-8 px-4">
     <div id="Booking-form"
       class="w-full sm:w-[32rem] p-8 bg-white rounded-2xl shadow-2xl space-y-4 hidden transition duration-300 ease-in-out">
@@ -154,11 +153,6 @@
             number.</small>
         </div>
 
-
-
-
-
-
         <!-- Current Location -->
         <div class="relative">
           <label for="currentLocation" class="block mb-2 text-lg font-semibold text-gray-800">Current Location</label>
@@ -178,9 +172,6 @@
           <small id="location-error" class="text-red-500 mt-1 hidden text-sm">Location is required.</small>
         </div>
 
-
-
-
         <!-- Book on Date -->
         <div>
           <label for="bookon" class="block mb-2 text-lg font-semibold text-gray-800">Book on Date</label>
@@ -191,7 +182,6 @@
           <small id="date-future-error" class="text-red-500 mt-1 hidden text-sm">Booking can only be made within the
             next 6 months.</small>
         </div>
-
 
         <!-- Adult and Child -->
         <div class="grid grid-cols-2 gap-6">
@@ -211,7 +201,6 @@
           </div>
         </div>
 
-        <!-- Buttons -->
         <div class="flex justify-between mt-6">
           <button id="cancelbtn" type="reset"
             class="px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-800 transition"
@@ -225,7 +214,6 @@
         </div>
 
       </form>
-
       <div id="resmsg" class="mt-4 text-center" style="display: none;">
         <h1 id="msg"
           class="text-xl font-semibold text-green-700 bg-green-100 border border-green-300 rounded p-2 mt-4 shadow-md text-center transition-all ease-in-out">
@@ -235,7 +223,7 @@
     </div>
   </div>
 
-  <!-- footer start here -->
+  <!-- This is for the footer -->
   <footer id="footer" class="footer dark1">
     <div class="md:w-[90vw] w-auto grid grid-cols-2 md:grid-cols-4 gap-y-2 py-2 px-4 m-auto">
 
@@ -303,7 +291,7 @@
       </div>
     </div>
   </footer>
-  <!-- footer ends here -->
+
   <script src="https://kit.fontawesome.com/dc91047fb7.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <script src="Data.js"></script>
@@ -312,5 +300,4 @@
   <script src="getBooking.js"></script>
   <script src="index.js"></script>
 </body>
-
 </html>

@@ -13,12 +13,10 @@
 
 <body class="bg">
 
-  <!-- nav bar starts here -->
+  <!--This is for the Navigation bar -->
   <header id="header">
     <nav class="h-[30px] w-full head flex justify-between items-center p-5">
 
-
-      <!-- this is for right left hand side part -->
       <div class="flex gap-2">
         <img class="h-[28px] rounded-full" src="images/site logo.png" alt="Website Logo">
         <ul class="gap-1 md:flex hidden justify-between items-center">
@@ -46,8 +44,8 @@
         </ul>
       </div>
 
-      <!-- this is for right hand side part -->
       <div class="flex items-center gap-3">
+         <!-- This part is for searchbar -->
         <div class="relative">
           <input id="searchInput"
             class="w-[200px] md:w-[300px] pr-8 pl-1.5 py-0.5 border text-[#cfffdc] font-bold border-[#cfffdc] rounded-full outline-none focus:ring-2 focus:ring-[#68BA7F]"
@@ -55,8 +53,7 @@
             autocomplete="off" aria-autocomplete="none">
           <i class="fa-solid fa-magnifying-glass absolute z-30 right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-[#cfffdc]"
             onclick="performSearch()"></i>
-          <!-- 🟢 Suggestions Dropdown -->
-          <ul id="suggestionsBox"
+             <ul id="suggestionsBox"
             class="absolute z-30 dark3 font-semibold md:w-full w-[60vw] md:h-[50vh] h-[30vh] head dark1 mt-2 rounded shadow-lg border-2 border-[#253d2c] hidden overflow-y-auto">
           </ul>
         </div>
@@ -65,7 +62,8 @@
         <button id="menuBtn" class="md:hidden text-[#cfffdc] font-extrabold cursor-pointer">&#9776;</button>
       </div>
     </nav>
-    <!-- Mobile Menu (Hidden Initially) -->
+
+ <!-- This part is for the navigation bar for small screen devices -->
     <div id="mobileMenu"
       class="overflow-hidden fixed z-50 top-0 right-0 h-screen bg border-2 border-[#2e6f40] shadow-lg translate-x-full transition:transform 0.4s ease-in-out; duration-[1000ms] ease-in-out p-5 md:hidden">
       <button id="closeBtn"
@@ -102,9 +100,6 @@
       </ul>
     </div>
   </header>
-
-
-  <!-- nav bar ends here -->
 
 
   <main>
@@ -238,22 +233,15 @@
       <p>Whether you're 18 or 80, tech-savvy or new to online bookings, Panda Tour ensures a smooth, enjoyable, and safe
         planning experience.</p>
     </section>
-
-
-
-
-    <!-- do not touch these   -->
     <div class="hidden">
       <div id="cardWrapper"></div>
       <div id="topDestWrapper"></div>
     </div>
     <button id="toggle-btn"></button>
     </div>
-
-
   </main>
 
-  <!-- footer start here -->
+  <!-- This is for the footer section -->
   <footer id="footer" class="footer dark1">
     <div class="md:w-[90vw] w-auto grid grid-cols-2 md:grid-cols-4 gap-y-2 py-2 px-4 m-auto">
 
@@ -322,9 +310,7 @@
       </div>
     </div>
   </footer>
-  <!-- footer ends here -->
 
-  <!-- Java scripts -->
   <script src="https://kit.fontawesome.com/dc91047fb7.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <script src="Data.js"></script>
@@ -332,7 +318,5 @@
   <script src="explore.js"></script>
   <script src="getBooking.js"></script>
   <script src="index.js"></script>
-  <!-- Java scripts end here -->
 </body>
-
 </html>

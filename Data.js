@@ -1,4 +1,4 @@
-// for best offer and top destination card generation
+// This is for best offer and top destination card generation
 const cards = [
     { name: "Ayodhya", location: "Uttar Pradesh", img: "images/card/Ayodhya, Uttar Pradesh/1.jpg", price: "₹15,200", discount: "Save 18%" },
     { name: "Taj Mahal", location: "Agra", img: "images/card/Taj Mahal, Agra/1.jpg", price: "₹15,800", discount: "Save 10%" },
@@ -10,7 +10,7 @@ const cards = [
     { name: "Rishikesh", location: "Uttarakhand", img: "images/card/Rishikesh, Uttarakhand/1.jpg", price: "₹9,800", discount: "Save 15%" }
 ];
 
-// Top Destination Data
+
 const topDestinations = [
     { name: "Goa", img: "images/card/Goa/1.jpg" },
     { name: "Kerala Backwaters", img: "images/card/Kerala Backwaters/1.jpg" },
@@ -29,6 +29,7 @@ const topDestinations = [
     { name: "Andaman and Nicobar Islands", img: "images/card/Andaman and Nicobar Islands/1.jpg" }
 ];
 
+// This is for the all destinations cards at the explore page
 const hotels = [
     { name: "Ajanta and Ellora Caves, Maharashtra", price: 15600, type: "Hotels", category: "Culture Trips", direction: "West", image: "images/card/Ajanta and Ellora Caves, Maharashtra/1.jpg" },
     { name: "Amritsar, Punjab", price: 9400, type: "Hotels", category: "Culture Trips", direction: "North", image: "images/card/Amritsar, Punjab/1.jpg" },
@@ -72,6 +73,7 @@ const hotels = [
     { name: "Udaipur", price: 16900, type: "Hotels", category: "Luxury Cities", direction: "West", image: "images/card/Udaipur, Rajasthan/1.jpg" }
 ];
 
+// This is the info of all cards in detail
 const tours = {
     "ajanta-and-ellora-caves-maharashtra": {
         title: "Ajanta and Ellora Caves Tour",
@@ -79,7 +81,7 @@ const tours = {
         price: "₹15,600",
         discount: "Save 10%",
         description: "Explore the stunning rock-cut caves of Ajanta and Ellora with expert guides.",
-        images: ["images/card/Ajanta and Ellora Caves, Maharashtra/1.jpg", "images/card/Ajanta and Ellora Caves, Maharashtra/1.jpg"],
+        images: ["images/card/Ajanta and Ellora Caves, Maharashtra/1.jpg"],
         highlights: ["Historical Monuments", "Cultural Heritage", "Local Guide"],
         faq: [
             { question: "Are entry fees included?", answer: "No, entry fees need to be paid separately." },
